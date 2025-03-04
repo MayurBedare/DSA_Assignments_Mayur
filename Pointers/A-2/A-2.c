@@ -1,4 +1,5 @@
 /*
+
     Write a Program to print a string using pointer.
   
 */
