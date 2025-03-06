@@ -1,48 +1,42 @@
 /*
-    Q-2 -> Print alternate nodes of singly linked list  
+    Q-6 -> Find middle element in the linked list  
 */
 
 /*
-    Input : |_head_| --> |_1_|_AA_|_100_| --> |_2_|_BB_|_200_| --> |_3_|_CC_|_300_| --> |_4_|_DD_|_400_| --> |_5_|_EE_|_NULL_|
+    Input : |_Head_| --> |_1_|_AA_|_Address_| --> |_2_|_BB_|_Address_| --> |_3_|_CC_|_Address_| --> |_4_|_DD_|_Address_| --> |_5_|_EE_|_0_|
 */
 
 #include "node.c"
 
-void alternateList(Node*);
+void printMiddleNode(Node*);
 
 int main()
 {
     Node *head = NULL;
 
-    //Creating the linked list
+    //Creating Linked List
     head = createList();
 
-    alternateList(head);
-    
+    printMiddleNode(head);
+
     //freeing allocated memory 
     freeList(head);
     
     return 0;
 }
 
-void alternateList(Node* p)
+void printMiddleNode(Node* head)
 {
-    printf("\n Linked List : \n|_head_| ");
+    Node *slow = head;
+    Node *fast = head;
 
-    while (p != NULL)
+    while (fast != NULL && fast -> next != NULL)
     {
-    printf("--> |_%d_|_%s_|_%u_|", p -> number, p -> name, p -> next);
-    
-    //Move two step ahead if possible 
-    if (p -> next != NULL)
-    {
-        p = p ->next ->next;
+        fast = fast -> next -> next;
+        slow = slow -> next;
     }
-    else
-    {
-        break; //Prevent segmentation fault
-    }
-    }
+
+    printf("\nMiddle Node : |_%d_|_%s_|_%u_| ", slow -> number, slow -> name, slow -> next);
     
 }
 
@@ -63,8 +57,7 @@ void alternateList(Node* p)
                 Enter Number and Name : 5 EE
                 Enter name : Do you want to enter more records ? (1 for yes / 0 for no) : 0
 
-                Linked List :
-                |_head_| --> |_1_|_AA_|_12194696_|--> |_3_|_CC_|_12194776_|--> |_5_|_EE_|_0_|
+                Middle Node : |_3_|_CC_|_14683536_|
 */
 
 

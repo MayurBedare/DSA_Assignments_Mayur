@@ -11,6 +11,7 @@ typedef struct Node
 
 // Function declarations (no definitions!)
 Node *createList();
-
 void displayList(Node*);
+void freeList(Node*);
+
 #endif

@@ -22,12 +22,15 @@ int main()
     swap(head);
     displayList(head);  
     
+    //freeing allocated memory 
+    freeList(head);
+    
     return 0;
 }
 
 void swap(Node* p)
 {
-    Node *q, *t;
+    Node *q, t;
 
     for ( ; p != NULL ; p = q -> next)
     {
@@ -36,18 +39,32 @@ void swap(Node* p)
         if (q == NULL)
         break;
         
-        t -> number = p -> number;
+        t.number = p -> number;
         p -> number = q -> number;
-        q -> number = t -> number;
+        q -> number = t.number;
 
-        strcpy(t -> name, p -> name);
+        strcpy(t.name, p -> name);
         strcpy(p -> name, q -> name);
-        strcpy(q -> name, t -> name);
+        strcpy(q -> name, t.name);
     }
 }
 
 /*
     Output : 
+                Enter Number and Name : 1 AA 
+                Enter name : Do you want to enter more records ? (1 for yes / 0 for no) : 1
+
+                Enter Number and Name : 2 BB
+                Enter name : Do you want to enter more records ? (1 for yes / 0 for no) : 1
+
+                Enter Number and Name : 3 CC
+                Enter name : Do you want to enter more records ? (1 for yes / 0 for no) : 1
+
+                Enter Number and Name : 4 DD
+                Enter name : Do you want to enter more records ? (1 for yes / 0 for no) : 0
+
+                Linked List :
+                |_head_| --> |_2_|_BB_|_10292544_| --> |_1_|_AA _|_10292584_| --> |_4_|_DD_|_10292624_| --> |_3_|_CC_|_0_|
 */
 
 

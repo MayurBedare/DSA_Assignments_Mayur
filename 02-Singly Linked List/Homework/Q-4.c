@@ -1,15 +1,14 @@
 /*
-    Q- ->  
+    Q-4 ->  Display all even node data, odd node data & count of even nodes & count of odd nodes
 */
 
 /*
-    Input : |_Head_| --> |__|__|_Address_|
+    Input : |_Head_| --> |_3_|_AA_|_Address_| --> |_5_|_BB_|_Address_| --> |_4_|_CC_|_Address_| --> |_6_|_DD_|_0_|
 */
 
 #include "node.c"
 
 //function declaration
-
 
 int main()
 {
@@ -19,7 +18,7 @@ int main()
     head = createList();
 
     //function call
-    
+
     //freeing allocated memory 
     freeList(head);
     
@@ -27,7 +26,6 @@ int main()
 }
 
 //function definition
-
 
 /*
     Output : 

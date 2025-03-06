@@ -65,3 +65,15 @@ void displayList(Node* head)
         temp = temp -> next;
     }    
 }
+
+void freeList(Node* head)
+{
+    Node *temp;
+
+    while (head != NULL)
+    {
+        temp = head; head = head -> next;
+        free(temp);
+    }
+    
+}
