@@ -27,7 +27,7 @@ int main()
     p2 = temp;
 
 
-    for(int i=0; i<=4 ; i++)
+    for (int i=0; i<=4 ; i++)
     {
         printf("arr1[%d] is %d\t",i,*(p1+i));
         printf("arr2[%d] is %d\n",i,*(p2+i));

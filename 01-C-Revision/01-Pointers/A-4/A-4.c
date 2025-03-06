@@ -24,7 +24,7 @@ int main()
     int count_v = 0;
     int count_c = 0;
 
-    for(int i=0; *(p+i) != '\0' ; i++)
+    for (int i=0; *(p+i) != '\0' ; i++)
     {
         if(*(p+i) == 'a' || *(p+i) == 'e' || *(p+i) == 'i' || *(p+i) == 'o' || *(p+i) == 'u' 
             || *(p+i) == 'A' || *(p+i) == 'E' || *(p+i) == 'I' || *(p+i) == 'O' || *(p+i) == 'U')

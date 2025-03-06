@@ -15,13 +15,13 @@ int main()
 {
    int arr[5];
    
-   for(int i=0 ; i<5 ; i++)
+   for (int i=0 ; i<5 ; i++)
    {
         printf("Enter array element arr[%d] : ",i);
         scanf("%d",&arr[i]);    
    }
    
-   for(int i=0 ; i<5 ; i++)
+   for (int i=0 ; i<5 ; i++)
    {
     printf("The array element arr[%d] : %d \t",i,arr[i]);
     printf("The address of arr[%d] : %d \n",i,&arr[i]);     
