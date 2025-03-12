@@ -26,20 +26,22 @@ int main()
     Student *nw;
 
     nw = (Student*)malloc(sizeof(Student));
-    printf("Enter the Student name : ");
+
+    printf("\n\tEnter the Student name : ");
     scanf("%s", &nw -> std_name);
-    printf("Enter the Student rollno : ");
+    printf("\n\tEnter the Student rollno : ");
     scanf("%d", &nw -> std_rollNo);
-    printf("Enter the Student standard : ");
+    printf("\n\tEnter the Student standard : ");
     scanf("%s", &nw -> std_standard);
-    printf("Enter the Student division : ");
+    printf("\n\tEnter the Student division : ");
     scanf("%s", &nw -> std_div);
 
-    printf("%s %d %s %s",nw -> std_name, nw -> std_rollNo, nw -> std_standard, nw -> std_div);
+    printf("\n\tnw --> |_%s_|_%d_|_%s_|_%s_|",nw -> std_name, nw -> std_rollNo, nw -> std_standard, nw -> std_div);
 
     return 0;
 }
 
 /*
-    Output ->                                
+    Output ->    
+                nw --> |_Mayur_|_21_|_Graduate_|_Dequeue_|                       
 */
