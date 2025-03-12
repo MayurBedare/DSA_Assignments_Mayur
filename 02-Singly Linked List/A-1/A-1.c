@@ -38,6 +38,8 @@ int main()
 
     printf("\n\tnw --> |_%s_|_%d_|_%s_|_%s_|",nw -> std_name, nw -> std_rollNo, nw -> std_standard, nw -> std_div);
 
+    free(nw);
+    
     return 0;
 }
 
