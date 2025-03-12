@@ -56,7 +56,7 @@ void displayList(Node* head)
         return;
     }
 
-    printf("\n Linked List : \n|_head_| ");
+    printf("\nLinked List : \n\n|_head_| ");
     Node *temp = head;
     
     while (temp != NULL)
