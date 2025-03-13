@@ -12,12 +12,12 @@ int main()
     int *x_i;
     char *x_c;
     float *x_f;
-
+    
     x_i = malloc(sizeof(int));
     x_c = malloc(sizeof(char));
     x_f = malloc(sizeof(float));
 
-    if (x_i == NULL) {
+    if (sizeof(*(x_i)) != sizeof(int)) {
         printf("\n\tMemory is not allocated for integer variable");
     }
     else {
@@ -25,7 +25,7 @@ int main()
         free(x_i);
     }
     
-    if (x_c == NULL) {
+    if (sizeof(*(x_c)) != sizeof(char)) {
         printf("\n\tMemory is not allocated for character variable");
     }
     else {
@@ -33,7 +33,7 @@ int main()
         free(x_c);
     }
 
-    if (x_f == NULL) {
+    if (sizeof(*(x_f)) != sizeof(float)) {
         printf("\n\tMemory is not allocated for float variable");
     }
     else {
@@ -45,5 +45,8 @@ int main()
 }
 
 /*
-    Output ->                                
+    Output ->  
+                Memory is allocated for interger variable
+                Memory is allocated for character variable
+                Memory is allocated for float variable                              
 */

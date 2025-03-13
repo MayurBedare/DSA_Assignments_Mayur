@@ -22,7 +22,7 @@ int main()
 
     char *p = string;
 
-    for (int i=0; i<sizeof(string)-1 ; i++)
+    for (int i=0; i < sizeof(string) - 1 ; i++)
     {
         printf("%c",*(p+i));
     }

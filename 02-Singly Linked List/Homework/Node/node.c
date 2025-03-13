@@ -25,7 +25,7 @@ Node *createList()
         scanf("%d", &newNode -> number);
         getchar();//Clear the buffer using fgets
         printf("Enter name : ");
-        fgets(newNode -> name, sizeof(newNode -> name),stdin);
+        fgets(newNode -> name, sizeof(newNode -> name), stdin);
         newNode -> name[strcspn(newNode -> name, "\n")] = '\0';//Remove newline character
         newNode -> next = NULL;
 

@@ -5,36 +5,32 @@
 */
 
 /* 
-    Input -> User given Eg. Mayur_Bedare_CSE
+    Input -> User given Eg. Mayur Bedare CSE
                              
 */
 
 #include<stdio.h>
-#include<string.h>
 
 int main()
 {
     char string[50];
-
-    printf("Note : For space add '_' like may_be instead of may be\n");
-    printf("Enter the string to count vowels and consonants :");
-    scanf("%s",string);
-    
     char *p = string;
+
+    printf("Enter the string to count vowels and consonants :");
+    fgets(p, 50, stdin);
 
     int count_v = 0;
     int count_c = 0;
 
     for (int i=0; *(p+i) != '\0' ; i++)
     {
+        if (*(p+i) == ' ' || *(p+i) == '\n')
+            continue;
+        
         if(*(p+i) == 'a' || *(p+i) == 'e' || *(p+i) == 'i' || *(p+i) == 'o' || *(p+i) == 'u' 
             || *(p+i) == 'A' || *(p+i) == 'E' || *(p+i) == 'I' || *(p+i) == 'O' || *(p+i) == 'U')
         {
             count_v++;
-        }
-        else if(*(p+i) == '_')
-        {
-            continue;
         }
         else
         {
@@ -50,8 +46,7 @@ int main()
 
 /*
     Output -> 
-                Note : For space add '_' like may_be instead of may be
-                Enter the string to count vowels and consonants :Mayur_Bedare_CSE
+                Enter the string to count vowels and consonants :Mayur Bedare CSE
                 The total number of vowels in the given string : 6 
                 The total number of consonants in the given string : 8                                 
 */
