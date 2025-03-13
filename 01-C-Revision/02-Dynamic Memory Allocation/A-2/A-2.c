@@ -16,9 +16,14 @@ int main()
 {
     char *text_string;
 
+    printf("%p",text_string);
     //Memory created
     text_string = malloc(sizeof(char)*50);
-
+    if (text_string == NULL)
+    {
+        printf("\n\tMemory Allocated Failed!");
+    }
+    
     //Input text string
     printf("\n\tEnter the text string : ");
     fgets(text_string, 50, stdin);
@@ -27,6 +32,7 @@ int main()
    
     //Freed Memory
     free(text_string);
+    text_string = NULL;
 
     return 0;
 }
