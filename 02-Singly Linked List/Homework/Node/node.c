@@ -61,7 +61,7 @@ void displayList(Node* head)
     
     while (temp != NULL)
     {
-        printf("--> |_%d_|_%s_|_%u_| ", temp ->number, temp ->name,temp ->next);
+        printf("--> |_%d_|_%s_|_%p_| ", temp ->number, temp ->name,temp ->next);
         temp = temp -> next;
     }    
 }

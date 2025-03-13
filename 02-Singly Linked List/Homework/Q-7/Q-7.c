@@ -19,7 +19,9 @@ int main()
     head = createList();
 
     head = headNodeIns(head);
+
     endNodeIns(head);
+    
     displayList(head);    
 
     //freeing allocated memory 

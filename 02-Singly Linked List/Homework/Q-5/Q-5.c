@@ -18,6 +18,7 @@ int main()
     head = createList();
 
     add(head);
+    
     displayList(head);
 
     //freeing allocated memory 

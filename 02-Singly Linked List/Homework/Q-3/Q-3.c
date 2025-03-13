@@ -20,6 +20,7 @@ int main()
     head = createList();
 
     swap(head);
+    
     displayList(head);  
     
     //freeing allocated memory 
