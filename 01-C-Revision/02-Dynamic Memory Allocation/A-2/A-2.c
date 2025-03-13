@@ -22,15 +22,18 @@ int main()
     //Input text string
     printf("\n\tEnter the text string : ");
     fgets(text_string, 50, stdin);
-        
-    printf("\n\tThe given text string : %s", text_string);
-
+    //Print text string
+    printf("\n\tThe given text string : %s\n", text_string);
+   
     //Freed Memory
     free(text_string);
-    
+
     return 0;
 }
 
 /*
-    Output ->                                
+    Output ->    
+                Enter the text string : MERN Stack Developer 
+
+                The given text string : MERN Stack Developer                            
 */
