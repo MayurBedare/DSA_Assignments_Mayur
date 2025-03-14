@@ -23,6 +23,8 @@ typedef struct Student
 int main() 
 {
     Student *p;
+    p = malloc(sizeof(Student));
+
     char string[50];
 
     p -> name = malloc(sizeof(char)*20);
@@ -90,6 +92,8 @@ int main()
     free(p -> std);
     p -> std = NULL;
 
+    free(p);
+    
     return 0;
 }
 
