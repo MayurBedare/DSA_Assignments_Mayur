@@ -12,7 +12,6 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
 typedef struct Student
 {
@@ -25,7 +24,6 @@ typedef struct Student
 int main() 
 {
     Student *p;
-    char string[50];
     p = malloc(sizeof(Student));
 
     int n;
@@ -48,8 +46,7 @@ int main()
         else 
         {
             printf("\n\tEnter Student Name : ");
-            scanf("%s",string);
-            strcpy(p -> name, string);
+            scanf("%s",p -> name);
         }
         
         if (p -> roll_no == NULL)
@@ -69,8 +66,7 @@ int main()
         else 
         {
             printf("\tEnter Student Division : ");
-            scanf("%s",string);
-            strcpy(p -> div, string);
+            scanf("%s",p -> div);
         }
 
         if (p -> std == NULL)
@@ -80,8 +76,7 @@ int main()
         else 
         {  
             printf("\tEnter Student Standard : ");
-            scanf("%s",string);
-            strcpy(p -> std, string);
+            scanf("%s",p -> std);
         }
 
         printf("\n\tStudent Name : %s", p -> name);
