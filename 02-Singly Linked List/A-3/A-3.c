@@ -72,7 +72,8 @@ SLLNode* createSLL() {
 
 void alternateSLL(SLLNode *head) {
 
-    SLLNode *alt_p = head;
+    SLLNode *alt_p = NULL;
+    alt_p = head;
 
     if ( alt_p -> next == NULL || alt_p -> next -> next == NULL ) {
      
