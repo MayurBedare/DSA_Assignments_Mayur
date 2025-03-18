@@ -25,6 +25,7 @@ typedef struct Student
 
 Student* createSLL();
 void displaySLL(Student*);
+void freeSLL(Student*);
 
 int main() {
     
@@ -33,6 +34,8 @@ int main() {
     head = createSLL();
 
     displaySLL(head);
+
+    freeSLL(head);
         
     return 0;
 }
@@ -49,7 +52,13 @@ Student* createSLL() {
     do
     {
         printf("\n\tGive Student %d details : ",i);
+
         nw = malloc(sizeof(Student));
+        if (nw == NULL)
+        {
+        printf("Memory Allocation Failed!");
+        }
+
         printf("\n\tEnter Student name : ");
         scanf("%s", nw -> std_name);
         printf("\tEnter Student roll no : ");
@@ -74,14 +83,20 @@ Student* createSLL() {
     return head; 
 }
 
-void displaySLL(Student *p) {
+void displaySLL(Student *d) {
 
     printf("\n\t|_head_| ");
-    for ( ; p != NULL; p = p -> next )
-    {
-        printf("--> |_%s_|_%d_|_%s_|_%s_|_%p_| ", p -> std_name, p -> std_rollNo, p -> std_standard, p -> std_div, p -> next);
-    }
+    for ( ; d != NULL; d = d -> next )
+        printf("--> |_%s_|_%d_|_%s_|_%s_|_%p_| ", d -> std_name, d -> std_rollNo, d -> std_standard, d -> std_div, d -> next);
+
     printf("\n\n");
+}
+
+void freeSLL(Student *f) {
+
+    for( ; f != NULL ; f = f -> next)
+        free(f);
+
 }
 
 /*
