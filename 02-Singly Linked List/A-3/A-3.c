@@ -75,13 +75,10 @@ void alternateSLL(SLLNode *head) {
     SLLNode *alt_p = NULL;
     alt_p = head;
 
-    if ( alt_p -> next == NULL || alt_p -> next -> next == NULL ) {
-     
+    if ( alt_p -> next == NULL || alt_p -> next -> next == NULL ) { 
         printf("\n\tDisplaying Alternate Nodes not possible!\n\n");
-    
     }
     else {
-
         for ( ; alt_p -> next != NULL && alt_p -> next -> next != NULL ; alt_p = alt_p -> next) {
 
             alt_p -> next = alt_p -> next -> next;
@@ -91,7 +88,6 @@ void alternateSLL(SLLNode *head) {
         alt_p -> next = NULL;
 
         displaySLL(head);
-
     }
 
 }
