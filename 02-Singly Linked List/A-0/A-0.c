@@ -20,6 +20,7 @@ SLLNode* createSLL();
 void displaySLL(SLLNode*);
 //function declaration
 
+
 int main() {
     
     SLLNode *head = NULL;
@@ -27,6 +28,7 @@ int main() {
     head = createSLL();
 
     //function calling
+
 
     displaySLL(head);
 
@@ -66,6 +68,7 @@ SLLNode* createSLL() {
 }
 
 //function definition
+
 
 void displaySLL(SLLNode *p) {
 
