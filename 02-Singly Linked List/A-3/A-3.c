@@ -104,8 +104,10 @@ void displaySLL(SLLNode *d) {
 
 void freeSLL(SLLNode *f) {
 
-    for( ; f != NULL ; f = f -> next)
+    for( ; f != NULL ; f = f -> next) 
         free(f);
+
+    f = NULL;
 
 }
 
