@@ -115,5 +115,24 @@ void freeSLL(SLLNode *f) {
 }
 
 /*
-    Output ->                                
+    Output ->    
+                    Enter Number and Name : 1 AA
+                Do you want to enter more records ( yes(1) / no(0) ) : 1 
+
+                        Enter Number and Name : 2 BB
+                Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                        Enter Number and Name : 3 CC
+                Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                        Enter Number and Name : 4 DD
+                Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                        Enter Number and Name : 5 EE
+                Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                        Enter Number and Name : 6 FF
+                Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+                        |_head_| --> |_2_|_BB_|_00751388_| --> |_1_|_AA_|_007513B0_| --> |_4_|_DD_|_007513D8_| --> |_3_|_CC_|_00751400_| --> |_6_|_FF_|_00751428_| --> |_5_|_EE_|_00000000_|           
 */
