@@ -26,6 +26,11 @@ int main()
     Student *nw;
 
     nw = (Student*)malloc(sizeof(Student));
+    if (nw == NULL)
+    {
+        printf("Memory Allocation Failed!");
+    }
+    
 
     printf("\n\tEnter the Student name : ");
     scanf("%s", &nw -> std_name);
