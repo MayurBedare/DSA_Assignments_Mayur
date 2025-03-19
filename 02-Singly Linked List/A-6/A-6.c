@@ -124,7 +124,7 @@ void freeSLL(SLLNode *f) {
 
 /*
     Output ->        
-                Enter Number and Name : 1 AA
+                    Enter Number and Name : 1 AA
             Do you want to enter more records ( yes(1) / no(0) ) : 1
 
                     Enter Number and Name : 2 BB
