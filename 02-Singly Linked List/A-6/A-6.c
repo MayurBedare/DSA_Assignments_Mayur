@@ -49,6 +49,10 @@ SLLNode* createSLL() {
     do
     {
         nw = malloc(sizeof(SLLNode));
+        if (nw == NULL)
+        {
+            printf("\n\tMemory Allocation Failed!");
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
