@@ -85,6 +85,7 @@ void headNodeInsertion(SLLNode *head) {
     nw -> next = head;
     head = nw;
 
+    printf("\n\tLinked List after Head node insertion : ");
     displaySLL(head);
 
 }
@@ -125,7 +126,7 @@ void freeSLL(SLLNode *f) {
 
                     Enter the number and name of new inserted node at Head position : 1 ZZ
 
+                    Linked List after Head node insertion : 
 
-            |_Head_| --> |_1_|_ZZ_|_00BC2F98_| --> |_1_|_AA_|_00BC0D40_| --> |_2_|_BB_|_00BC0D68_| --> |_3_|_CC_|_00000000_|
-                         
+            |_Head_| --> |_1_|_ZZ_|_00BE2F98_| --> |_1_|_AA_|_00BE0D40_| --> |_2_|_BB_|_00BE0D68_| --> |_3_|_CC_|_00000000_|           
 */
