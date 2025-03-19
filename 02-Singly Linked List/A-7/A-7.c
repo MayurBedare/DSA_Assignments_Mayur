@@ -1,0 +1,131 @@
+/*
+    A-7 ->  write a c program to Create a Singly linked list and Insert a node at Head
+*/
+
+/* 
+    Input -> |_Head_| --> |_1_|_AA_|_00BC0D40_| --> |_2_|_BB_|_00BC0D68_| --> |_3_|_CC_|_00000000_|                     
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct SLLNode
+{
+    int number;
+    char name[20];
+    struct SLLNode *next;
+} SLLNode;
+
+SLLNode* createSLL();
+void displaySLL(SLLNode*);
+void freeSLL(SLLNode*);
+void headNodeInsertion(SLLNode*);
+
+int main() {
+    
+    SLLNode *head = NULL;
+
+    head = createSLL();
+
+    printf("\n\tLinked List : ");
+    displaySLL(head);
+
+    headNodeInsertion(head);
+
+    freeSLL(head);
+
+    return 0;
+    
+}
+
+SLLNode* createSLL() {
+
+    SLLNode *head, *nw, *last;
+    head = NULL, nw = NULL, last = NULL;
+
+    int cnt;
+
+    do
+    {
+        nw = malloc(sizeof(SLLNode));
+
+        printf("\n\tEnter Number and Name : ");
+        scanf("%d %s", &(nw -> number), nw -> name);
+
+        nw -> next = NULL;
+
+        if (head == NULL)
+            head = nw;
+        else 
+            last -> next = nw;
+        
+        last = nw;
+
+        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        scanf("%d", &cnt);
+    } while (cnt != 0);
+
+    return head;
+
+}
+
+void headNodeInsertion(SLLNode *head) {
+
+    SLLNode *nw = NULL;
+
+    nw = malloc(sizeof(SLLNode));
+    if (nw == NULL)
+    {
+        printf("\n\tMemory Allocation Failed!");
+    }
+    
+    printf("\n\tEnter the number and name of new inserted node at Head position : ");
+    scanf("%d %s", &(nw -> number), nw -> name);
+
+    nw -> next = head;
+    head = nw;
+
+    displaySLL(head);
+
+}
+
+void displaySLL(SLLNode *d) {
+
+    printf("\n\n|_Head_| ");
+    for ( ; d != NULL ; d = d -> next )
+        printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
+
+    printf("\n\n");
+
+}
+
+void freeSLL(SLLNode *f) {
+
+    for( ; f != NULL ; f = f -> next)
+        free(f);
+
+    f = NULL;
+}
+
+/*
+    Output ->       
+                Enter Number and Name : 1 AA
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 2 BB
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 3 CC
+            Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+                    Linked List :
+
+            |_Head_| --> |_1_|_AA_|_00BC0D40_| --> |_2_|_BB_|_00BC0D68_| --> |_3_|_CC_|_00000000_|
+
+
+                    Enter the number and name of new inserted node at Head position : 1 ZZ
+
+
+            |_Head_| --> |_1_|_ZZ_|_00BC2F98_| --> |_1_|_AA_|_00BC0D40_| --> |_2_|_BB_|_00BC0D68_| --> |_3_|_CC_|_00000000_|
+                         
+*/
