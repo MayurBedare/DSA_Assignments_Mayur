@@ -27,6 +27,9 @@ int main() {
 
     head = createSLL();
 
+    printf("\n\tLinked List : ");
+    displaySLL(head);
+
     alternateSLL(head);
 
     freeSLL(head);
@@ -87,6 +90,7 @@ void alternateSLL(SLLNode *head) {
 
         alt_p -> next = NULL;
 
+        printf("\n\tLinked List with Alternate nodes : ");
         displaySLL(head);
     }
 
@@ -94,7 +98,7 @@ void alternateSLL(SLLNode *head) {
 
 void displaySLL(SLLNode *d) {
 
-    printf("\n\t|_head_| ");
+    printf("\n\n|_head_| ");
     for ( ; d != NULL ; d = d -> next )
         printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
 
