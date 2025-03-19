@@ -98,7 +98,7 @@ void swapSLL(SLLNode *head) {
 
 void displaySLL(SLLNode *d) {
 
-    printf("\n\t|_head_| ");
+    printf("\n|_head_| ");
     for ( ; d != NULL ; d = d -> next )
         printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
 
@@ -134,5 +134,6 @@ void freeSLL(SLLNode *f) {
                         Enter Number and Name : 6 FF
                 Do you want to enter more records ( yes(1) / no(0) ) : 0
 
-                        |_head_| --> |_2_|_BB_|_00751388_| --> |_1_|_AA_|_007513B0_| --> |_4_|_DD_|_007513D8_| --> |_3_|_CC_|_00751400_| --> |_6_|_FF_|_00751428_| --> |_5_|_EE_|_00000000_|           
+                |_head_| --> |_2_|_BB_|_00751388_| --> |_1_|_AA_|_007513B0_| --> |_4_|_DD_|_007513D8_| --> |_3_|_CC_|_00751400_| --> |_6_|_FF_|_00751428_| --> |_5_|_EE_|_00000000_| 
+          
 */
