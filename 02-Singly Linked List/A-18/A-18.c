@@ -71,10 +71,10 @@ SLLNode* createSLL() {
 
 }
 
-SLLNode* revert(SLLNode* t)
+SLLNode* revert(SLLNode* head)
 {
     SLLNode *x,*y,*z;
-    x = t; 
+    x = head; 
     y = x -> next;
     z = y -> next;
     
@@ -82,21 +82,21 @@ SLLNode* revert(SLLNode* t)
     {
         if (z -> next != NULL)
         {
-            t = y -> next;
+            head = y -> next;
             y -> next = z -> next;
             z -> next = z -> next -> next;
-            y -> next -> next = t; 
+            y -> next -> next = head; 
         }
         else
         {
-            t = y -> next;
+            head = y -> next;
             z -> next = y;
             y -> next = x;
             x -> next = NULL;
             
         }
     }    
-    return t;
+    return head;
 }
 
 void displaySLL(SLLNode *d) {
