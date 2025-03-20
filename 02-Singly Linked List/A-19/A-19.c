@@ -18,9 +18,9 @@ typedef struct SLLNode
 } SLLNode;
 
 SLLNode* create();
-void insert(SLLNode*);
-void delete(SLLNode*);
-void revert(SLLNode*);
+SLLNode* insert(SLLNode*);
+SLLNode*  delete(SLLNode*);
+SLLNode*  revert(SLLNode*);
 void print(SLLNode*);
 void freeSLL(SLLNode*);
 
@@ -39,6 +39,7 @@ int main() {
         printf("\n\t3.Delete Node at any position in Linked List");
         printf("\n\t4.Reverse the Linked List");
         printf("\n\t5.Print Linked List");
+        printf("\n\t6.Exit");
         printf("\n\n\tEnter you choice : ");
         scanf("%d", &choice);
 
@@ -49,21 +50,24 @@ int main() {
             break;
 
         case 2:
-            insert(head);
+            head = insert(head);
             break;
 
         case 3:
-            delete(head);
+            head = delete(head);
             break;
 
         case 4:
-            revert(head);
+            head = revert(head);
             break;
 
         case 5: 
             print(head);
             break;
         
+        case 6:
+            return 0;
+
         default:
             printf("\n\t Invalid choice! Please try again.");
         }
@@ -106,7 +110,7 @@ SLLNode* create() {
 
 }
 
-void insert(SLLNode *head) {
+SLLNode* insert(SLLNode *head) {
 
     SLLNode *nw = NULL,*p = NULL;
     p = head;
@@ -127,7 +131,6 @@ void insert(SLLNode *head) {
     if (pos == 1) {
         nw -> next = head;
         head = nw;
-        print(head);
     } else {
         for (int i = 1 ; i < pos-1 && p != NULL ; p = p -> next, i++);
 
@@ -140,12 +143,12 @@ void insert(SLLNode *head) {
         }
         
         printf("\n\tLinked list after Insertion of node at given position : ");
-        print(head);
     }
-
+    
+    return head;
 }
 
-void delete(SLLNode *head) {
+SLLNode* delete(SLLNode *head) {
 
     SLLNode *del = NULL,*temp = NULL;
     del = head;
@@ -158,7 +161,6 @@ void delete(SLLNode *head) {
     {
         head = del -> next;
         free(del);
-        print(head);
     } else {
         for (int i = 1 ; i < pos-1 && del -> next != NULL ; del = del -> next,i++);
 
@@ -166,12 +168,10 @@ void delete(SLLNode *head) {
             if (del -> next -> next == NULL) {
                 del -> next = NULL;
                 free(del -> next);
-                print(head);
             } else {
             temp = del -> next;
             del -> next = del -> next -> next;
             free(temp);
-            print(head);
             }
         } else {
             printf("\n\tInvalid Position Entered!\n\n");
@@ -180,9 +180,11 @@ void delete(SLLNode *head) {
         }
     }
 
+    return head;
+
 }
 
-void revert(SLLNode *head) {
+SLLNode* revert(SLLNode *head) {
 
     SLLNode *x,*y,*z;
     x = head; 
@@ -208,7 +210,7 @@ void revert(SLLNode *head) {
         }
     }    
     
-    print(head);
+    return(head);
 
 }
 
@@ -231,5 +233,126 @@ void freeSLL(SLLNode *f) {
 }
 
 /*
-    Output ->                                
+    Output ->    
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 1
+
+                    Enter Number and Name : 1 AA
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 2 BB
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 3 CC
+            Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 5
+
+
+            |_Head_| --> |_1_|_AA_|_00C713B0_| --> |_2_|_BB_|_00C713D8_| --> |_3_|_CC_|_00000000_| 
+
+
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 2
+
+                    Enter the position of node to insert : 2
+
+                    Enter the number and name of new inserted node at Given position : 5 MM
+
+                    Linked list after Insertion of node at given position :
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 5
+
+
+            |_Head_| --> |_1_|_AA_|_00C71400_| --> |_5_|_MM_|_00C713B0_| --> |_2_|_BB_|_00C713D8_| --> |_3_|_CC_|_00000000_|
+
+
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 3
+
+                    Enter the position of the node to be deleted : 2
+
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 5
+
+
+            |_Head_| --> |_1_|_AA_|_00C713B0_| --> |_2_|_BB_|_00C713D8_| --> |_3_|_CC_|_00000000_|
+
+
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 4
+
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 5
+
+
+            |_Head_| --> |_3_|_CC_|_00C713B0_| --> |_2_|_BB_|_00C71388_| --> |_1_|_AA_|_00000000_|
+
+
+                    *****Menu Driven Program = Singly Linked List
+                    1.Create Linked List
+                    2.Insert Node at any position in Linked List
+                    3.Delete Node at any position in Linked List
+                    4.Reverse the Linked List
+                    5.Print Linked List
+                    6.Exit
+
+                    Enter you choice : 6                            
 */
