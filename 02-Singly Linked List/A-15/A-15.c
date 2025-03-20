@@ -3,7 +3,7 @@
 */
 
 /* 
-    Input ->                        
+    Input -> |_Head_| --> |_5_|_EE_|_00901388_| --> |_3_|_CC_|_009013B0_| --> |_1_|_AA_|_009013D8_| --> |_4_|_DD_|_00901400_| --> |_2_|_BB_|_00000000_|                      
 */
 
 #include<stdio.h>
@@ -112,5 +112,28 @@ void freeSLL(SLLNode *f) {
 }
 
 /*
-    Output ->                                
+    Output -> 
+                    Enter Number and Name : 5 EE
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 3 CC
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 1 AA
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 4 DD
+            Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+                    Enter Number and Name : 2 BB
+            Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+                    Linked List : 
+
+            |_Head_| --> |_5_|_EE_|_00901388_| --> |_3_|_CC_|_009013B0_| --> |_1_|_AA_|_009013D8_| --> |_4_|_DD_|_00901400_| --> |_2_|_BB_|_00000000_| 
+
+
+                    Sorted Linked List : 
+
+            |_Head_| --> |_1_|_AA_|_00901388_| --> |_2_|_BB_|_009013B0_| --> |_3_|_CC_|_009013D8_| --> |_4_|_DD_|_00901400_| --> |_5_|_EE_|_00000000_|                                
 */
