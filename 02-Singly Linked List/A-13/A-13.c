@@ -3,11 +3,13 @@
 */
 
 /* 
-    Input -> |_Head_| --> |_1_|_AA_|_00B71388_| --> |_2_|_BB_|_00B713B0_| --> |_3_|_CC_|_00000000_|                   
+    Input -> |_Head_| --> |_1_|_AA_|_00B31388_| --> |_2_|_BB_|_00B313B0_| --> |_3_|_CC_|_00000000_| 
+    key/value = 2 BB              
 */
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct SLLNode
 {
@@ -19,7 +21,7 @@ typedef struct SLLNode
 SLLNode* createSLL();
 void displaySLL(SLLNode*);
 void freeSLL(SLLNode*);
-SLLNode* positionNodeDeletion(SLLNode*);
+SLLNode* keyNodeDeletion(SLLNode*);
 
 int main() {
     
@@ -30,7 +32,7 @@ int main() {
     printf("\n\tLinked List : ");
     displaySLL(head);
 
-    head = positionNodeDeletion(head);
+    head = keyNodeDeletion(head);
 
     if( head != NULL) {
     printf("\n\tLinked List after Deletion of node at Given position : ");
@@ -74,36 +76,35 @@ SLLNode* createSLL() {
 
 }
 
-SLLNode* positionNodeDeletion(SLLNode * head) {
+SLLNode* keyNodeDeletion(SLLNode * head) {
 
-    SLLNode *del = NULL,*temp = NULL;
+    SLLNode *del = NULL,*temp = NULL, *prev;
+    temp = malloc(sizeof(SLLNode));
     del = head;
 
     int pos;
-    printf("\n\tEnter key / value : ");
-    scanf("%d", &pos);
-
-    if (pos == 1)
-    {
+    printf("\n\tEnter key/value ie Node's name and number Eg. 1 AA : ");
+    scanf("%d %s", &(temp -> number), temp -> name);
+    
+    if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
         head = del -> next;
         free(del);
+        free(temp);
+        del = NULL, temp = NULL;
     } else {
-        for (int i = 1 ; i < pos-1 && del -> next != NULL ; del = del -> next,i++);
+        for ( ; temp -> number != del -> number && strcmp(temp -> name, del -> name) && del -> next != NULL ; prev = del, del = del -> next);
 
-        if (del -> next != NULL) {
-            if (del -> next -> next == NULL) {
-                del -> next = NULL;
-                free(del -> next);
-            } else {
-            temp = del -> next;
-            del -> next = del -> next -> next;
+        if (prev -> next -> next != NULL ) {
+            temp = prev -> next;
+            prev -> next = prev -> next -> next;
             free(temp);
-            }
-        } else {
-            printf("\n\tInvalid Position Entered!\n\n");
             free(del);
-            del = NULL;
-            return del;
+            del = NULL,temp = NULL;
+        } else {
+            prev -> next = NULL;
+            free(temp);
+            free(del);
+            del = NULL, temp = NULL;
         }
     }
 
@@ -135,43 +136,43 @@ void freeSLL(SLLNode *f) {
             Do you want to enter more records ( yes(1) / no(0) ) : 1
 
                     Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
+            Do you want to enter more records ( yes(1) / no(0) ) : 1 
 
                     Enter Number and Name : 3 CC
             Do you want to enter more records ( yes(1) / no(0) ) : 0
 
-                    Linked List :
+                    Linked List : 
 
-            |_Head_| --> |_1_|_AA_|_00B71388_| --> |_2_|_BB_|_00B713B0_| --> |_3_|_CC_|_00000000_|
+            |_Head_| --> |_1_|_AA_|_00B31388_| --> |_2_|_BB_|_00B313B0_| --> |_3_|_CC_|_00000000_| 
 
 
-                    Enter key / value : 2
+                    Enter key/value ie Node's name and number Eg. 1 AA : 2 BB
 
-                    Linked List after Deletion of node at Given position :
+                    Linked List after Deletion of node at Given position : 
 
-            |_Head_| --> |_1_|_AA_|_00B713B0_| --> |_3_|_CC_|_00000000_|    
+            |_Head_| --> |_1_|_AA_|_00B313B0_| --> |_3_|_CC_|_00000000_|
 */
 
 /*
-    Key = 1 (Head Position) :
+    Key/value = 1 AA (Head Position) :
 
         Linked List : 
 
-    |_Head_| --> |_2_|_BB_|_00B713B0_| --> |_3_|_CC_|_00000000_|  
+    |_Head_| --> |_2_|_BB_|_00B313B0_| --> |_3_|_CC_|_00000000_|  
 */
 
 /*
-    Key = 2 (Middle Position) :
+    Key/value = 2 BB (Middle Position) :
 
         Linked List : 
 
-    |_Head_| --> |_1_|_AA_|_00B71388_| --> |_3_|_CC_|_00000000_| 
+    |_Head_| --> |_1_|_AA_|_00B313B0_| --> |_3_|_CC_|_00000000_| 
 */
 
 /*
-    Key = 3 (End Position) :
+    Key/value = 3 CC (End Position) :
 
         Linked List : 
 
-    |_Head_| --> |_1_|_AA_|_00B71388_| --> |_2_|_BB_|_00000000_|  
+    |_Head_| --> |_1_|_AA_|_00B31388_| --> |_2_|_BB_|_00000000_|  
 */
