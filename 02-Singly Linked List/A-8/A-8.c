@@ -91,7 +91,6 @@ void positionNodeInsertion(SLLNode *head) {
     if (pos == 1) {
         nw -> next = head;
         head = nw;
-        displaySLL(head);
     } else {
         for (int i = 1 ; i < pos-1 && p != NULL ; p = p -> next, i++);
 
@@ -102,10 +101,10 @@ void positionNodeInsertion(SLLNode *head) {
             printf("\n\tInvalid Position Entered!");
             free(p);
         }
-        
-        printf("\n\tLinked list after Insertion of node at given position : ");
-        displaySLL(head);
     }
+
+    printf("\n\tLinked list after Insertion of node at given position : ");
+    displaySLL(head);
 
 }
 
