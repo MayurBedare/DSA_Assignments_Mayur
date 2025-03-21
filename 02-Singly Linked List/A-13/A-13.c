@@ -94,6 +94,7 @@ SLLNode* keyNodeDeletion(SLLNode * head) {
     } else {
         for ( ; temp -> number != del -> number && strcmp(temp -> name, del -> name) && del -> next != NULL ; prev = del, del = del -> next);
 
+        if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
         if (prev -> next -> next != NULL ) {
             temp = prev -> next;
             prev -> next = prev -> next -> next;
@@ -105,6 +106,10 @@ SLLNode* keyNodeDeletion(SLLNode * head) {
             free(temp);
             free(del);
             del = NULL, temp = NULL;
+        }
+        } else {
+            printf("\n\tInvalid Key/Value Entered!\n\n");
+            exit(0);
         }
     }
 
