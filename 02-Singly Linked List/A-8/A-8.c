@@ -98,8 +98,9 @@ void positionNodeInsertion(SLLNode *head) {
             nw -> next = p -> next;
             p -> next = nw;
         } else {
-            printf("\n\tInvalid Position Entered!");
+            printf("\n\tInvalid Position Entered!\n\n");
             free(p);
+            exit(0);
         }
     }
 
