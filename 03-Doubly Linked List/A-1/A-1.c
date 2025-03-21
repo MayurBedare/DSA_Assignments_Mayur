@@ -10,7 +10,7 @@ typedef struct DLLNode
     int number;
     char name[20];
     struct DLLNode *next;
-    struct DLlNode *prev;
+    struct DLLNode *prev;
 } DLLNode;
 
 DLLNode* createDLL();
@@ -101,5 +101,5 @@ void freeDLL(DLLNode *f) {
 
                     Linked List : 
 
-            |_Head_| <--> |_00000000_|_1_|_AA_|_00C60D40_| <--> |_00C62F98_|_2_|_BB_|_00C60D68_| <--> |_00C60D40_|_3_|_CC_|_00C60D90_| <--> |_00C60D68_|_4_|_DD_|_00000000_|                             
+            |_Head_| <--> |_00000000_|_1_|_AA_|_00D20D40_| <--> |_00D22F98_|_2_|_BB_|_00D20D68_| <--> |_00D20D40_|_3_|_CC_|_00D20D90_| <--> |_00D20D68_|_4_|_DD_|_00000000_|                    
 */
