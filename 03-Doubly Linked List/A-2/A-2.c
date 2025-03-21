@@ -3,7 +3,7 @@
 */
 
 /* 
-    Input -> |_Head_| <--> |_00000000_|_1_|_AA_|_00C80D40_| <--> |_00C82F98_|_2_|_BB_|_00C80D68_| <--> |_00C80D40_|_3_|_CC_|_00C80D90_| <--> |_00C80D68_|_4_|_DD_|_00000000_|                  
+    Input -> |_Head_| <--> |_00000000_|_1_|_AA_|_00710D40_| <--> |_00712F98_|_2_|_BB_|_00710D68_| <--> |_00710D40_|_3_|_CC_|_00710D90_| <--> |_00710D68_|_4_|_DD_|_00000000_| 
 */
 
 #include<stdio.h>
@@ -14,7 +14,7 @@ typedef struct DLLNode
     int number;
     char name[20];
     struct DLLNode *next;
-    struct DLlNode *prev;
+    struct DLLNode *prev;
 } DLLNode;
 
 DLLNode* createDLL();
@@ -86,6 +86,7 @@ void reverseDLL(DLLNode *head) {
     for ( ; p != NULL ; p = p -> prev) {
         printf("\n\t %d  %s", p -> number, p -> name);
     }
+    printf("\n\n");
 
 }
 
@@ -109,11 +110,11 @@ void freeDLL(DLLNode *f) {
 
 /*
     Output ->
-                    Enter Number and Name : 1 AA     
+                   Enter Number and Name : 1 AA
             Do you want to enter more records ( yes(1) / no(0) ) : 1
 
                     Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
+            Do you want to enter more records ( yes(1) / no(0) ) : 1 
 
                     Enter Number and Name : 3 CC
             Do you want to enter more records ( yes(1) / no(0) ) : 1
@@ -123,7 +124,7 @@ void freeDLL(DLLNode *f) {
 
                     Linked List : 
 
-            |_Head_| <--> |_00000000_|_1_|_AA_|_00C80D40_| <--> |_00C82F98_|_2_|_BB_|_00C80D68_| <--> |_00C80D40_|_3_|_CC_|_00C80D90_| <--> |_00C80D68_|_4_|_DD_|_00000000_| 
+            |_Head_| <--> |_00000000_|_1_|_AA_|_00710D40_| <--> |_00712F98_|_2_|_BB_|_00710D68_| <--> |_00710D40_|_3_|_CC_|_00710D90_| <--> |_00710D68_|_4_|_DD_|_00000000_| 
 
 
                     Display of linked list elements in reverse order : 
