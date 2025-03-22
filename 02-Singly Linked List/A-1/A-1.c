@@ -33,13 +33,13 @@ int main()
     
 
     printf("\n\tEnter the Student name : ");
-    scanf("%s", &nw -> std_name);
+    scanf("%s", nw -> std_name);
     printf("\n\tEnter the Student rollno : ");
-    scanf("%d", &nw -> std_rollNo);
+    scanf("%d", &(nw -> std_rollNo));
     printf("\n\tEnter the Student standard : ");
-    scanf("%s", &nw -> std_standard);
+    scanf("%s", nw -> std_standard);
     printf("\n\tEnter the Student division : ");
-    scanf("%s", &nw -> std_div);
+    scanf("%s", nw -> std_div);
 
     printf("\n\tnw --> |_%s_|_%d_|_%s_|_%s_|",nw -> std_name, nw -> std_rollNo, nw -> std_standard, nw -> std_div);
 
