@@ -19,7 +19,7 @@ typedef struct SLLNode
 SLLNode* createSLL();
 void displaySLL(SLLNode*);
 void freeSLL(SLLNode*);
-void headNodeInsertion(SLLNode*);
+SLLNode* headNodeInsertion(SLLNode*);
 
 int main() {
     
@@ -30,7 +30,10 @@ int main() {
     printf("\n\tLinked List : ");
     displaySLL(head);
 
-    headNodeInsertion(head);
+    head = headNodeInsertion(head);
+
+    printf("\n\tLinked List after Head node insertion : ");
+    displaySLL(head);
 
     freeSLL(head);
 
@@ -47,7 +50,7 @@ SLLNode* createSLL() {
 
     do
     {
-        nw = malloc(sizeof(SLLNode));
+        nw = (SLLNode*)malloc(sizeof(SLLNode));
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -69,11 +72,11 @@ SLLNode* createSLL() {
 
 }
 
-void headNodeInsertion(SLLNode *head) {
+SLLNode* headNodeInsertion(SLLNode *head) {
 
     SLLNode *nw = NULL;
 
-    nw = malloc(sizeof(SLLNode));
+    nw = (SLLNode*)malloc(sizeof(SLLNode));
     if (nw == NULL)
     {
         printf("\n\tMemory Allocation Failed!");
@@ -85,8 +88,7 @@ void headNodeInsertion(SLLNode *head) {
     nw -> next = head;
     head = nw;
 
-    printf("\n\tLinked List after Head node insertion : ");
-    displaySLL(head);
+    return head;
 
 }
 
