@@ -21,13 +21,13 @@ int main()
     Student *p;
     
     printf("\n\tEnter Student Name : ");
-    scanf("%s",&(p -> name));
+    scanf("%s", p -> name);
     printf("\n\tEnter Student Roll No. : ");
-    scanf("%d",&(p -> roll_no));
+    scanf("%d", &(p -> roll_no));
     printf("\n\tEnter Student Division : ");
-    scanf("%s",&(p -> div));
+    scanf("%s", p -> div);
     printf("\n\tEnter Student Standard : ");
-    scanf("%s",&(p -> std));
+    scanf("%s", p -> std);
 
     printf("\n\tStudent Name \t\t: %s", p -> name);
     printf("\n\tStudent Roll No. \t: %d", p -> roll_no);
