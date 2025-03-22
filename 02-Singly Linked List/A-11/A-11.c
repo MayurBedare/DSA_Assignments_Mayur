@@ -87,24 +87,21 @@ SLLNode* positionNodeDeletion(SLLNode * head) {
     if (pos == 1)
     {
         head = del -> next;
-        free(del);
     } else {
         for (int i = 1 ; i < pos-1 && del -> next != NULL ; del = del -> next,i++);
 
         if (del -> next != NULL) {
             if (del -> next -> next == NULL) {
                 del -> next = NULL;
-                free(del -> next);
             } else {
             temp = del -> next;
             del -> next = del -> next -> next;
             free(temp);
+            temp = NULL;
             }
         } else {
             printf("\n\tInvalid Position Entered!\n\n");
-            free(del);
-            del = NULL;
-            return del;
+            exit(0);
         }
     }
 
