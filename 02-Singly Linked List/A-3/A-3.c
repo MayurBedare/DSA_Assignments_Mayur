@@ -76,23 +76,25 @@ SLLNode* createSLL() {
 void alternateSLL(SLLNode *head) {
 
     SLLNode *alt_p = NULL;
-    alt_p = head;
 
-    if ( alt_p -> next == NULL || alt_p -> next -> next == NULL ) { 
+    if ( head -> next == NULL || head -> next -> next == NULL ) { 
         printf("\n\tDisplaying Alternate Nodes not possible!\n\n");
     }
     else {
-        for ( ; alt_p -> next != NULL && alt_p -> next -> next != NULL ; alt_p = alt_p -> next) {
-
-            alt_p -> next = alt_p -> next -> next;
-        
-            }
-
-        alt_p -> next = NULL;
-
         printf("\n\tLinked List with Alternate nodes : ");
-        displaySLL(head);
+        printf("\n\n|_head_| ");
+
+        for (alt_p = head ; alt_p -> next != NULL && alt_p -> next -> next != NULL ; alt_p = alt_p -> next -> next) {
+        
+            printf("--> |_%d_|_%s_|_%p_| ", alt_p -> number,  alt_p -> name, alt_p -> next);
+        
+        }
+        
+        printf("--> |_%d_|_%s_|_%p_| \n\n", alt_p -> number,  alt_p -> name, alt_p -> next);
     }
+
+    free(alt_p);
+    alt_p = NULL;
 
 }
 
