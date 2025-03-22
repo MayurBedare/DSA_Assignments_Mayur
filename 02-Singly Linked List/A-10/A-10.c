@@ -19,7 +19,7 @@ typedef struct SLLNode
 SLLNode* createSLL();
 void displaySLL(SLLNode*);
 void freeSLL(SLLNode*);
-void headNodeDeletion(SLLNode*);
+SLLNode* headNodeDeletion(SLLNode*);
 
 
 int main() {
@@ -31,7 +31,10 @@ int main() {
     printf("\n\tLinked List : ");
     displaySLL(head);
 
-    headNodeDeletion(head);
+    head = headNodeDeletion(head);
+
+    printf("\n\tLinked List after Deletion of node at Head position : ");
+    displaySLL(head);
 
     freeSLL(head);
 
@@ -70,7 +73,7 @@ SLLNode* createSLL() {
 
 }
 
-void headNodeDeletion(SLLNode * head) {
+SLLNode* headNodeDeletion(SLLNode * head) {
 
     SLLNode *del = NULL;
     del = head;
@@ -79,8 +82,7 @@ void headNodeDeletion(SLLNode * head) {
     
     free(del);
 
-    printf("\n\tLinked List after Deletion of node at Head position : ");
-    displaySLL(head);
+    return head;
 
 }
 
