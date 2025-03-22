@@ -73,21 +73,26 @@ SLLNode* createSLL() {
 void search(SLLNode *head) {
 
     SLLNode *s = NULL;
-    s = head;
-    
+
     int key;
     printf("\n\tEnter : Key = ");
     scanf("%d", &key);
 
-    for (int i=1 ; i < key && s != NULL ; s = s -> next, i++);
+    for (s = head ; s != NULL ; s = s -> next) {
 
-    if (s != NULL) {
-        printf("\n|_Head_| --> |_%d_|_%s_|_%p_| \n\n", s -> number, s -> name, s -> next);
-    } else {
-        printf("\n\tInvalid key entered!\n\n");
-        free(s);
-        return;
+        if (key == s -> number) 
+            printf("\n|_Head_| --> |_%d_|_%s_|_%p_| \n\n", s -> number, s -> name, s -> next);
+        
+        if (key == s -> number && s -> next == NULL)
+            exit(0);
+        
     }
+
+    if (s == NULL)
+        printf("\n\tInvalid Key Entered!\n\n");
+
+    free(s);
+    s = NULL;
 
 }
 
