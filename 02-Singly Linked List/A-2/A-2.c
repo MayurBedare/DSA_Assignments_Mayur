@@ -6,10 +6,6 @@
             -Division
 */
 
-/* 
-    Input -> |_kartik_|_1_|_7th_|_B_|_next_| --> |_chirag_|_2_|_7th_|_B_|_next_| --> |_soham_|_3_|_7th_|_B_|_0_|               
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -44,10 +40,8 @@ Student* createSLL() {
 
     Student *head = NULL,*nw,*last = NULL;
 
-    int n;
-    int i =1;
-    printf("\n\tEnter Number of students : ");
-    scanf("%d", &n);
+    int i = 1;
+    int cnt;
 
     do
     {
@@ -77,8 +71,11 @@ Student* createSLL() {
         }
         last = nw;
 
+        printf("\n\tDo you want to enter more records ( yes(1) / no(0) ) :");
+        scanf("%d", &cnt);
+
         i++;
-    } while ( i-1 != n );
+    } while (cnt != 0);
 
     return head; 
 }
@@ -101,8 +98,6 @@ void freeSLL(Student *f) {
 
 /*
     Output ->     
-                Enter Number of students : 3
-
                 Give Student 1 details : 
                 Enter Student name : kartik
                 Enter Student roll no : 1
