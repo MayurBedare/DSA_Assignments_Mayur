@@ -20,7 +20,7 @@ typedef struct SLLNode
 SLLNode* createSLL();
 void displaySLL(SLLNode*);
 void freeSLL(SLLNode*);
-void positionNodeInsertion(SLLNode*);
+SLLNode* positionNodeInsertion(SLLNode*);
 
 int main() {
     
@@ -31,7 +31,10 @@ int main() {
     printf("\n\tLinked List : ");
     displaySLL(head);
 
-    positionNodeInsertion(head);
+    head = positionNodeInsertion(head);
+
+    printf("\n\tLinked list after Insertion of node at given position : ");
+    displaySLL(head);
 
     freeSLL(head);
 
@@ -70,7 +73,7 @@ SLLNode* createSLL() {
 
 }
 
-void positionNodeInsertion(SLLNode *head) {
+SLLNode* positionNodeInsertion(SLLNode *head) {
 
     SLLNode *nw = NULL,*p = NULL;
     p = head;
@@ -104,8 +107,7 @@ void positionNodeInsertion(SLLNode *head) {
         }
     }
 
-    printf("\n\tLinked list after Insertion of node at given position : ");
-    displaySLL(head);
+    return head;
 
 }
 
