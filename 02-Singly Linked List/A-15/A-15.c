@@ -74,8 +74,8 @@ void sort(SLLNode *head) {
 
     SLLNode *p1 = NULL, *p2 = NULL,temp;
 
-    for (p1 = head; p1 != NULL ; p1 = p1 -> next) {
-        for (p2 = p1 -> next ; p2 != NULL ; p2 = p2 -> next) {
+    for (p1 = head; p1 -> next != NULL ; p1 = p1 -> next) {
+        for (p2 = p1 -> next ; p2 -> next != NULL ; p2 = p2 -> next) {
             if (p1 -> number > p2 -> number) {
                 temp.number = p1 -> number;
                 p1 -> number = p2 -> number;
