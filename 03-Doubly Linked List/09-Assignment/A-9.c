@@ -84,7 +84,6 @@ DLLNode* deleteKey(DLLNode *head) {
     temp = malloc(sizeof(DLLNode));
     del = head;
 
-    int pos;
     printf("\n\tEnter key/value ie Node's name and number Eg. 1 AA : ");
     scanf("%d %s", &(temp -> number), temp -> name);
     
