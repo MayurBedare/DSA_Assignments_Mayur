@@ -81,11 +81,14 @@ DLLNode* deleteLast(DLLNode *head) {
 
     DLLNode *del = NULL;
     del = head;
-
-    for ( ; del -> next -> next != NULL ; del = del -> next);
-
-    del -> next = NULL;
-    free(del -> next);
+    
+    if (head -> next == NULL) {
+        head = NULL;
+    } else {
+        for (del = head ; del -> next -> next != NULL ; del = del -> next);
+        free(del -> next);
+        del -> next = NULL;
+    }
 
    return head;
 
