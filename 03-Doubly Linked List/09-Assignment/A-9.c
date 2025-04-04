@@ -92,27 +92,23 @@ DLLNode* deleteKey(DLLNode *head) {
         head = del -> next;
         head -> prev = NULL;
         free(del);
-        free(temp);
-        del = NULL, temp = NULL;
+        del = NULL;
     } else {
-        for ( ; temp -> number != del -> number && strcmp(temp -> name, del -> name) && del -> next != NULL ; del = del -> next);
+        for (del = head ; temp -> number != del -> number || strcmp(temp -> name, del -> name) && del -> next != NULL ; del = del -> next);
         
         if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
-        if (del -> next != NULL ) {
-            temp = del -> prev -> next;
-            del -> prev -> next = del -> prev -> next -> next;
-            free(temp);
-            free(del);
-            del = NULL,temp = NULL;
+            if (del -> next != NULL) {
+                del -> prev -> next = del -> next;
+                free(del);
+                del = NULL;
+            } else {
+                del -> prev -> next = NULL;
+                free(del);
+                del = NULL;
+            }
         } else {
-            del -> prev -> next = NULL;
-            free(temp);
-            free(del);
-            del = NULL, temp = NULL;
-        }
-        } else {
-        printf("\n\tInvalid Key/Value Entered!\n\n");
-        exit(0);
+            printf("\n\tInvalid Key/Value Entered!\n\n");
+            exit(0);
         }
     }
 
