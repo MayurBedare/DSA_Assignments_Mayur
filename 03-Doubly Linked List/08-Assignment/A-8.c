@@ -1,5 +1,5 @@
 /*
-    A-7 ->  write a c program to Create a doubly linked list and Delete a node at the end.
+    A-8 ->  write a c program to Create a doubly linked list and Delete a node at the end.
 */
 
 /* 
