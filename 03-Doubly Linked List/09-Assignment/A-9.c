@@ -1,5 +1,5 @@
 /*
-    A-7 ->  write a c program to Create a doubly linked list, accept a key, and delete the node which contains the key element. 
+    A-9 ->  write a c program to Create a doubly linked list, accept a key, and delete the node which contains the key element. 
 */
 
 /* 
@@ -34,7 +34,7 @@ int main() {
 
     head = deleteKey(head);
 
-    printf("\n\tLinked List after Deletion of node at Last position : ");
+    printf("\n\tLinked List after Deletion of node : ");
     displayDLL(head);
     
     freeDLL(head);
@@ -147,12 +147,12 @@ void freeDLL(DLLNode *f) {
 
                     Linked List : 
 
-            |_Head_| <--> |_00000000_|_1_|_AA_|_00CD0D40_| <--> |_00CD2F98_|_2_|_BB_|_00CD0D68_| <--> |_00CD0D40_|_3_|_CC_|_00000000_| 
+            |_Head_| <--> |_00000000_|_1_|_AA_|_00C40D40_| <--> |_00C42F98_|_2_|_BB_|_00C40D68_| <--> |_00C40D40_|_3_|_CC_|_00000000_| 
 
 
                     Enter key/value ie Node's name and number Eg. 1 AA : 2 BB
 
-                    Linked List after Deletion of node at Last position : 
+                    Linked List after Deletion of node : 
 
-            |_Head_| <--> |_00000000_|_1_|_AA_|_00CD0D68_| <--> |_00CD0D40_|_3_|_CC_|_00000000_| 
+            |_Head_| <--> |_00000000_|_1_|_AA_|_00C40D68_| <--> |_00C40D40_|_3_|_CC_|_00000000_|
 */
