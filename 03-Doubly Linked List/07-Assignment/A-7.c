@@ -91,23 +91,17 @@ DLLNode* deletePosition(DLLNode *head) {
         head = del -> next;
         head -> prev = NULL;
         free(del);
+        del = NULL;
     } else {
         for (int i = 1 ; i < pos-1 && del -> next != NULL ; del = del -> next,i++);
 
-        if (del -> next != NULL) {
-            if (del -> next -> next == NULL) {
-                del -> next = NULL;
-                free(del -> next);
-            } else { 
-                temp = del -> next;
-                del -> next = del -> next -> next;
-                temp -> next -> prev = del;
-                free(temp);
-            }
+        if (del -> next != NULL) { 
+            temp = del -> next;
+            del -> next = del -> next -> next;
+            free(temp);
+            temp = NULL;
         } else {
             printf("\n\tInvalid Position Entered!\n\n");
-            free(del);
-            del = NULL;
             exit(0);
         }
     }
