@@ -74,24 +74,27 @@ SLLNode* createSLL() {
 
 void reverse(SLLNode *head) {
 
-    SLLNode *p1 = NULL, *p2 = NULL;
+    SLLNode *p1 = NULL, *p2 = NULL, *temp = NULL;
+    p1 = head;
     
-    printf("\n\tDisplay of linked list elements in reverse order : ");
-    printf("\n\t------");
-    for (p1 = head ; p1 != NULL ; ) {
+    printf("\n\t Display of linked list elements in reverse order : ");
+    printf("\n\t ------");
+    while (p1 != NULL) {
         if (p1 -> next == NULL) {
             printf("\n\t %d %s\n\n", p1 -> number, p1 -> name);
+            free(p1);
+            p1 = NULL;
             return;
         }
 
         for (p2 = head ; p2 -> next -> next != NULL ; p2 = p2 -> next);
 
         printf("\n\t %d %s", p2 -> next -> number, p2 -> next -> name);
+        temp = p2 -> next;
         p2 -> next = NULL;
+        free(temp);
+        temp = NULL;
     }
-
-    free(p1);
-    free(p2);
 
 }
 
