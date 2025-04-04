@@ -80,6 +80,7 @@ SLLNode* lastNodeDeletion(SLLNode *head) {
         head = NULL;
     } else {
         for (del = head ; del -> next -> next != NULL ; del = del -> next);
+        free(del -> next);
         del -> next = NULL;
     }
     
