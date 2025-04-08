@@ -77,13 +77,17 @@ void reverse(SLLNode *head) {
     SLLNode *p1 = NULL, *p2 = NULL, *temp = NULL;
     p1 = head;
     
+    if (p1 -> next == NULL) {
+        printf("\n\t Displaying of linked list in reverse order not possible!");
+        printf("\n\n");
+        return;
+    }
+    
     printf("\n\t Display of linked list elements in reverse order : ");
     printf("\n\t ------");
     while (p1 != NULL) {
         if (p1 -> next == NULL) {
             printf("\n\t %d %s\n\n", p1 -> number, p1 -> name);
-            free(p1);
-            p1 = NULL;
             return;
         }
 
