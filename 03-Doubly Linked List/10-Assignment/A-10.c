@@ -21,21 +21,24 @@ typedef struct DLLNode
 DLLNode* createDLL();
 void displayDLL(DLLNode*);
 void freeDLL(DLLNode*);
-DLLNode* deleteDuplicateKeys(DLLNode*);
+DLLNode* deleteDuplicateKeys(DLLNode*,int*);
 
 int main() {
     
     DLLNode *head = NULL;
+    int flag = 0;
 
     head = createDLL();
 
-    printf("\n\tLinked List : ");
+    printf("\n\t Linked List : ");
     displayDLL(head);
 
-    head = deleteDuplicateKeys(head);
+    head = deleteDuplicateKeys(head,&flag);
 
-    printf("\n\tLinked List after Deletion of duplicate nodes : ");
+    if (flag == 1) {
+    printf("\n\t Linked List after Deletion of duplicate nodes : ");
     displayDLL(head);
+    } else printf("\n\t There are no duplicate values/nodes in the given doubly linked list.\n\n");
     
     freeDLL(head);
 
@@ -78,7 +81,7 @@ DLLNode* createDLL() {
 
 }
 
-DLLNode* deleteDuplicateKeys(DLLNode *head) {
+DLLNode* deleteDuplicateKeys(DLLNode *head,int *flag) {
 
     DLLNode *p1 = NULL, *p2 = NULL, *t = NULL;
     for (p1 = head ; p1 != NULL ; p1 = p1 -> next) {
@@ -94,6 +97,7 @@ DLLNode* deleteDuplicateKeys(DLLNode *head) {
                 }
                 free(t);
                 t = NULL;
+                *flag = 1;
             }
         }
     }
