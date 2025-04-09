@@ -5,42 +5,42 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct DLLNode
+typedef struct DCLLNode
 {
     int number;
     char name[20];
-    struct DLLNode *next;
-    struct DLLNode *prev;
-} DLLNode;
+    struct DCLLNode *next;
+    struct DCLLNode *prev;
+} DCLLNode;
 
-DLLNode* createDLL();
-void displayDLL(DLLNode*);
-void freeDLL(DLLNode*);
+DCLLNode* createDCLL();
+void displayDCLL(DCLLNode*);
+void freeDCLL(DCLLNode*);
 
 int main() {
    
-    DLLNode *last = NULL;
+    DCLLNode *last = NULL;
 
-    last = createDLL();
+    last = createDCLL();
 
     printf("\n\t Doubly Circular Linked List : ");
-    displayDLL(last);
+    displayDCLL(last);
     
-    freeDLL(last);
+    freeDCLL(last);
 
     return 0;
     
 }
 
-DLLNode* createDLL() {
+DCLLNode* createDCLL() {
 
-    DLLNode *head = NULL,*nw = NULL, *last = NULL;
+    DCLLNode *head = NULL,*nw = NULL, *last = NULL;
     
     int cnt;
 
     do
     {
-        nw = malloc(sizeof(DLLNode));
+        nw = malloc(sizeof(DCLLNode));
 
         printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -68,9 +68,9 @@ DLLNode* createDLL() {
 
 }
 
-void displayDLL(DLLNode *last) {
+void displayDCLL(DCLLNode *last) {
 
-    DLLNode *d = NULL;
+    DCLLNode *d = NULL;
     d = last -> next;
     printf("\n\n|_Head_| ");
 
@@ -83,12 +83,12 @@ void displayDLL(DLLNode *last) {
 
 }
 
-void freeDLL(DLLNode *last) {
+void freeDCLL(DCLLNode *last) {
 
     if (last == NULL)
         return;
 
-    DLLNode *f = NULL;
+    DCLLNode *f = NULL;
     f = last -> next;
 
     while (f != last) {   
