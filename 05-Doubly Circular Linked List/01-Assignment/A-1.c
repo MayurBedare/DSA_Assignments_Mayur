@@ -23,7 +23,7 @@ int main() {
 
     last = createDLL();
 
-    printf("\n\t Circular Doubly Linked List : ");
+    printf("\n\t Doubly Circular Linked List : ");
     displayDLL(last);
     
     freeDLL(last);
@@ -42,7 +42,7 @@ DLLNode* createDLL() {
     {
         nw = malloc(sizeof(DLLNode));
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = nw;
@@ -115,7 +115,7 @@ void freeDLL(DLLNode *last) {
                     Enter Number and Name : 3 CC
             Do you want to enter more records ( yes(1) / no(0) ) : 0
 
-                    Circular Doubly Linked List : 
+                    Doubly Circular Linked List : 
 
-            |_Head_| <--> |_00C313A0_|_1_|_AA_|_00C31378_| <--> |_00C32FB8_|_2_|_BB_|_00C313A0_| <--> |_00C31378_|_3_|_CC_|_00C32FB8_|  <--> |_last_|
+            |_Head_| <--> |_00CD13A0_|_1_|_AA_|_00CD1378_| <--> |_00CD2FB8_|_2_|_BB_|_00CD13A0_| <--> |_00CD1378_|_3_|_CC_|_00CD2FB8_|  <--> |_last_|                          
 */
