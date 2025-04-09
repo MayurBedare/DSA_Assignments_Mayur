@@ -73,13 +73,11 @@ void displayDLL(DLLNode *last) {
     DLLNode *d = NULL;
     d = last -> next;
     printf("\n\n|_Head_| ");
-    printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
 
-
-    for (d = d -> next ; d != last -> next ; d = d -> next )
+    for ( ; d != last ; d = d -> next )
         printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
 
-    printf(" <--> |_last_|");
+    printf("<--> |_%p_|_%d_|_%s_|_%p_| <--> |_last_|", d -> prev, d -> number, d -> name, d -> next);
 
     printf("\n\n");
 
