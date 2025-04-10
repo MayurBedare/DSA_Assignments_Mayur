@@ -1,0 +1,152 @@
+    |- - - Enqueue operation on linear simple queue - - - |
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 1
+Enter the number and name to be enqueued : 1 AA
+
+         |_1_|_AA_| <- Front <- Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 1 
+Enter the number and name to be enqueued : 2 BB
+
+         |_1_|_AA_| -> Front
+         |_2_|_BB_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 1
+Enter the number and name to be enqueued : 3 CC
+
+         |_1_|_AA_| -> Front
+         |_2_|_BB_|
+         |_3_|_CC_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 1
+Enter the number and name to be enqueued : 4 DD
+
+         |_1_|_AA_| -> Front
+         |_2_|_BB_|
+         |_3_|_CC_|
+         |_4_|_DD_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 1
+
+         Queue is Full!
+----------------------------------------------
+|- - - Dequeue operation on linear simple queue - - - |
+--> here also if we dequeue whole queue then queue should be empty but it is full technically and shows 
+--> "These operation not allowed!"
+         |_1_|_AA_| -> Front
+         |_2_|_BB_|
+         |_3_|_CC_|
+         |_4_|_DD_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 2
+
+         |_2_|_BB_| -> Front
+         |_3_|_CC_|
+         |_4_|_DD_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 2
+
+         |_3_|_CC_| -> Front
+         |_4_|_DD_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 2
+
+         |_4_|_DD_| <- Front <- Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 2
+
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 2
+
+         These operation not allowed!
+----------------------------------------------
+|- - - Dequeue and then Enqueue operation on linear simple queue - - - |
+--> here even if we Dequeue the queue the queue is not going to be empty 
+    and at the last even if the queue is empty then also the queue is full technically
+         |_1_|_a_| -> Front
+         |_2_|_b_|
+         |_3_|_c_|
+         |_4_|_d_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 2
+
+         |_2_|_b_| -> Front
+         |_3_|_c_|
+         |_4_|_d_| -> Rear
+
+         *****************
+         Queue using array
+         *****************
+         1. Enqueue
+         2. Dequeue
+         3. Exit
+         Enter your choice : 1
+
+         Queue is Full technically!
+----------------------------------------------
