@@ -75,7 +75,7 @@ int isEmpty(int top) {
 }
 
 int isFull(int top) {
-    if(top >= (MAX - 1)) {
+    if(top == (MAX - 1)) {
         printf("\n\t Stack is full!\n");
         return 0;
     }
