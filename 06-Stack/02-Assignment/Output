@@ -1,0 +1,103 @@
+        ***** Menu Driven Program - Stack using Linked List *****
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 1
+
+         Enter the number to be entered on the stack : 1
+
+         |_1_| <- top
+         -----
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 1
+
+         Enter the number to be entered on the stack : 2
+
+         |_2_| <- top
+         |_1_|
+         -----
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 1
+
+         Enter the number to be entered on the stack : 3
+
+         |_3_| <- top
+         |_2_|
+         |_1_|
+         -----
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 1
+
+         Enter the number to be entered on the stack : 4
+
+         |_4_| <- top
+         |_3_|
+         |_2_|
+         |_1_|
+         -----
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 1
+
+         Stack is full!
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 2
+
+         |_3_| <- top
+         |_2_|
+         |_1_|
+         -----
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 2
+
+         |_2_| <- top
+         |_1_|
+         -----
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 2
+
+         |_1_| <- top
+         -----
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 2
+
+         Stack is empty!
+
+         1. Push
+         2. Pop
+         3. Exit
+
+         Enter your choice : 3
