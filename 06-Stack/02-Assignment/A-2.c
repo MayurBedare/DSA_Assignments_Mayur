@@ -22,9 +22,11 @@ void print(stk*,int);
 int main() {
     int i = -1;
     stk *top = NULL;
-    printf("\n\t ***** Menu Driven Program - Stack using Linked List *****\n");
     while (1) {
         int choice;
+        printf("\n\t ***********************");
+        printf("\n\t Stack using Linked List");
+        printf("\n\t ***********************");
         printf("\n\t 1. Push");
         printf("\n\t 2. Pop");
         printf("\n\t 3. Exit");

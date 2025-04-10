@@ -1,5 +1,6 @@
-        ***** Menu Driven Program - Stack using Linked List *****
-
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -11,6 +12,9 @@
          |_1_| <- top
          -----
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -23,6 +27,9 @@
          |_1_|
          -----
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -36,6 +43,9 @@
          |_1_|
          -----
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -50,6 +60,9 @@
          |_1_|
          -----
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -58,6 +71,9 @@
 
          Stack is full!
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -69,6 +85,9 @@
          |_1_|
          -----
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -79,6 +98,9 @@
          |_1_|
          -----
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -88,6 +110,9 @@
          |_1_| <- top
          -----
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
@@ -96,6 +121,9 @@
 
          Stack is empty!
 
+         ***********************
+         Stack using Linked List
+         ***********************
          1. Push
          2. Pop
          3. Exit
