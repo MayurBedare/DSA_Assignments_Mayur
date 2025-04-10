@@ -15,9 +15,9 @@ typedef struct queue
 } que;
 
 int enqueue(int, que*);
-int dequeue(int, que*);
-int isEmpty(int, int, que*);
-int isFull(int, int, que*);
+int dequeue(int);
+int isEmpty(int, int);
+int isFull(int, int);
 void display(int, int, que*);
 
 void main() {
@@ -37,7 +37,7 @@ void main() {
 
         switch (ch) {
             case 1:
-                if (!isFull(front, rear, arr)) {
+                if (!isFull(front, rear)) {
                     break;
                 }
                 rear = enqueue(rear, arr);
@@ -49,10 +49,10 @@ void main() {
                     printf("\n\t These operation not allowed!");
                     break;
                 }
-                if (!isEmpty(front, rear, arr)) { 
+                if (!isEmpty(front, rear)) { 
                     break;
                 }
-                front = dequeue(front, arr);
+                front = dequeue(front);
                 display(front, rear, arr);      
                 break;
 
@@ -76,14 +76,14 @@ int enqueue(int rear, que arr[]) {
     return rear;    
 }
 
-int dequeue(int front, que arr[]) {
+int dequeue(int front) {
 
     front++;
 
     return front;
 }
 
-int isEmpty(int front, int rear, que arr[]) {
+int isEmpty(int front, int rear) {
     if ((front == 0) && (rear == -1)) {
         printf("\n\t Queue is Empty!\n");
         return 0;
@@ -94,7 +94,7 @@ int isEmpty(int front, int rear, que arr[]) {
     return 1;
 }
 
-int isFull(int front, int rear, que arr[]) {
+int isFull(int front, int rear) {
     if ((front == 0) && (rear == (MAX - 1))) {
         printf("\n\t Queue is Full!\n");
         return 0;
@@ -106,7 +106,7 @@ int isFull(int front, int rear, que arr[]) {
 } 
 
 void display(int front, int rear, que arr[]) {
-    if (!isEmpty(front, rear, arr)) { 
+    if (!isEmpty(front, rear)) { 
         return;
     }
     if (front == rear) {
