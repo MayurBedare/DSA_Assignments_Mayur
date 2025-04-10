@@ -35,7 +35,7 @@ int main() {
         printf("\n\t 1. Create Doubly Linked List");
         printf("\n\t 2. Insert Node at any position in Singly Circular Linked List");
         printf("\n\t 3. Delete Node at any position in Singly Circular Linked List");
-        printf("\n\t 4. Print Doubly Linked List");
+        printf("\n\t 4. Print Singly Circular Linked List");
         printf("\n\t 5. Exit");
         printf("\n\n\t Enter you choice : ");
         scanf("%d", &choice);
