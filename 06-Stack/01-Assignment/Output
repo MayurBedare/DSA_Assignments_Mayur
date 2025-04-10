@@ -1,16 +1,20 @@
-        ***** Menu Driven Program - Stack using Array *****
-
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
 
-         Enter your choice : 1 
+         Enter your choice : 1
 
          Enter the number to be entered on the stack : 1
 
          |_1_| <- top
          -----
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -23,6 +27,9 @@
          |_1_|
          -----
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -36,6 +43,9 @@
          |_1_|
          -----
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -50,6 +60,9 @@
          |_1_|
          -----
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -58,6 +71,9 @@
 
          Stack is full!
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -69,6 +85,9 @@
          |_1_|
          -----
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -79,6 +98,9 @@
          |_1_|
          -----
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -88,6 +110,9 @@
          |_1_| <- top
          -----
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit
@@ -96,6 +121,9 @@
 
          Stack is empty!
 
+         *****************
+         Stack using array
+         *****************
          1. Push
          2. Pop
          3. Exit

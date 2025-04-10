@@ -15,9 +15,11 @@ void print(int,int[]);
 int main() {
     int arr[MAX];
     int top = -1;
-    printf("\n\t ***** Menu Driven Program - Stack using Array *****\n");
-    while (1) {
+   while (1) {
         int choice;
+        printf("\n\t *****************");
+        printf("\n\t Stack using array");
+        printf("\n\t *****************");
         printf("\n\t 1. Push");
         printf("\n\t 2. Pop");
         printf("\n\t 3. Exit");
