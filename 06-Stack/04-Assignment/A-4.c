@@ -45,7 +45,7 @@ int main() {
             }
             if (arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*' || arr[i] == '^') {
                 if (stkOperator[stk] == '+' || stkOperator[stk] == '-' || stkOperator[stk] == '*' || stkOperator[stk] == '/' || stkOperator[stk] == '^') {
-                    if (precedence(stkOperator[stk],arr[i])) {
+                    if (precedence(arr[i],stkOperator[stk])) {
                         strcpy(stkPrefixOperand[prefix],operandPrefixStack(stkPrefixOperand,&prefix,stkOperator[stk]));
                         strcpy(stkPostfixOperand[postfix],operandPostfixStack(stkPostfixOperand,&postfix,stkOperator[stk]));
                         stkOperator[stk] = arr[i];
@@ -82,22 +82,22 @@ int precedence(char i,char j) {
     p1 = priority(i);
     p2 = priority(j);
     if (p1 <= p2)
-        return 0;
-    else return 1;
+        return 1;
+    else return 0;
 }
 
 int priority(char ch) {
     int p;
-    if (ch == '+' || ch == '-'){ p = 1;}
-    if (ch == '*' || ch == '/'){ p = 2;}
-    if (ch == '^'){  p = 3; } 
+    if (ch == '+' || ch == '-') p = 1;
+    if (ch == '*' || ch == '/') p = 2;
+    if (ch == '^')  p = 3;  
     return p;
 }
 
 char* operandPrefixStack(char stkPrefixOperand[][30],int *prefix,char i) {
     char temp[2] = {i,'\0'};
     char string[30];
-    if (i == '+' || i == '-' || i == '*' || i == '/') {
+    if (i == '+' || i == '-' || i == '*' || i == '/' || i == '^') {
         strcpy(string,temp);
         (*prefix)--;
         strcat(string,stkPrefixOperand[(*prefix)]);
