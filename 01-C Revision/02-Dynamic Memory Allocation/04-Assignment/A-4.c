@@ -10,6 +10,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct Student
 {
@@ -25,18 +26,20 @@ int main()
     p = malloc(sizeof(Student));
     if (p == NULL) {
         printf("Memory Allocation Failed!");
+        exit(1);
     }
     
-    printf("\n\tEnter Student Name : ");
-    scanf("%s",p -> name);;
+    printf("\n\t Enter Student Name : ");
+    fgets(p -> name,20,stdin);
+    p -> name[strcspn(p -> name,"\n")] = '\0';
 
-    printf("\tEnter Student Roll No. : ");
+    printf("\t Enter Student Roll No. : ");
     scanf("%d",&(p -> roll_no));
 
-    printf("\tEnter Student Division : ");
+    printf("\t Enter Student Division : ");
     scanf("%s",p -> div);
 
-    printf("\tEnter Student Standard : ");
+    printf("\t Enter Student Standard : ");
     scanf("%s",p -> std);
 
     printf("\n\tStudent Name : %s", p -> name);
