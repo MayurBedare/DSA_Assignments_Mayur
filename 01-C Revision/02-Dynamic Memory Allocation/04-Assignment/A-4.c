@@ -13,80 +13,39 @@
 
 typedef struct Student
 {
-    char *name;
-    int *roll_no;
-    char *div;
-    char *std;
+    char name[20];
+    int roll_no;
+    char div[2];
+    char std[10];
 } Student;
 
 int main() 
 {
-    Student *p;
+    Student *p = NULL;
     p = malloc(sizeof(Student));
+    if (p == NULL) {
+        printf("Memory Allocation Failed!");
+    }
+    
+    printf("\n\tEnter Student Name : ");
+    scanf("%s",p -> name);;
 
-    p -> name = malloc(sizeof(char)*20);
-    p -> roll_no = malloc(sizeof(int));
-    p -> div = malloc(sizeof(char)*2);
-    p -> std = malloc(sizeof(char)*10);
-    
-    if (p -> name == NULL)
-    {
-        printf("Memory Allocation Failed!");
-    }
-    else 
-    {
-        printf("\n\tEnter Student Name : ");
-        scanf("%s",p -> name);;
-    }
-    
-    if (p -> roll_no == NULL)
-    {
-        printf("Memory Allocation Failed!");
-    }
-    else 
-    {
-        printf("\tEnter Student Roll No. : ");
-        scanf("%d",&(p -> roll_no));
-    }
-    
-    if (p -> div == NULL)
-    {
-        printf("Memory Allocation Failed!");
-    }
-    else 
-    {
-        printf("\tEnter Student Division : ");
-        scanf("%s",p -> div);
-    }
+    printf("\tEnter Student Roll No. : ");
+    scanf("%d",&(p -> roll_no));
 
-    if (p -> std == NULL)
-    {
-        printf("Memory Allocation Failed!");
-    }
-    else 
-    {  
-        printf("\tEnter Student Standard : ");
-        scanf("%s",p -> std);
-    }
+    printf("\tEnter Student Division : ");
+    scanf("%s",p -> div);
+
+    printf("\tEnter Student Standard : ");
+    scanf("%s",p -> std);
 
     printf("\n\tStudent Name : %s", p -> name);
     printf("\tRoll No : %d", p -> roll_no);
     printf("\tDivision : %s", p -> div);
     printf("\tStandard : %s\n\n", p -> std);
 
-    free(p -> name);
-    p -> name = NULL;
-
-    free(p -> roll_no);
-    p -> roll_no = NULL;
-
-    free(p -> div);
-    p -> div = NULL;
-
-    free(p -> std);
-    p -> std = NULL;
-
     free(p);
+    p = NULL; 
     
     return 0;
 }
