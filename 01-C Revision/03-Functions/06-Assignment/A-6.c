@@ -13,6 +13,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct Student
 {
@@ -31,13 +32,19 @@ int main()
     scanf("%d", &n); 
     
     Student *arr = malloc(sizeof(Student)*n); // *arr same as arr[]
-    
+    if (arr == NULL) {
+        printf("Memory Allocation Failed!");
+        exit(1);
+    }
+
     for (int i = 0 ; i < n ; i++)
     {   
         printf("\n\tGive the Student %d details : \n",i+1);
 
         printf("\n\tEnter Student Name : ");
-        scanf("%s",(arr + i) -> name);
+        getchar();
+        fgets((arr + i) -> name,20,stdin);
+        (arr + i) -> name[strcspn((arr + i) -> name,"\n")] = '\0';
     
         printf("\tEnter Student Roll No. : ");
         scanf("%d",&((arr + i) -> roll_no));
@@ -50,7 +57,10 @@ int main()
     }
 
     studentDetails(arr,n);
-    
+
+    free(arr);
+    arr = NULL;
+
     return 0;
 }
 
