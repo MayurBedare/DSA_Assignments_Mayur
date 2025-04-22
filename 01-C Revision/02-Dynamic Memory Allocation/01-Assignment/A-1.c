@@ -19,6 +19,7 @@ int main()
 
     if (x_i == NULL) {
         printf("\n\tMemory allocation failed for integer variable");
+        exit(1);
     }
     else {
         printf("\n\tMemory allocated successful for interger variable");
@@ -28,6 +29,7 @@ int main()
     
     if (x_c == NULL) {
         printf("\n\tMemory allocated failed for character variable");
+        exit(1);
     }
     else {
         printf("\n\tMemory allocation successful for character variable");
@@ -37,6 +39,7 @@ int main()
 
     if (x_f == NULL) {
         printf("\n\tMemory allocation failed for float variable");
+        exit(1);
     }
     else {
         printf("\n\tMemory allocation successful for float variable\n\n");
