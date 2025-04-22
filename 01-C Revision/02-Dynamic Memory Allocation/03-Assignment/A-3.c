@@ -19,6 +19,7 @@ int main() {
     if (p == NULL)
     {
         printf("\n\tMemory is not Allocated!");
+        exit(1);
     }
 
     printf("\n");
