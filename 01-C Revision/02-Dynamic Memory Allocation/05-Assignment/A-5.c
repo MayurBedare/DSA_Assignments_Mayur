@@ -6,8 +6,8 @@
 
 /* 
     Input ->    Student 1 name - kartik, roll no - 1, division - B, standard - 7th  
-                Student name - chirag, roll no - 2, division - B, standard - 7th     
-                Student name - soham, roll no - 3, division - B, standard - 7th                     
+                Student 2 name - chirag, roll no - 2, division - B, standard - 7th     
+                Student 3 name - soham, roll no - 3, division - B, standard - 7th                     
 */
 
 #include<stdio.h>
@@ -15,90 +15,48 @@
 
 typedef struct Student
 {
-    char *name;
-    int *roll_no;
-    char *div;
-    char *std;
+    char name[20];
+    int roll_no;
+    char div[2];
+    char std[10];
 } Student;
 
 int main() 
 {
-    Student *p;
-    p = malloc(sizeof(Student));
-
     int n;
     printf("\n\tEnter the number of students : ");
     scanf("%d", &n);    
     
     for (int i = 0; i < n; i++)
     {
-        p -> name = malloc(sizeof(char)*20);
-        p -> roll_no = malloc(sizeof(int));
-        p -> div = malloc(sizeof(char)*2);
-        p -> std = malloc(sizeof(char)*10);
+        Student *p = NULL;
+        p = malloc(sizeof(Student));
+        if (p == NULL) {
+            printf("\n\t Memory Allocation Failed!");
+        }
         
         printf("\n\tGive the Student %d details : \n",i+1);
 
-        if (p -> name == NULL)
-        {
-            printf("Memory Allocation Failed!");
-        }
-        else 
-        {
-            printf("\n\tEnter Student Name : ");
-            scanf("%s",p -> name);
-        }
+        printf("\n\tEnter Student Name : ");
+        scanf("%s",p -> name);
+    
+        printf("\tEnter Student Roll No. : ");
+        scanf("%d",&(p -> roll_no));
         
-        if (p -> roll_no == NULL)
-        {
-            printf("Memory Allocation Failed!");
-        }
-        else 
-        {
-            printf("\tEnter Student Roll No. : ");
-            scanf("%d",&(p -> roll_no));
-        }
-        
-        if (p -> div == NULL)
-        {
-            printf("Memory Allocation Failed!");
-        }
-        else 
-        {
-            printf("\tEnter Student Division : ");
-            scanf("%s",p -> div);
-        }
+        printf("\tEnter Student Division : ");
+        scanf("%s",p -> div);
 
-        if (p -> std == NULL)
-        {
-            printf("Memory Allocation Failed!");
-        }
-        else 
-        {  
-            printf("\tEnter Student Standard : ");
-            scanf("%s",p -> std);
-        }
+        printf("\tEnter Student Standard : ");
+        scanf("%s",p -> std);
 
         printf("\n\tStudent Name : %s", p -> name);
         printf("\tRoll No : %d", p -> roll_no);
         printf("\tDivision : %s", p -> div);
         printf("\tStandard : %s\n\n", p -> std);
 
-        free(p -> name);
-        p -> name = NULL;
-
-        free(p -> roll_no);
-        p -> roll_no = NULL;
-
-        free(p -> div);
-        p -> div = NULL;
-
-        free(p -> std);
-        p -> std = NULL;
+        free(p);
+        p = NULL;
     }
-    
-
-    free(p);
     
     return 0;
 }
