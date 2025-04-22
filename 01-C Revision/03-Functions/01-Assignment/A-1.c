@@ -8,7 +8,7 @@
 
 #include<stdio.h>
 
-int calculateSum(int arr[],int);
+int calculateSum(int[],int);
 
 int main() {
     int arr[5];
