@@ -6,7 +6,7 @@
 */
 
 /* 
-    Input ->                        
+    Input ->    text string : MERN Stack Developer               
 */
 
 #include<stdio.h>
@@ -16,12 +16,12 @@ int main()
 {
     char *text_string;
 
-    printf("%p",text_string);
     //Memory created
     text_string = malloc(sizeof(char)*50);
     if (text_string == NULL)
     {
         printf("\n\tMemory Allocated Failed!");
+        exit(1);
     }
     
     //Input text string
