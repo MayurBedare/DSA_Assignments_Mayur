@@ -16,7 +16,7 @@ int main() {
     size = i;
     for (int j = 0 ; j != size/2 ; j++) {
         if (string[j] == string[--i]) {
-            flag = 0;
+            flag = 1;
         } else {
             flag = 0;
             break;
