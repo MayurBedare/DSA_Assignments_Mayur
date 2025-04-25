@@ -3,7 +3,7 @@
 */
 
 /* 
-    Input ->    string[] = "Engineer"                  
+    Input ->    string[] = "EngineeR"                  
 */
 
 #include<stdio.h>
