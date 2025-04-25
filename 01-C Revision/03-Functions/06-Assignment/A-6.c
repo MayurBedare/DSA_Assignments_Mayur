@@ -27,22 +27,27 @@ void studentDetails(Student*,int);
 
 int main() 
 {
-    int n;
-    printf("\n\tEnter the number of students : ");
-    scanf("%d", &n); 
-    
-    Student *arr = malloc(sizeof(Student)*n); // *arr same as arr[]
+    int i = 0,ch,size = 2;
+    Student *arr = NULL;
+    arr = malloc(sizeof(Student));
     if (arr == NULL) {
-        printf("Memory Allocation Failed!");
+        printf("\n\t Memory Allocation Failed!");
         exit(1);
     }
 
-    for (int i = 0 ; i < n ; i++)
-    {   
-        printf("\n\tGive the Student %d details : \n",i+1);
+    while (ch) {
+        if (i > 0) {
+            arr = (Student*)realloc(arr,size*sizeof(Student));
+            if (arr == NULL) {
+                printf("\n\t Memory Allocation Failed!");
+                exit(1);
+            }
+        }
+
+        printf("\n\tGive Student %d details : \n",i+1);
 
         printf("\n\tEnter Student Name : ");
-        getchar();
+        if (i > 0)  getchar();
         fgets((arr + i) -> name,20,stdin);
         (arr + i) -> name[strcspn((arr + i) -> name,"\n")] = '\0';
     
@@ -54,9 +59,17 @@ int main()
 
         printf("\tEnter Student Standard : ");
         scanf("%s",(arr + i) -> std);
+
+        printf("\n\t Do you want to add more details of student ( Yes(1) / No(0) ) : ");
+        scanf("%d",&ch); 
+        printf("\n");
+
+        i++,size++;
     }
 
-    studentDetails(arr,n);
+    printf("\n\t Total Number Of Student Details Entered : %d\n\n",i);
+
+    studentDetails(arr,i);
 
     free(arr);
     arr = NULL;
@@ -80,6 +93,7 @@ void studentDetails(Student *arr,int n) {
     
             printf("\n\t Do you want to search more records ( Yes (1) / No (0) ) : ");
             scanf("%d",&ch);
+            printf("\n");
 
             if (ch == 1) continue;
             else    break;
@@ -92,28 +106,38 @@ void studentDetails(Student *arr,int n) {
 
 /*
     Output ->         
-                Enter the number of students : 3
-
-                Give the Student 1 details : 
+                Give Student 1 details : 
 
                 Enter Student Name : kartik
                 Enter Student Roll No. : 1
                 Enter Student Division : B
                 Enter Student Standard : 7th
 
-                Give the Student 2 details : 
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 1
+
+
+                Give Student 2 details : 
 
                 Enter Student Name : chirag
                 Enter Student Roll No. : 2
                 Enter Student Division : B
                 Enter Student Standard : 7th
 
-                Give the Student 3 details : 
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 1
+
+
+                Give Student 3 details :
 
                 Enter Student Name : soham
                 Enter Student Roll No. : 3
                 Enter Student Division : B
                 Enter Student Standard : 7th
+
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 0
+
+
+                Total Number Of Student Details Entered : 3
+
 
                 Enter the roll no. to get particular student details : 2
 
@@ -122,6 +146,7 @@ void studentDetails(Student *arr,int n) {
 
                 Do you want to search more records ( Yes (1) / No (0) ) : 1
 
+
                 Enter the roll no. to get particular student details : 1
 
                 Student details :
@@ -129,12 +154,6 @@ void studentDetails(Student *arr,int n) {
 
                 Do you want to search more records ( Yes (1) / No (0) ) : 1
 
-                Enter the roll no. to get particular student details : 3
-
-                Student details :
-                Student Name : soham   Roll No : 3     Division : B    Standard : 7th
-
-                Do you want to search more records ( Yes (1) / No (0) ) : 1
 
                 Enter the roll no. to get particular student details : 5
 
@@ -149,5 +168,5 @@ void studentDetails(Student *arr,int n) {
                 Student details :
                 Student Name : soham   Roll No : 3     Division : B    Standard : 7th
 
-                Do you want to search more records ( Yes (1) / No (0) ) : 0                       
+                Do you want to search more records ( Yes (1) / No (0) ) : 0                    
 */
