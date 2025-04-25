@@ -24,22 +24,29 @@ typedef struct Students
 
 
 int main() {
-    int n;
-    printf("\n\t Enter the number of students : ");
-    scanf("%d", &n); 
-    
-    S *arr = malloc(sizeof(S)*n); // *arr same as arr[]
+    int i = 0,ch,size = 2;
+    S *arr = NULL;
+    arr = malloc(sizeof(S));
     if (arr == NULL) {
-        printf("Memory Allocation Failed!");
+        printf("\n\t Memory Allocation Failed!");
         exit(1);
     }
 
-    for (int i = 0 ; i < n ; i++) {
+    printf("\n\t ***** Finding Topper from the Student Details Provided ***** \n");
+
+    while (ch) {
         int sum = 0;
 
-        printf("\n\t Enter Student %d Name : ",++i);
-        getchar();
-        i--;
+        if (i > 0) {
+            arr = (S*)realloc(arr,size*sizeof(S));
+            if (arr == NULL) {
+                printf("\n\t Memory Allocation Failed!");
+                exit(1);
+            }
+        }
+
+        printf("\n\t Enter Student %d Name : ",i+1);
+        if (i > 0)  getchar();
         fgets((arr + i) -> name,20,stdin);
         (arr + i) -> name[strcspn((arr + i) -> name,"\n")] = '\0';
 
@@ -47,48 +54,80 @@ int main() {
         scanf("%d",&((arr + i) -> no));
 
         printf("\t Enter Student's 5 Subject Marks (Out of 100) :\n");
-        for (int i = 0 ; i < 5 ; i++) {
-            printf("\t Enter Subject %d Marks : ",++i);
-            i--;
-            scanf("%d",&((arr + i) -> s_marks[i]));
-            sum = sum + (arr + i) -> s_marks[i];
+        for (int j = 0 ; j < 5 ; j++) {
+            printf("\t Enter Subject %d Marks : ",j+1);
+            scanf("%d",&((arr + i) -> s_marks[j]));
+            sum = sum + (arr + i) -> s_marks[j];
         }
 
         (arr + i) -> percentage = (sum/5);
-    
-        printf("\n\t Student Details : ");
-        printf("\n\t Student Name : %s",(arr + i) -> name);
-        printf("\n\t Student Roll No. : %d",(arr + i) -> no);
-        printf("\n\t Student Subject Marks : ");
-        for (int j = 0 ; j < 5 ; j++) {
-        printf("\n\t Subject %d Marks : %d",j,(arr + j) -> s_marks[j]);
-        }
-        printf("\n\t Student Percentage : %f\n\n",(arr + i) -> percentage);
+
+        printf("\n\t Do you want to add more details of student ( Yes(1) / No(0) ) : ");
+        scanf("%d",&ch); 
+        printf("\n");
+        
+        i++,size++;
 
     }
-    int i = -1;
+    int cap = 1;
 
-    for (int k = 0 ; k < n ; k++) {
-        for (int l = 0 ; l < n; l++) {
+    int *topper = NULL;
+    topper = malloc(sizeof(int));
+    if (topper == NULL) {
+        printf("\n\t Memory Allocation Failed!");
+        exit(1);
+    }
+
+    printf("\n\t All Student Details As Provided : \n");
+    for (int k = 0 ; k < i ; k++) {
+        printf("\n\t Student %d Name : %s",k+1,(arr + k) -> name);
+        printf("\n\t Student %d Roll No. : %d",k+1,(arr + k) -> no);
+        printf("\n\t Student %d Subject Marks : ",k+1);
+        for (int j = 0 ; j < 5 ; j++) {
+        printf("\n\t Subject %d Marks : %d",j+1,(arr + k) -> s_marks[j]);
+        }
+        printf("\n\t Student %d Percentage : %f\n\n",k+1,(arr + k) -> percentage);
+
+        for (int l = 0 ; l < i; l++) {
             if (k != l) {
                 if (((arr + k) -> percentage) >= ((arr + l) -> percentage)) {
-                    i = k;
+                topper[0] = k;
                 }
             }
         }
     }
+    
+    if (i == 1) {
+        topper[0] = 0;
+    } else {
+        for (int m = 0 ; m < i ; m++) {
+            if (m != topper[0]) {
+                if (((arr + topper[0]) -> percentage) == ((arr + m) -> percentage)) {
+                    topper = (int*)realloc(topper,(cap+1)*sizeof(int));
+                    topper[cap] = m;
+                    cap++;
+                }
+            }
+        }
+    }
+    
+    if (cap > 1)    printf("\n\t Their are total %d Toppers as per the student details given : \n\n",cap);
 
-    if (i != -1) {
-        printf("\n\n\t ***** Toppers Details ***** ");
-        printf("\n\t Topper Name : %s",(arr + i) -> name);
-        printf("\n\t Topper Roll No. : %d",(arr + i) -> no);
+    for (int m = 0 ; cap != 0 ; cap--,m++) {
+        if (cap == (m+1)) printf("\n\t ***** Topper Details ***** ");
+        else  printf("\n\t ***** Topper %d Details ***** ",m+1);  
+
+        printf("\n\t Topper Name : %s",(arr + topper[m]) -> name);
+        printf("\n\t Topper Roll No. : %d",(arr + topper[m]) -> no);
         printf("\n\t Topper Subject Marks : ");
         for (int j = 0 ; j < 5 ; j++) {
-            printf("\n\t Subject %d Marks : %d",j,(arr + j) -> s_marks[j]);
+            printf("\n\t Subject %d Marks : %d",j,(arr + topper[m]) -> s_marks[j]);
         }
-        printf("\n\t Topper Percentage : %f",(arr + i) -> percentage);
-        printf("\n\t *************************** \n\n");
-    }
+        printf("\n\t Topper Percentage : %f",(arr + topper[m]) -> percentage);
+        printf("\n\t ***************************\n");
+        
+        if (cap == 1)   printf("\n");
+    } 
 
     free(arr);
     arr = NULL;
@@ -98,7 +137,7 @@ int main() {
 
 /*
     Output ->    
-                Enter the number of students : 3
+                ***** Finding Topper from the Student Details Provided ***** 
 
                 Enter Student 1 Name : Nirman Bhise
                 Enter Student Roll No. : 1
@@ -109,19 +148,10 @@ int main() {
                 Enter Subject 4 Marks : 90
                 Enter Subject 5 Marks : 87
 
-                Student Details : 
-                Student Name : Nirman Bhise
-                Student Roll No. : 1
-                Student Subject Marks : 
-                Subject 0 Marks : 78
-                Subject 1 Marks : 79
-                Subject 2 Marks : 98
-                Subject 3 Marks : 90
-                Subject 4 Marks : 87
-                Student Percentage : 86.000000
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 1
 
 
-                Enter Student 2 Name : Jyoti Dongare
+                Enter Student 2 Name : Jyoti Bedare
                 Enter Student Roll No. : 2
                 Enter Student's 5 Subject Marks (Out of 100) :
                 Enter Subject 1 Marks : 87
@@ -130,16 +160,7 @@ int main() {
                 Enter Subject 4 Marks : 90
                 Enter Subject 5 Marks : 89
 
-                Student Details : 
-                Student Name : Jyoti Dongare
-                Student Roll No. : 2
-                Student Subject Marks :
-                Subject 0 Marks : 87
-                Subject 1 Marks : 98
-                Subject 2 Marks : 97
-                Subject 3 Marks : 90
-                Subject 4 Marks : 89
-                Student Percentage : 92.000000
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 1
 
 
                 Enter Student 3 Name : Bhavesh Patil
@@ -148,31 +169,56 @@ int main() {
                 Enter Subject 1 Marks : 98
                 Enter Subject 2 Marks : 89
                 Enter Subject 3 Marks : 78
-                Enter Subject 4 Marks : 78
-                Enter Subject 5 Marks : 77
+                Enter Subject 4 Marks : 77
+                Enter Subject 5 Marks : 78
 
-                Student Details :
-                Student Name : Bhavesh Patil
-                Student Roll No. : 3
-                Student Subject Marks :
-                Subject 0 Marks : 98
-                Subject 1 Marks : 89
-                Subject 2 Marks : 78
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 0
+
+
+                All Student Details As Provided :
+
+                Student 1 Name : Nirman Bhise
+                Student 1 Roll No. : 1
+                Student 1 Subject Marks :
+                Subject 1 Marks : 78
+                Subject 2 Marks : 79
+                Subject 3 Marks : 98
+                Subject 4 Marks : 90
+                Subject 5 Marks : 87
+                Student 1 Percentage : 86.000000
+
+
+                Student 2 Name : Jyoti Bedare
+                Student 2 Roll No. : 2
+                Student 2 Subject Marks :
+                Subject 1 Marks : 87
+                Subject 2 Marks : 98
+                Subject 3 Marks : 97
+                Subject 4 Marks : 90
+                Subject 5 Marks : 89
+                Student 2 Percentage : 92.000000
+
+
+                Student 3 Name : Bhavesh Patil
+                Student 3 Roll No. : 3
+                Student 3 Subject Marks :
+                Subject 1 Marks : 98
+                Subject 2 Marks : 89
                 Subject 3 Marks : 78
                 Subject 4 Marks : 77
-                Student Percentage : 84.000000
+                Subject 5 Marks : 78
+                Student 3 Percentage : 84.000000
 
 
-
-                ***** Toppers Details *****
-                Topper Name : Jyoti Dongare
+                ***** Topper Details *****
+                Topper Name : Jyoti Bedare
                 Topper Roll No. : 2
                 Topper Subject Marks :
-                Subject 0 Marks : 98
-                Subject 1 Marks : 89
-                Subject 2 Marks : 78
-                Subject 3 Marks : 78
-                Subject 4 Marks : 77
+                Subject 0 Marks : 87
+                Subject 1 Marks : 98
+                Subject 2 Marks : 97
+                Subject 3 Marks : 90
+                Subject 4 Marks : 89
                 Topper Percentage : 92.000000
-                ***************************                            
+                ***************************                         
 */
