@@ -24,43 +24,47 @@ typedef struct Student
 
 int main() 
 {
-    int n;
-    printf("\n\tEnter the number of students : ");
-    scanf("%d", &n);    
+    int i = 0,ch;
     
-    for (int i = 0; i < n; i++)
-    {
-        Student *p = NULL;
-        p = malloc(sizeof(Student));
-        if (p == NULL) {
+    while (ch) {
+        Student *arr = NULL;
+        arr = malloc(sizeof(Student));
+        if (arr == NULL) {
             printf("\n\t Memory Allocation Failed!");
             exit(1);
         }
-        
-        printf("\n\tGive the Student %d details : \n",i+1);
-
-        printf("\n\tEnter Student Name : ");
-        getchar();
-        fgets(p -> name,20,stdin);
-        p -> name[strcspn(p -> name,"\n")] = '\0';
+               
+        printf("\n\t Give the Student %d details : \n",i+1);
+        printf("\n\t Enter Student Name : ");
+        if (i > 0)  getchar();
+        fgets(arr -> name,20,stdin);
+        arr -> name[strcspn(arr -> name,"\n")] = '\0';
     
-        printf("\tEnter Student Roll No. : ");
-        scanf("%d",&(p -> roll_no));
+        printf("\t Enter Student Roll No. : ");
+        scanf("%d",&(arr -> roll_no));
         
-        printf("\tEnter Student Division : ");
-        scanf("%s",p -> div);
+        printf("\t Enter Student Division : ");
+        scanf("%s",arr -> div);
 
-        printf("\tEnter Student Standard : ");
-        scanf("%s",p -> std);
+        printf("\t Enter Student Standard : ");
+        scanf("%s",arr -> std);
 
-        printf("\n\tStudent Name : %s", p -> name);
-        printf("\tRoll No : %d", p -> roll_no);
-        printf("\tDivision : %s", p -> div);
-        printf("\tStandard : %s\n\n", p -> std);
+        printf("\n\t Student Name : %s", arr -> name);
+        printf("\t Roll No : %d", arr -> roll_no);
+        printf("\t Division : %s", arr -> div);
+        printf("\t Standard : %s\n", arr -> std);
 
-        free(p);
-        p = NULL;
+        printf("\n\t Do you want to add more details of student ( Yes(1) / No(0) ) : ");
+        scanf("%d",&ch); 
+        printf("\n");
+
+        i++;
+
+        free(arr);
+        arr = NULL;
     }
+
+    printf("\n\t Total Number Of Student Details Entered : %d\n\n",i);
     
     return 0;
 }
@@ -68,8 +72,6 @@ int main()
 
 /*
     Output -> 
-                Enter the number of students : 3
-
                 Give the Student 1 details : 
 
                 Enter Student Name : kartik
@@ -78,6 +80,8 @@ int main()
                 Enter Student Standard : 7th
 
                 Student Name : kartik   Roll No : 1     Division : B    Standard : 7th
+
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 1
 
 
                 Give the Student 2 details : 
@@ -89,13 +93,20 @@ int main()
 
                 Student Name : chirag   Roll No : 2     Division : B    Standard : 7th
 
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 1
 
-                Give the Student 3 details :
+
+                Give the Student 3 details : 
 
                 Enter Student Name : soham
                 Enter Student Roll No. : 3
                 Enter Student Division : B
                 Enter Student Standard : 7th
 
-                Student Name : soham    Roll No : 3     Division : B    Standard : 7th                               
+                Student Name : soham    Roll No : 3     Division : B    Standard : 7th
+
+                Do you want to add more details of student ( Yes(1) / No(0) ) : 0
+
+
+                Total Number Of Student Details Entered : 3     
 */
