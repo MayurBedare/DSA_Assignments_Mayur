@@ -1,0 +1,44 @@
+    ***** Checking Full Name (First Middle Last) with first letter as capital and Invalid Name ***** 
+
+         ------------------
+         1. Check the Name 
+         2. Exit 
+         ------------------
+         Enter you choice : 1
+         ------------------
+
+         Enter the string : MaYUr GaJaNAN beDaRe
+
+         The Full Name given with / without changes including
+         first letter of each name in capital letters :
+
+         Mayur Gajanan Bedare
+
+         ------------------
+         1. Check the Name
+         2. Exit
+         ------------------
+         Enter you choice : 1
+         ------------------
+
+         Enter the string : M@Yur 5ajAN*N @e3ar#
+
+         Invalid Full Name!
+
+         ------------------
+         1. Check the Name
+         2. Exit
+         ------------------
+         Enter you choice : 1
+         ------------------
+
+         Enter the string : maYur Bedare
+
+         Enter your FULL name! FIRST MIDDLE LAST
+
+         ------------------
+         1. Check the Name
+         2. Exit
+         ------------------
+         Enter you choice : 2
+         ------------------
