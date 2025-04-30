@@ -56,6 +56,10 @@ int main() {
                 freeDCLL(last);
                 printf("\n\t Exiting by freeing the allocated memory for Doubly Circular Linked List\n\n");
                 exit(0);
+            
+            default:
+                printf("\n\t Invalid choice Entered! \n");
+                break;
         }
     }
 
