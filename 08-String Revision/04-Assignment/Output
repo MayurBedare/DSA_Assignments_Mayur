@@ -1,0 +1,49 @@
+         ***** Approach of String input for spaces ***** 
+
+         ------------------
+         1. scanf approach 
+         2. gets approach 
+         3. fgets approach 
+         4. Exit 
+         ------------------
+         Enter your choice : 1
+         ------------------
+
+         Enter the string : Mayur Bedare
+
+         The given string : Mayur 
+
+         ------------------
+         1. scanf approach
+         2. gets approach
+         3. fgets approach
+         4. Exit
+         ------------------
+         Enter your choice : 2
+         ------------------
+
+         Enter the string : Mayur Bedare
+
+         The given string : Mayur Bedare
+
+         ------------------
+         1. scanf approach
+         2. gets approach
+         3. fgets approach
+         4. Exit
+         ------------------
+         Enter your choice : 3
+         ------------------
+
+         Enter the string : Mayur Bedare
+
+         The given string : Mayur Bedare
+
+         ------------------
+         1. scanf approach
+         2. gets approach
+         3. fgets approach
+         4. Exit
+         ------------------
+         Enter your choice : 4
+         ------------------
