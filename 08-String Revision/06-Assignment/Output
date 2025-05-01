@@ -1,11 +1,13 @@
          ***** Password Checker ***** 
 
-         Set the strong password : Bedare@23AC2025
+         Set the strong password : MahindraThar#2025   
 
-         Re-enter the password   : bedare@23ac2025
+         Re-enter the password   : mahindrathar#2025
 
          Password didn't match! Please try again 
 
-         Re-enter the password   : Bedare@23AC2025
+         Do you want to attempt one more chance ( Yes(1) / No(0) ) : 1
+
+         Re-enter the password   : MahindraThar#2025
 
          Password matched!

@@ -30,6 +30,7 @@ int main() {
 
     while (1) {
         int flag = 0;
+        int ch;
 
         printf("\n\t Re-enter the password   : ");
         scanf("%s",string2);
@@ -46,7 +47,15 @@ int main() {
             break;
         } else {
             printf("\n\t Password didn't match! Please try again \n");
-            continue;
+            printf("\n\t Do you want to attempt one more chance ( Yes(1) / No(0) ) : ");
+            scanf("%d",&ch);
+            if (ch) {
+                continue;
+            } 
+            else {
+                printf("\n\t Program Executed Successfully. \n\n");
+                break;
+            }
         }
     }
 
