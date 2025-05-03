@@ -1,0 +1,33 @@
+         ***** Email-Id Checker ***** 
+
+         Enter the Email Id : mayur.3456@gmail.com
+
+         Valid Email Id 
+
+         Do you want to enter more Email Id's ( Yes(1) / No(0) ) : 1
+
+         Enter the Email Id : .mayur3456@gmail.com
+
+         Invalid Email Id! 
+
+         Do you want to enter more Email Id's ( Yes(1) / No(0) ) : 1
+
+         Enter the Email Id : may@ur.3456@gmail.com
+
+         Invalid Email Id! 
+
+         Do you want to enter more Email Id's ( Yes(1) / No(0) ) : 1
+
+         Enter the Email Id : mayur..3456@gmail.   
+
+         Invalid Email Id! 
+
+         Do you want to enter more Email Id's ( Yes(1) / No(0) ) : 1
+
+         Enter the Email Id : mayurbedare2003@gmail.com
+
+         Valid Email Id
+
+         Do you want to enter more Email Id's ( Yes(1) / No(0) ) : 0
+
+         Program Executed Successfully.
