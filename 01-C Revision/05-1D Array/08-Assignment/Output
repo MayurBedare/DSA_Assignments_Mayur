@@ -1,0 +1,105 @@
+         ***** Array Rotation - Right and Left ***** 
+
+         Note -> Enter arr[last] : -1 to exit 
+
+         Enter the elements of arr[n] one by one : 
+
+         Enter arr[0] : 5
+
+         Enter arr[1] : 6
+
+         Enter arr[2] : 7
+
+         Enter arr[3] : -1
+
+         The given arr[3] : 
+
+         |_5_|_6_|_7_|
+
+
+         Rotate array in right and left : 
+
+         Enter (r) for Right rotation or (l) for left rotation : m
+
+         Invalid Rotation Entered!
+
+
+         Rotate array in right and left : 
+
+         Enter (r) for Right rotation or (l) for left rotation : r
+
+         Enter the number of rotation : 1
+
+         Rotation of the given arr[3] : 
+
+         |_7_|_5_|_6_|
+
+
+         Do you want to perform more operations : 1
+
+         Rotate array in right and left :
+
+         Enter (r) for Right rotation or (l) for left rotation : r
+
+         Enter the number of rotation : 2
+
+         Rotation of the given arr[3] :
+
+         |_6_|_7_|_5_|
+
+
+         Do you want to perform more operations : 1
+
+         Rotate array in right and left :
+
+         Enter (r) for Right rotation or (l) for left rotation : r
+
+         Enter the number of rotation : 3
+
+         Rotation of the given arr[3] :
+
+         |_5_|_6_|_7_|
+
+
+         Do you want to perform more operations : 1
+
+         Rotate array in right and left :
+
+         Enter (r) for Right rotation or (l) for left rotation : l
+
+         Enter the number of rotation : 1
+
+         Rotation of the given arr[3] :
+
+         |_6_|_7_|_5_|
+
+
+         Do you want to perform more operations : 1
+
+         Rotate array in right and left :
+
+         Enter (r) for Right rotation or (l) for left rotation : l
+
+         Enter the number of rotation : 2
+
+         Rotation of the given arr[3] :
+
+         |_7_|_5_|_6_|
+
+
+         Do you want to perform more operations : 1
+
+         Rotate array in right and left :
+
+         Enter (r) for Right rotation or (l) for left rotation : l
+
+         Enter the number of rotation : 3
+
+         Rotation of the given arr[3] :
+
+         |_5_|_6_|_7_|
+
+
+         Do you want to perform more operations : 0
+
+         Program Exited Successfully.
