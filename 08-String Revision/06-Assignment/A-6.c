@@ -29,8 +29,7 @@ int main() {
     scanf("%s",string1);
 
     while (1) {
-        int flag = 0;
-        int ch;
+        int flag = 0,ch;
 
         printf("\n\t Re-enter the password   : ");
         scanf("%s",string2);
