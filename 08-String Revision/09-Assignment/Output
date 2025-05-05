@@ -1,0 +1,27 @@
+         ***** Strong Password Checker ***** 
+
+         Enter the password : Mayur@5643
+
+         Strong Password!
+
+         Do you want to enter more password to check ( Yes(1) / No(0) ) : 1
+
+         Enter the password : mayur5643
+
+         Missing Uppercase letter , must contains at least 1 letter!
+         Missign Special character , must contains at least 1 special character!
+
+         Weak password! 
+
+         Do you want to enter more password to check ( Yes(1) / No(0) ) : 1
+
+         Enter the password : Mayur 5643
+
+         Missign Special character , must contains at least 1 special character!
+         Contains space!
+
+         Weak password! 
+
+         Do you want to enter more password to check ( Yes(1) / No(0) ) : 0
+
+         Program Executed Successfully.
