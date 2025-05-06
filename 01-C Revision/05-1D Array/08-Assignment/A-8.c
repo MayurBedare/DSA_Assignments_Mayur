@@ -88,7 +88,7 @@ int main() {
                 continue;
             } else {
                 printf("\n\t Program Exited Successfully.\n\n");
-                break;
+                exit(0);
             }
         } else {
             printf("\n\t Invalid Rotation Entered!\n\n");
