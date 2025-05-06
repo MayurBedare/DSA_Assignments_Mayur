@@ -42,6 +42,9 @@ int main() {
         printf("\n\t The subarray with maximum sum of given arr[%d] : %d \n\n",SIZE,largest_negative);
     }
 
+    free(arr);
+    arr = NULL;
+
     return 0;   
 }
 
