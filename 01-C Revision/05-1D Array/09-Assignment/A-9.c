@@ -56,5 +56,8 @@ int main() {
 
     printf("\n\t The difference between the 1st half and 2nd half of given arr[%d] : %d \n\n",size,diff);
 
+    free(arr);
+    arr = NULL;
+
     return 0;   
 }
