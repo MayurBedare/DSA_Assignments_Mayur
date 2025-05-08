@@ -61,7 +61,7 @@ int main() {
         for (int j = 0 ; j < M1 ; j++) {
             if (j == 0) printf("\n");
             printf("\t Enter arr_1[%d][%d] : ",i,j);
-            scanf("%d",&arr1[i][j]); // scanf("%d",(arr + i + j)); also same
+            scanf("%d",&arr1[i][j]); 
         }
     }
 
