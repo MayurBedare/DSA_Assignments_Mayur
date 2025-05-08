@@ -1,0 +1,37 @@
+         ***** Transpose of 4*4 matrix ***** 
+
+         Enter the elements in an arr[4][4] : 
+
+         Enter arr[0][0] : 1
+         Enter arr[0][1] : 1
+         Enter arr[0][2] : 1
+         Enter arr[0][3] : 1
+
+         Enter arr[1][0] : 2
+         Enter arr[1][1] : 2
+         Enter arr[1][2] : 2
+         Enter arr[1][3] : 2
+
+         Enter arr[2][0] : 3
+         Enter arr[2][1] : 3
+         Enter arr[2][2] : 3
+         Enter arr[2][3] : 3
+
+         Enter arr[3][0] : 4
+         Enter arr[3][1] : 4
+         Enter arr[3][2] : 4
+         Enter arr[3][3] : 4
+
+         The given arr[4][4] :
+
+         |_1_|_1_|_1_|_1_|
+         |_2_|_2_|_2_|_2_|
+         |_3_|_3_|_3_|_3_|
+         |_4_|_4_|_4_|_4_|
+
+         Transpose of 4*4 matrix of arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
