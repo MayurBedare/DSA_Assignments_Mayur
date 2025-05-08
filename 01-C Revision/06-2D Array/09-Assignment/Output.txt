@@ -1,0 +1,245 @@
+         ***** N times 90 Degree Left / Right Rotation on 2D arr[n][m] ***** 
+
+         Enter the no. of rows and columns of array / matrix : 4 4
+
+         Enter the elements in an arr[4][4] : 
+
+         Enter arr[0][0] : 1
+         Enter arr[0][1] : 2
+         Enter arr[0][2] : 3
+         Enter arr[0][3] : 4
+
+         Enter arr[1][0] : 1
+         Enter arr[1][1] : 2
+         Enter arr[1][2] : 3
+         Enter arr[1][3] : 4
+
+         Enter arr[2][0] : 1
+         Enter arr[2][1] : 2
+         Enter arr[2][2] : 3
+         Enter arr[2][3] : 4
+
+         Enter arr[3][0] : 1
+         Enter arr[3][1] : 2
+         Enter arr[3][2] : 3
+         Enter arr[3][3] : 4
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation 
+         2. N times 90 Degree Right Rotation 
+         3. Exit 
+         ----------------------------------------
+         Enter your choice : 1
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 1
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 1 times ie. 90 Degree Left :
+
+         |_4_|_4_|_4_|_4_|
+         |_3_|_3_|_3_|_3_|
+         |_2_|_2_|_2_|_2_|
+         |_1_|_1_|_1_|_1_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 1
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 2
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 2 times ie. 180 Degree Left :
+
+         |_4_|_3_|_2_|_1_|
+         |_4_|_3_|_2_|_1_|
+         |_4_|_3_|_2_|_1_|
+         |_4_|_3_|_2_|_1_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 1
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 3
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 3 times ie. 270 Degree Left :
+
+         |_1_|_1_|_1_|_1_|
+         |_2_|_2_|_2_|_2_|
+         |_3_|_3_|_3_|_3_|
+         |_4_|_4_|_4_|_4_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 1
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 4
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 4 times ie. 360 Degree Left :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 2
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 1
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 1 times ie. 90 Degree Right :
+
+         |_1_|_1_|_1_|_1_|
+         |_2_|_2_|_2_|_2_|
+         |_3_|_3_|_3_|_3_|
+         |_4_|_4_|_4_|_4_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 2
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 2
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 2 times ie. 180 Degree Right :
+
+         |_4_|_3_|_2_|_1_|
+         |_4_|_3_|_2_|_1_|
+         |_4_|_3_|_2_|_1_|
+         |_4_|_3_|_2_|_1_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 2
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 3
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 3 times ie. 270 Degree Right :
+
+         |_4_|_4_|_4_|_4_|
+         |_3_|_3_|_3_|_3_|
+         |_2_|_2_|_2_|_2_|
+         |_1_|_1_|_1_|_1_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 2
+         ---------------------------------------- 
+
+         Enter the no. of times to rotate the given arr[4][4] : 4
+
+         The given arr[4][4] :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+
+         After rotating the given arr[4][4] 4 times ie. 360 Degree Right :
+
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+         |_1_|_2_|_3_|_4_|
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 4
+         ---------------------------------------- 
+
+         Invalid Choice Entered!
+
+         ----------------------------------------
+         1. N times 90 Degree Left Rotation
+         2. N times 90 Degree Right Rotation
+         3. Exit
+         ----------------------------------------
+         Enter your choice : 3
+         ---------------------------------------- 
+
+         Program Exited Successfully!
