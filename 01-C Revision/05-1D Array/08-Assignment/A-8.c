@@ -59,7 +59,7 @@ int main() {
         scanf(" %c",&rotate); // Note : before these scanf input buffer contains \n then to remove that we can use scanf(" %c"); which works same as getchar();
 
         if (rotate == 'r' || rotate == 'l') {
-            printf("\n\t Enter the number of rotation : ");
+            printf("\n\t Enter the no. of times to Rotate the given arr[%d] : ",i);
             scanf("%d",&n);
             if (rotate == 'r') {
                 for (int i = 0 ; i < size ; i++) {

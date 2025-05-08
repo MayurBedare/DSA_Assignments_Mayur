@@ -28,7 +28,7 @@
 
          Enter (r) for Right rotation or (l) for left rotation : r
 
-         Enter the number of rotation : 1
+         Enter the no. of times to Rotate the given arr[3] : 1
 
          Rotation of the given arr[3] : 
 
@@ -41,7 +41,7 @@
 
          Enter (r) for Right rotation or (l) for left rotation : r
 
-         Enter the number of rotation : 2
+         Enter the no. of times to Rotate the given arr[3] : 2
 
          Rotation of the given arr[3] :
 
@@ -54,7 +54,7 @@
 
          Enter (r) for Right rotation or (l) for left rotation : r
 
-         Enter the number of rotation : 3
+         Enter the no. of times to Rotate the given arr[3] : 3
 
          Rotation of the given arr[3] :
 
@@ -67,7 +67,7 @@
 
          Enter (r) for Right rotation or (l) for left rotation : l
 
-         Enter the number of rotation : 1
+         Enter the no. of times to Rotate the given arr[3] : 1
 
          Rotation of the given arr[3] :
 
@@ -80,7 +80,7 @@
 
          Enter (r) for Right rotation or (l) for left rotation : l
 
-         Enter the number of rotation : 2
+         Enter the no. of times to Rotate the given arr[3] : 2
 
          Rotation of the given arr[3] :
 
@@ -93,7 +93,7 @@
 
          Enter (r) for Right rotation or (l) for left rotation : l
 
-         Enter the number of rotation : 3
+         Enter the no. of times to Rotate the given arr[3] : 3
 
          Rotation of the given arr[3] :
 
