@@ -1,0 +1,72 @@
+         ***** Checking the Magic Square Matrix of 3*3 ***** 
+
+         -------------------------------------------
+         1. Check the matrix is magic square or not 
+         2. Exit 
+         -------------------------------------------
+         Enter your choice : 1
+         ------------------------------------------- 
+
+         Enter the elements in an arr[3][3] : 
+
+         Enter arr[0][0] : 1
+         Enter arr[0][1] : 2
+         Enter arr[0][2] : 3
+
+         Enter arr[1][0] : 4
+         Enter arr[1][1] : 5
+         Enter arr[1][2] : 6
+
+         Enter arr[2][0] : 7
+         Enter arr[2][1] : 8
+         Enter arr[2][2] : 9
+
+         The given arr[3][3] : 
+
+         |_1_|_2_|_3_|
+         |_4_|_5_|_6_|
+         |_7_|_8_|_9_|
+
+         The given arr[3][3] is not a Square Matrix! 
+
+         | The sum of all rows , all columns and both diagonals is not same | 
+
+         -------------------------------------------
+         1. Check the matrix is magic square or not
+         2. Exit
+         -------------------------------------------
+         Enter your choice : 1
+         ------------------------------------------- 
+
+         Enter the elements in an arr[3][3] :
+
+         Enter arr[0][0] : 8
+         Enter arr[0][1] : 1
+         Enter arr[0][2] : 6
+
+         Enter arr[1][0] : 3
+         Enter arr[1][1] : 5
+         Enter arr[1][2] : 7
+
+         Enter arr[2][0] : 4
+         Enter arr[2][1] : 9
+         Enter arr[2][2] : 2
+
+         The given arr[3][3] :
+
+         |_8_|_1_|_6_|
+         |_3_|_5_|_7_|
+         |_4_|_9_|_2_|
+
+         The given arr[3][3] is a Square Matrix.
+
+         | The sum of all rows , all columns and both diagonals : 15 |
+
+         -------------------------------------------
+         1. Check the matrix is magic square or not
+         2. Exit
+         -------------------------------------------
+         Enter your choice : 2
+         ------------------------------------------- 
+
+         Program Exited Successfully!
