@@ -55,7 +55,7 @@ int main() {
         for (int j = 0 ; j < M ; j++) {
             if (j == 0) printf("\n");
             printf("\t Enter arr[%d][%d] : ",i,j);
-            scanf("%d",&arr[i][j]); // scanf("%d",(arr + i + j)); also same
+            scanf("%d",&arr[i][j]); // scanf("%d",*(arr + i) + j); also same scanf("%d",arr[i]+j);
         }
     }
 
