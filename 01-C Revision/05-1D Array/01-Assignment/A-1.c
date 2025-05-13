@@ -14,7 +14,7 @@
 
 int main() {
     int *arr = NULL;
-    arr = malloc(SIZE*sizeof(int));
+    arr = (int*)malloc(SIZE*sizeof(int));
     if (arr == NULL) {
         printf("\n\t Memory Allocation Failed!\n\n");
         exit(1);
@@ -22,7 +22,7 @@ int main() {
 
     int size = 0,flag = 1;
     int **freq = NULL;
-    freq = malloc(sizeof(int*));
+    freq = (int**)malloc(sizeof(int*));
     if (freq == NULL) {
         printf("\n\t Memory Allocation Failed!\n\n");
         exit(1);
