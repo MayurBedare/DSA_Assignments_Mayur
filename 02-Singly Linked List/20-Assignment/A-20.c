@@ -41,7 +41,12 @@ SLLNode* recursiveCreateSLL(SLLNode *head, SLLNode *last, int *cnt) {
 
     SLLNode *nw = NULL;
     
-    nw = malloc(sizeof(SLLNode));
+    nw = (SLLNode*)malloc(sizeof(SLLNode));
+    if (nw == NULL)
+    {
+        printf("\n\t Memory Allocation Failed! \n\n");
+        exit(1);
+    }
     
     printf("\n\tEnter Number and Name : ");
     scanf("%d %s", &(nw -> number), nw -> name);
@@ -71,11 +76,13 @@ void displaySLL(SLLNode *d) {
 }
 
 void freeSLL(SLLNode *f) {
+    SLLNode *t = NULL;
 
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
-    f = NULL;
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
 
 /*
