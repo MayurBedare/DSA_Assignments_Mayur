@@ -32,6 +32,7 @@ int main() {
     displaySLL(head);
 
     freeSLL(head);
+    head = NULL;
         
     return 0;
 }
@@ -47,10 +48,11 @@ Student* createSLL() {
     {
         printf("\n\tGive Student %d details : ",i);
 
-        nw = malloc(sizeof(Student));
+        nw = (Student*)malloc(sizeof(Student));
         if (nw == NULL)
         {
-        printf("Memory Allocation Failed!");
+            printf("Memory Allocation Failed!");
+            exit(1);
         }
 
         printf("\n\tEnter Student name : ");
@@ -90,10 +92,13 @@ void displaySLL(Student *d) {
 }
 
 void freeSLL(Student *f) {
-
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
+    Student *t = NULL;
+    
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
 
 /*
