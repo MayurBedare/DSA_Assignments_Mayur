@@ -9,13 +9,13 @@
 
 int main()
 {
-    int *x_i;
-    char *x_c;
-    float *x_f;
+    int *x_i = NULL;
+    char *x_c = NULL;
+    float *x_f = NULL;
     
-    x_i = malloc(sizeof(int));
-    x_c = malloc(sizeof(char));
-    x_f = malloc(sizeof(float));
+    x_i = (int*)malloc(sizeof(int));
+    x_c = (char*)malloc(sizeof(char));
+    x_f = (float*)malloc(sizeof(float));
 
     if (x_i == NULL) {
         printf("\n\tMemory allocation failed for integer variable");
