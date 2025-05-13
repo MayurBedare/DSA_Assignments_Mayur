@@ -21,7 +21,7 @@ typedef struct Employee
 
 int main() {
 
-    Emp *p = malloc(sizeof(Emp));
+    Emp *p = (Emp*)malloc(sizeof(Emp));
     if (p == NULL) {
         printf("\n\t Memory Allocation Failed!");
         exit(1);
