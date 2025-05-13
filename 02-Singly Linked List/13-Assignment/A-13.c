@@ -2,11 +2,6 @@
     A-13 -> write a c program to Create a Singly linked list and Delete the node depending on user input key/value
 */
 
-/* 
-    Input -> |_Head_| --> |_1_|_AA_|_00B31388_| --> |_2_|_BB_|_00B313B0_| --> |_3_|_CC_|_00000000_| 
-    key/value = 2 BB              
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -23,26 +18,53 @@ void displaySLL(SLLNode*);
 void freeSLL(SLLNode*);
 SLLNode* keyNodeDeletion(SLLNode*);
 
-int main() {
-    
+int main() { 
     SLLNode *head = NULL;
+
+    printf("\n\t ***** Delete a node at the given key/value : Singly Linked List ***** \n");
+
+    printf("\n\t --------------------------------------------------------------");
+    printf("\n\t Create a linked list to delete a node at the given key/value : \n");
+    printf("\t -------------------------------------------------------------- \n");
 
     head = createSLL();
 
-    printf("\n\tLinked List : ");
+    printf("\n\t -------------------------------------------------------------- \n");
+    printf("\n\t Linked List : ");
     displaySLL(head);
-
-    head = keyNodeDeletion(head);
-
-    if( head != NULL) {
-    printf("\n\tLinked List after Deletion of node at Given position : ");
-    displaySLL(head);
-    }
-
-    freeSLL(head);
-
-    return 0;
     
+    while (1) {
+        int ch; 
+        printf("\n\t --------------------------------------- ");
+        printf("\n\t 1. Delete a node at the given key/value ");
+        printf("\n\t 2. Exit ");
+        printf("\n\t --------------------------------------- ");
+        printf("\n\t Enter your choice : ");
+        scanf("%d",&ch);
+        printf("\t --------------------------------------- \n");
+        
+        switch (ch) {
+            case 1:
+                if (head == NULL) {
+                    printf("\n\t Linked list is empty! \n\n");
+                    exit(1);
+                }
+                head = keyNodeDeletion(head);
+
+                break;
+            
+            case 2:
+                freeSLL(head);
+                head = NULL;
+                printf("\n\t Program Exited Successfully. \n\n");
+                exit(0);
+
+            default: 
+                printf("\n\t Invalid Choice Entered! \n");
+                break;
+        }
+    }
+    return 0;
 }
 
 SLLNode* createSLL() {
@@ -54,9 +76,14 @@ SLLNode* createSLL() {
 
     do
     {
-        nw = malloc(sizeof(SLLNode));
+        nw = (SLLNode*)malloc(sizeof(SLLNode));
+        if (nw == NULL)
+        {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = NULL;
@@ -68,7 +95,7 @@ SLLNode* createSLL() {
         
         last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -76,40 +103,47 @@ SLLNode* createSLL() {
 
 }
 
-SLLNode* keyNodeDeletion(SLLNode * head) {
+SLLNode* keyNodeDeletion(SLLNode *head) {
 
-    SLLNode *del = NULL,*temp = NULL, *prev;
-    temp = malloc(sizeof(SLLNode));
-    del = head;
+    SLLNode *del = NULL,*temp = NULL,*t = NULL, *prev;
+    temp = (SLLNode*)malloc(sizeof(SLLNode));
+    if (temp == NULL)
+    {
+        printf("\n\t Memory Allocation Failed! \n\n");
+        exit(1);
+    }
 
-    int pos;
-    printf("\n\tEnter key/value ie Node's name and number Eg. 1 AA : ");
+    int pos,flag = 0;
+    printf("\n\t Enter key/value ie Node's name and number Eg. 1 AA : ");
     scanf("%d %s", &(temp -> number), temp -> name);
     
+    if (head -> next == NULL && temp -> number != del -> number && (strcmp(temp -> name, del -> name))) {
+        free(head);
+        return NULL;
+    }
+
+    for (del = head,prev = del ; temp -> number != del -> number && (strcmp(temp -> name, del -> name)) && del -> next != NULL ; prev = del, del = del -> next);
+
     if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
-        head = del -> next;
-    } else {
-
-        for ( ; del != NULL ; prev = del, del = del -> next) {
-            printf("%d,%s",temp-> number, temp ->name);
-            printf("%d,%s",del-> number, del ->name);
-            if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
-                if (del -> next !=  NULL) {
-                    temp = del -> next;
-                    prev -> next -> next = del -> next;
-                    free(temp);
-                    temp = NULL;
-                } else {
-                    prev -> next = NULL;
-                }
-            } else {
-                printf("\n\tKey Not Found!\n\n");
-                exit(0);
-            }
-
+        if (del -> next !=  NULL) {
+            if (del == head)    head = head -> next;
+            else    prev -> next = del -> next;
+            free(del);
+            del = NULL;
+        } else {
+            prev -> next = NULL;
+            free(del);
+            del = NULL;
         }
 
+        printf("\n\t Linked list after Deletion of node at the given position : ");
+        displaySLL(head);
+    } else {
+        printf("\n\t Invalid key/value Entered! \n");
     }
+
+    free(temp);
+    temp = NULL;
 
     return head;
 
@@ -117,65 +151,20 @@ SLLNode* keyNodeDeletion(SLLNode * head) {
 
 void displaySLL(SLLNode *d) {
 
-    printf("\n\n|_Head_| ");
+    printf("\n\n\t |_Head_| ");
     for ( ; d != NULL ; d = d -> next )
         printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
 void freeSLL(SLLNode *f) {
+    SLLNode *t = NULL;
 
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
-    f = NULL;
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
-
-/*
-    Output ->      
-                    Enter Number and Name : 1 AA
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1 
-
-                    Enter Number and Name : 3 CC
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    Linked List : 
-
-            |_Head_| --> |_1_|_AA_|_00B31388_| --> |_2_|_BB_|_00B313B0_| --> |_3_|_CC_|_00000000_| 
-
-
-                    Enter key/value ie Node's name and number Eg. 1 AA : 2 BB
-
-                    Linked List after Deletion of node at Given position : 
-
-            |_Head_| --> |_1_|_AA_|_00B313B0_| --> |_3_|_CC_|_00000000_|
-*/
-
-/*
-    Key/value = 1 AA (Head Position) :
-
-        Linked List : 
-
-    |_Head_| --> |_2_|_BB_|_00B313B0_| --> |_3_|_CC_|_00000000_|  
-*/
-
-/*
-    Key/value = 2 BB (Middle Position) :
-
-        Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_00B313B0_| --> |_3_|_CC_|_00000000_| 
-*/
-
-/*
-    Key/value = 3 CC (End Position) :
-
-        Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_00B31388_| --> |_2_|_BB_|_00000000_|  
-*/
