@@ -66,14 +66,15 @@ int main() {
             break;
         
         case 6:
-            return 0;
+            freeSLL(head);
+            head = NULL;
+            printf("\n\t Program Exited Successfully. \n\n");
+            exit(0);
 
         default:
             printf("\n\t Invalid choice! Please try again.");
         }
     }
-
-    freeSLL(head);
 
     return 0;
     
@@ -88,7 +89,12 @@ SLLNode* create() {
 
     do
     {
-        nw = malloc(sizeof(SLLNode));
+        nw = (SLLNode*)malloc(sizeof(SLLNode));
+        if (nw == NULL)
+        {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -119,10 +125,11 @@ SLLNode* insert(SLLNode *head) {
     printf("\n\tEnter the position of node to insert : ");
     scanf("%d", &pos);
 
-    nw = malloc(sizeof(SLLNode));
+    nw = (SLLNode*)malloc(sizeof(SLLNode));
     if (nw == NULL)
     {
-        printf("\n\tMemory Allocation Failed!");
+        printf("\n\t Memory Allocation Failed! \n\n");
+        exit(1);
     }
     
     printf("\n\tEnter the number and name of new inserted node at Given position : ");
@@ -225,11 +232,13 @@ void print(SLLNode *d) {
 }
 
 void freeSLL(SLLNode *f) {
+    SLLNode *t = NULL;
 
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
-    f = NULL;
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
 
 /*
