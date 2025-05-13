@@ -50,7 +50,12 @@ SLLNode* createSLL() {
 
     do
     {
-        nw = malloc(sizeof(SLLNode));
+        nw = (SLLNode*)malloc(sizeof(SLLNode));
+        if (nw == NULL)
+        {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -76,12 +81,6 @@ void reverse(SLLNode *head) {
 
     SLLNode *p1 = NULL, *p2 = NULL, *temp = NULL;
     p1 = head;
-    
-    if (p1 -> next == NULL) {
-        printf("\n\t Displaying of linked list in reverse order not possible!");
-        printf("\n\n");
-        return;
-    }
     
     printf("\n\t Display of linked list elements in reverse order : ");
     printf("\n\t ------");
