@@ -2,11 +2,6 @@
     A-8 ->  write a c program to Create a Singly linked list and Insert a node in the given position.
 */
 
-/* 
-    Input -> |_Head_| --> |_1_|_AA_|_00D40D40_| --> |_2_|_BB_|_00000000_| 
-    position = 3             
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -23,23 +18,47 @@ void freeSLL(SLLNode*);
 SLLNode* positionNodeInsertion(SLLNode*);
 
 int main() {
-    
     SLLNode *head = NULL;
+
+    printf("\n\t ***** Insert a node at the given position : Singly Linked List ***** \n");
+
+    printf("\n\t -------------------------------------------------------------");
+    printf("\n\t Create a linked list to insert a node at the given position : \n");
+    printf("\t ------------------------------------------------------------- \n");
 
     head = createSLL();
 
-    printf("\n\tLinked List : ");
+    printf("\n\t ------------------------------------------------------------- \n");
+    printf("\n\t Linked List : ");
     displaySLL(head);
-
-    head = positionNodeInsertion(head);
-
-    printf("\n\tLinked list after Insertion of node at given position : ");
-    displaySLL(head);
-
-    freeSLL(head);
-
-    return 0;
     
+    while (1) {
+        int ch; 
+        printf("\n\t --------------------------------------");
+        printf("\n\t 1. Insert a node at the given position ");
+        printf("\n\t 2. Exit ");
+        printf("\n\t --------------------------------------");
+        printf("\n\t Enter your choice : ");
+        scanf("%d",&ch);
+        printf("\t -------------------------------------- \n");
+        
+        switch (ch) {
+            case 1:
+                head = positionNodeInsertion(head);
+                break;
+            
+            case 2:
+                freeSLL(head);
+                head = NULL;
+                printf("\n\t Program Exited Successfully. \n\n");
+                exit(0);
+
+            default: 
+                printf("\n\t Invalid Choice Entered! \n");
+                break;
+        }
+    }
+    return 0;
 }
 
 SLLNode* createSLL() {
@@ -51,9 +70,14 @@ SLLNode* createSLL() {
 
     do
     {
-        nw = malloc(sizeof(SLLNode));
+        nw = (SLLNode*)malloc(sizeof(SLLNode));
+        if (nw == NULL)
+        {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = NULL;
@@ -65,7 +89,7 @@ SLLNode* createSLL() {
         
         last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -79,16 +103,16 @@ SLLNode* positionNodeInsertion(SLLNode *head) {
     p = head;
 
     int pos;
-    printf("\n\tEnter the position of node to insert : ");
+    printf("\n\t Enter the position of node to insert : ");
     scanf("%d", &pos);
 
-    nw = malloc(sizeof(SLLNode));
+    nw = (SLLNode*)malloc(sizeof(SLLNode));
     if (nw == NULL)
     {
-        printf("\n\tMemory Allocation Failed!");
+        printf("\n\t Memory Allocation Failed!");
     }
     
-    printf("\n\tEnter the number and name of new inserted node at Given position : ");
+    printf("\n\t Enter the number and name of new inserted node at Given position : ");
     scanf("%d %s", &(nw -> number), nw -> name);
 
     if (pos == 1) {
@@ -101,10 +125,13 @@ SLLNode* positionNodeInsertion(SLLNode *head) {
             nw -> next = p -> next;
             p -> next = nw;
         } else {
-            printf("\n\tInvalid Position Entered!\n\n");
-            free(p);
-            exit(0);
+            printf("\n\t Invalid Position Entered! \n");
         }
+    }
+
+    if (p != NULL) {
+        printf("\n\t Linked list after Insertion of node at given position : ");
+        displaySLL(head);
     }
 
     return head;
@@ -113,64 +140,20 @@ SLLNode* positionNodeInsertion(SLLNode *head) {
 
 void displaySLL(SLLNode *d) {
 
-    printf("\n\n|_Head_| ");
+    printf("\n\n\t |_Head_| ");
     for ( ; d != NULL ; d = d -> next )
         printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
 void freeSLL(SLLNode *f) {
+    SLLNode *t = NULL;
 
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
-    f = NULL;
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
-
-/*
-    Output ->                         
-                    Enter Number and Name : 1 AA
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    Linked List :
-
-            |_Head_| --> |_1_|_AA_|_00D40D40_| --> |_2_|_BB_|_00000000_|
-
-
-                    Enter the position of node to insert : 3
-
-                    Enter the number and name of new inserted node at Given position : 5 MM
-
-                    Linked list after Insertion of node at given position :
-
-            |_Head_| --> |_1_|_AA_|_00D40D40_| --> |_2_|_BB_|_00D40D68_| --> |_5_|_MM_|_00000000_|
-*/
-
-/*
-    Position = 1 (Head Position) :
-
-        Linked List : 
-
-    |_Head_| --> |_5_|_MM_|_00B22F98_| --> |_1_|_AA_|_00B20D40_| --> |_2_|_BB_|_00000000_| 
-*/
-
-/*
-    Position = 2 (Middle Position) :
-
-        Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_00B90D68_| --> |_5_|_MM_|_00B90D40_| --> |_2_|_BB_|_00000000_|
-*/
-
-/*
-    Position = 3 (End Position) :
-
-        Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_00D40D40_| --> |_2_|_BB_|_00D40D68_| --> |_5_|_MM_|_00000000_|
-*/
