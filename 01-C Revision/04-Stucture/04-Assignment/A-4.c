@@ -23,7 +23,7 @@ int main() {
     while (ch) {
         printf("\n\t Item %d ",++i);
         
-        I *nw = malloc(sizeof(I));
+        I *nw = (I*)malloc(sizeof(I));
         if(nw == NULL) {
             printf("\n\t Memory Allocation Failed!");
             exit(1);
