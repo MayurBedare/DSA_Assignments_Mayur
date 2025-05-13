@@ -36,6 +36,7 @@ int main() {
     displaySLL(head);
 
     freeSLL(head);
+    head = NULL;
 
     return 0;
     
@@ -51,6 +52,11 @@ SLLNode* createSLL() {
     do
     {
         nw = (SLLNode*)malloc(sizeof(SLLNode));
+        if (nw == NULL)
+        {
+            printf("Memory Allocation Failed!");
+            exit(1);
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -103,11 +109,13 @@ void displaySLL(SLLNode *d) {
 }
 
 void freeSLL(SLLNode *f) {
+    SLLNode *t = NULL;
 
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
-    f = NULL;
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
 
 /*
