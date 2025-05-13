@@ -26,7 +26,7 @@ typedef struct Students
 int main() {
     int i = 0,ch,size = 2;
     S *arr = NULL;
-    arr = malloc(sizeof(S));
+    arr = (S*)malloc(sizeof(S));
     if (arr == NULL) {
         printf("\n\t Memory Allocation Failed!");
         exit(1);
@@ -72,7 +72,7 @@ int main() {
     int cap = 1;
 
     int *topper = NULL;
-    topper = malloc(sizeof(int));
+    topper = (int*)malloc(sizeof(int));
     if (topper == NULL) {
         printf("\n\t Memory Allocation Failed!");
         exit(1);
@@ -131,6 +131,9 @@ int main() {
 
     free(arr);
     arr = NULL;
+
+    free(topper);
+    topper = NULL;
 
     return 0;   
 }
