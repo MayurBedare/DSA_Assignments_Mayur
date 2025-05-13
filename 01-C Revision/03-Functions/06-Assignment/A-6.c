@@ -29,7 +29,7 @@ int main()
 {
     int i = 0,ch,size = 2;
     Student *arr = NULL;
-    arr = malloc(sizeof(Student));
+    arr = (Student*)malloc(sizeof(Student));
     if (arr == NULL) {
         printf("\n\t Memory Allocation Failed!");
         exit(1);
