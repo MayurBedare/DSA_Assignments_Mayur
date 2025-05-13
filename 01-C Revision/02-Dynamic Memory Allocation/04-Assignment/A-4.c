@@ -23,7 +23,7 @@ typedef struct Student
 int main() 
 {
     Student *p = NULL;
-    p = malloc(sizeof(Student));
+    p = (Student*)malloc(sizeof(Student));
     if (p == NULL) {
         printf("Memory Allocation Failed!");
         exit(1);
