@@ -13,9 +13,9 @@
 #include<stdlib.h>
 
 int main() {
-    int *p;
+    int *p = NULL;
     int sum = 0;
-    p = malloc(sizeof(int)*5);
+    p = (int*)malloc(sizeof(int)*5);
     if (p == NULL)
     {
         printf("\n\tMemory is not Allocated!");
