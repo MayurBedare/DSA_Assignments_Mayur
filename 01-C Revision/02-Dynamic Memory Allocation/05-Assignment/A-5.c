@@ -28,7 +28,7 @@ int main()
     
     while (ch) {
         Student *arr = NULL;
-        arr = malloc(sizeof(Student));
+        arr = (Student*)malloc(sizeof(Student));
         if (arr == NULL) {
             printf("\n\t Memory Allocation Failed!");
             exit(1);
