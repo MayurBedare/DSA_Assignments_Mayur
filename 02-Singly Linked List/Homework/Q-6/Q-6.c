@@ -36,7 +36,7 @@ void printMiddleNode(Node* head)
         slow = slow -> next;
     }
 
-    printf("\nMiddle Node : |_%d_|_%s_|_%u_| ", slow -> number, slow -> name, slow -> next);
+    printf("\nMiddle Node : |_%d_|_%s_|_%p_| ", slow -> number, slow -> name, slow -> next);
     
 }
 
