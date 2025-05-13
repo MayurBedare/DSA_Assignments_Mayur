@@ -27,16 +27,15 @@ int main() {
     
     DLLNode *head = NULL;
 
+    printf("\n\t ***** Doubly Linked List Sortring : While creation ***** \n");
+
     head = createDLL();
 
-    printf("\n\t Doubly Linked List : ");
-    displayDLL(head);
-    
-    head = sortDLL(head);
-    printf("\n\t Doubly Linked List after sorting : ");
+    printf("\n\t Doubly Linked List after sorting while creation : ");
     displayDLL(head);
     
     freeDLL(head);
+    head = NULL;
 
     return 0;
     
@@ -51,25 +50,51 @@ DLLNode* createDLL() {
 
     do
     {
-        nw = malloc(sizeof(DLLNode));
+        nw = (DLLNode*)malloc(sizeof(DLLNode));
+        if (nw == NULL)
+        {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = NULL;
+        nw -> prev = NULL;
 
         if (head == NULL) {
             head = nw;
-            nw -> prev = NULL;
+            last = nw;
         }
         else {
-            last -> next = nw;
-            nw -> prev = last;
+            int flag = 0;
+            for (DLLNode *p = head ; p != NULL ; p = p -> next) {
+                if (p -> number > nw -> number) {
+                    flag = 1;
+                    if (p == head) {
+                        p -> prev = nw;
+                        nw -> next = p;
+                        last = p;
+                        head = nw;
+                    } else {
+                        p -> prev -> next = nw;
+                        nw -> prev = p -> prev;
+                        nw -> next = p;
+                        p -> prev = nw;
+                    }
+                    break;
+                }
+            }
+            
+            if (flag == 0) {
+                last -> next = nw;
+                nw -> prev = last;
+                last = nw;
+            }
         }
-        
-        last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -77,31 +102,9 @@ DLLNode* createDLL() {
 
 }
 
-DLLNode* sortDLL(DLLNode *head) {
-
-    DLLNode *p1 = NULL, *p2 = NULL;
-    DLLNode t;
-    for (p1 = head ; p1 != NULL ; p1 = p1 -> next) {
-        for (p2 = p1 -> next ; p2 != NULL ; p2 = p2 -> next) {
-            if (p1 -> number > p2 -> number) {
-                t.number = p1 -> number;
-                p1 -> number = p2 -> number;
-                p2 -> number = t.number;
-
-                strcpy(t.name,p1 -> name);
-                strcpy(p1 -> name,p2 -> name);
-                strcpy(p2 -> name,p1 -> name);
-            }
-        }
-    }
-
-    return head;
-
-}
-
 void displayDLL(DLLNode *d) {
 
-    printf("\n\n|_Head_| ");
+    printf("\n\n\t |_Head_| ");
     for ( ; d != NULL ; d = d -> next )
         printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
 
@@ -110,11 +113,13 @@ void displayDLL(DLLNode *d) {
 }
 
 void freeDLL(DLLNode *f) {
+    DLLNode *t = NULL;
 
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
-    f = NULL;
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
 
 /*
