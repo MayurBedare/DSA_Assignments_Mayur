@@ -29,6 +29,7 @@ int main()
     if (nw == NULL)
     {
         printf("Memory Allocation Failed!");
+        exit(1);
     }
     
 
@@ -44,6 +45,7 @@ int main()
     printf("\n\tnw --> |_%s_|_%d_|_%s_|_%s_|",nw -> std_name, nw -> std_rollNo, nw -> std_standard, nw -> std_div);
 
     free(nw);
+    nw = NULL;
     
     return 0;
 }
