@@ -2,10 +2,6 @@
     A-13 -> write a c program to Create a doubly linked list and Sort the doubly linked list while creation.
 */
 
-/* 
-    Input -> |_Head_| <--> |_00000000_|_4_|_d_|_00871388_| <--> |_00872FC0_|_3_|_c_|_008713B0_| <--> |_00871388_|_2_|_b_|_008713D8_| <--> |_008713B0_|_1_|_a_|_00000000_|                            
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -122,26 +118,3 @@ void freeDLL(DLLNode *f) {
     }
 }
 
-/*
-    Output ->
-                Enter Number and Name : 4 d
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 3 c
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 b
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 1 a
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    Doubly Linked List :
-
-            |_Head_| <--> |_00000000_|_4_|_d_|_00871388_| <--> |_00872FC0_|_3_|_c_|_008713B0_| <--> |_00871388_|_2_|_b_|_008713D8_| <--> |_008713B0_|_1_|_a_|_00000000_|       
-
-
-                    Doubly Linked List after sorting :
-
-            |_Head_| <--> |_00000000_|_1_|_a_|_00871388_| <--> |_00872FC0_|_2_|_a_|_008713B0_| <--> |_00871388_|_3_|_a_|_008713D8_| <--> |_008713B0_|_4_|_a_|_00000000_|       
-*/
