@@ -14,10 +14,10 @@
 
 int main()
 {
-    char *text_string;
+    char *text_string = NULL;
 
     //Memory created
-    text_string = malloc(sizeof(char)*50);
+    text_string = (char*)malloc(sizeof(char)*50);
     if (text_string == NULL)
     {
         printf("\n\tMemory Allocated Failed!");
