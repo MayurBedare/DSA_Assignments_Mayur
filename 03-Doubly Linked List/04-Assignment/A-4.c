@@ -52,7 +52,12 @@ DLLNode* createDLL() {
 
     do
     {
-        nw = malloc(sizeof(DLLNode));
+        nw = (DLLNode*)malloc(sizeof(DLLNode));
+        if (nw == NULL)
+        {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -87,7 +92,7 @@ DLLNode* insertPosition(DLLNode *head) {
     printf("\n\tEnter the position of node to insert : ");
     scanf("%d", &pos);
 
-    nw = malloc(sizeof(DLLNode));
+    nw = (DLLNode*)malloc(sizeof(DLLNode));
     if (nw == NULL)
     {
         printf("\n\tMemory Allocation Failed!");
@@ -133,11 +138,13 @@ void displayDLL(DLLNode *d) {
 }
 
 void freeDLL(DLLNode *f) {
+    DLLNode *t = NULL;
 
-    for( ; f != NULL ; f = f -> next)
-        free(f);
-
-    f = NULL;
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
 
 /*
