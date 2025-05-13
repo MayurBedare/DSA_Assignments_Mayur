@@ -117,29 +117,33 @@ SLLNode* keyNodeDeletion(SLLNode *head) {
     printf("\n\t Enter key/value ie Node's name and number Eg. 1 AA : ");
     scanf("%d %s", &(temp -> number), temp -> name);
     
-    if (head -> next == NULL && temp -> number != del -> number && (strcmp(temp -> name, del -> name))) {
+    if (head -> next == NULL && temp -> number == head -> number && !(strcmp(temp -> name, head -> name))) {
+        flag = 1;
         free(head);
-        return NULL;
+        head = NULL;
+    } else {
+        for (del = head,prev = del ; temp -> number != del -> number && (strcmp(temp -> name, del -> name)) && del -> next != NULL ; prev = del, del = del -> next);
+
+        if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
+            flag = 1;
+            if (del -> next !=  NULL) {
+                if (del == head)    head = head -> next;
+                else    prev -> next = del -> next;
+                free(del);
+                del = NULL;
+            } else {
+                prev -> next = NULL;
+                free(del);
+                del = NULL;
+            }
+        } else {
+            printf("\n\t Invalid key/value Entered! \n");
+        }
     }
 
-    for (del = head,prev = del ; temp -> number != del -> number && (strcmp(temp -> name, del -> name)) && del -> next != NULL ; prev = del, del = del -> next);
-
-    if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
-        if (del -> next !=  NULL) {
-            if (del == head)    head = head -> next;
-            else    prev -> next = del -> next;
-            free(del);
-            del = NULL;
-        } else {
-            prev -> next = NULL;
-            free(del);
-            del = NULL;
-        }
-
+    if ( flag == 1) {
         printf("\n\t Linked list after Deletion of node at the given position : ");
         displaySLL(head);
-    } else {
-        printf("\n\t Invalid key/value Entered! \n");
     }
 
     free(temp);
