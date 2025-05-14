@@ -105,26 +105,21 @@ SLLNode* createSLL() {
 
 SLLNode* keyNodeDeletion(SLLNode *head) {
 
-    SLLNode *del = NULL,*temp = NULL,*t = NULL, *prev;
-    temp = (SLLNode*)malloc(sizeof(SLLNode));
-    if (temp == NULL)
-    {
-        printf("\n\t Memory Allocation Failed! \n\n");
-        exit(1);
-    }
+    SLLNode *del = NULL, *prev = NULL;
+    int temp;
 
     int pos,flag = 0;
-    printf("\n\t Enter key/value ie Node's name and number Eg. 1 AA : ");
-    scanf("%d %s", &(temp -> number), temp -> name);
+    printf("\n\t Enter key/value ie Node's number Eg. 1 AA -> key/value is 1 : ");
+    scanf("%d", &temp);
     
-    if (head -> next == NULL && temp -> number == head -> number && !(strcmp(temp -> name, head -> name))) {
+    if (head -> next == NULL && temp == head -> number) {
         flag = 1;
         free(head);
         head = NULL;
     } else {
-        for (del = head,prev = del ; temp -> number != del -> number && (strcmp(temp -> name, del -> name)) && del -> next != NULL ; prev = del, del = del -> next);
+        for (del = head,prev = del ; temp != del -> number && del -> next != NULL ; prev = del, del = del -> next);
 
-        if (temp -> number == del -> number && (!strcmp(temp -> name, del -> name))) {
+        if (temp == del -> number) {
             flag = 1;
             if (del -> next !=  NULL) {
                 if (del == head)    head = head -> next;
@@ -145,9 +140,6 @@ SLLNode* keyNodeDeletion(SLLNode *head) {
         printf("\n\t Linked list after Deletion of node at the given position : ");
         displaySLL(head);
     }
-
-    free(temp);
-    temp = NULL;
 
     return head;
 
