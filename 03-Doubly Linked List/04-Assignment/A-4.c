@@ -27,17 +27,44 @@ int main() {
     
     DLLNode *head = NULL;
 
+    printf("\n\t ***** Insert a node at the given position : Doubly Linked List ***** \n");
+
+    printf("\n\t -------------------------------------------------------------");
+    printf("\n\t Create a linked list to insert a node at the given position : \n");
+    printf("\t ------------------------------------------------------------- \n");
+
     head = createDLL();
 
-    printf("\n\tLinked List : ");
-    displayDLL(head);
-
-    head = insertPosition(head);
-
-    printf("\n\tLinked list after Insertion of node at given position : ");
+    printf("\n\t ------------------------------------------------------------- \n");
+    printf("\n\t Linked List : ");
     displayDLL(head);
     
-    freeDLL(head);
+    while (1) {
+        int ch; 
+        printf("\n\t --------------------------------------");
+        printf("\n\t 1. Insert a node at the given position ");
+        printf("\n\t 2. Exit ");
+        printf("\n\t --------------------------------------");
+        printf("\n\t Enter your choice : ");
+        scanf("%d",&ch);
+        printf("\t -------------------------------------- \n");
+        
+        switch (ch) {
+            case 1:
+                head = insertPosition(head);
+                break;
+            
+            case 2:
+                freeDLL(head);
+                head = NULL;
+                printf("\n\t Program Exited Successfully. \n\n");
+                exit(0);
+
+            default: 
+                printf("\n\t Invalid Choice Entered! \n");
+                break;
+        }
+    }
 
     return 0;
     
@@ -59,7 +86,7 @@ DLLNode* createDLL() {
             exit(1);
         }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = NULL;
@@ -75,7 +102,7 @@ DLLNode* createDLL() {
         
         last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -89,16 +116,17 @@ DLLNode* insertPosition(DLLNode *head) {
     p = head;
 
     int pos;
-    printf("\n\tEnter the position of node to insert : ");
+    printf("\n\t Enter the position of node to insert : ");
     scanf("%d", &pos);
 
     nw = (DLLNode*)malloc(sizeof(DLLNode));
     if (nw == NULL)
     {
-        printf("\n\tMemory Allocation Failed!");
+        printf("\n\t Memory Allocation Failed! \n\n");
+        exit(1);
     }
     
-    printf("\n\tEnter the number and name of new inserted node at Given position : ");
+    printf("\n\t Enter the number and name of new inserted node at Given position : ");
     scanf("%d %s", &(nw -> number), nw -> name);
 
     if (pos == 1) {
@@ -117,10 +145,13 @@ DLLNode* insertPosition(DLLNode *head) {
             p -> next = nw;
             nw -> prev = p;
         } else {
-            printf("\n\tInvalid Position Entered!\n\n");
-            free(p);
-            exit(0);
+            printf("\n\t Invalid Position Entered! \n");
         }
+    }
+
+    if ( p != NULL) {
+        printf("\n\t Linked list after Insertion of node at given position : ");
+        displayDLL(head);
     }
 
     return head;
@@ -129,11 +160,11 @@ DLLNode* insertPosition(DLLNode *head) {
 
 void displayDLL(DLLNode *d) {
 
-    printf("\n\n|_Head_| ");
+    printf("\n\n\t |_Head_| ");
     for ( ; d != NULL ; d = d -> next )
         printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
