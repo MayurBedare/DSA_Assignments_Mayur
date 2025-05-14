@@ -134,18 +134,16 @@ void displayDLL(DLLNode *d) {
     for ( ; d != NULL ; d = d -> next )
         printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
 void freeDLL(DLLNode *f) {
-    DLLNode *t = NULL;
-
-    while (f != NULL) {
-        t = f;
+    while (f -> next != NULL) {
         f = f -> next;
-        free(t);
+        free(f -> prev);
     }
+    free(f);
 }
 
 /*
