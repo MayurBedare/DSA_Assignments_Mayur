@@ -1,0 +1,94 @@
+         ***** Delete a node at the given position : Doubly Linked List ***** 
+
+         -------------------------------------------------------------
+         Create a linked list to delete a node at the given position : 
+         ------------------------------------------------------------- 
+
+         Enter Number and Name : 1 AA
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+         Enter Number and Name : 2 BB
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 1 
+
+         Enter Number and Name : 3 CC
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+         Enter Number and Name : 4 DD
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+         Enter Number and Name : 5 EE
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+         ------------------------------------------------------------- 
+
+         Linked List :
+
+         |_Head_| <--> |_00000000_|_1_|_AA_|_00E916F0_| <--> |_00E916C8_|_2_|_BB_|_00E91718_| <--> |_00E916F0_|_3_|_CC_|_00E91740_| <--> |_00E91718_|_4_|_DD_|_00E91768_| <--> |_00E91740_|_5_|_EE_|_00000000_|
+
+
+         --------------------------------------
+         1. Delete a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter the position of the node to be deleted : 1
+
+         Linked list after Deletion of node at the given position :
+
+         |_Head_| <--> |_00000000_|_2_|_BB_|_00E91718_| <--> |_00E916F0_|_3_|_CC_|_00E91740_| <--> |_00E91718_|_4_|_DD_|_00E91768_| <--> |_00E91740_|_5_|_EE_|_00000000_|
+
+
+         --------------------------------------
+         1. Delete a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter the position of the node to be deleted : 2
+
+         Linked list after Deletion of node at the given position :
+
+         |_Head_| <--> |_00000000_|_2_|_BB_|_00E91740_| <--> |_00E91718_|_4_|_DD_|_00E91768_| <--> |_00E91740_|_5_|_EE_|_00000000_|
+
+
+         --------------------------------------
+         1. Delete a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter the position of the node to be deleted : 3
+
+         Linked list after Deletion of node at the given position :
+
+         |_Head_| <--> |_00000000_|_2_|_BB_|_00E91740_| <--> |_00E91718_|_4_|_DD_|_00000000_|
+
+
+         --------------------------------------
+         1. Delete a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter the position of the node to be deleted : 4
+
+         Invalid Position Entered!
+
+         --------------------------------------
+         1. Delete a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 2
+         -------------------------------------- 
+
+         Program Exited Successfully.

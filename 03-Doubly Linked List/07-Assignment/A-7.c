@@ -2,10 +2,6 @@
     A-7 ->  write a c program to Create a doubly linked list and Delete a node at given position.
 */
 
-/* 
-    Input -> |_Head_| <--> |_00000000_|_1_|_AA_|_00FE0DC8_| <--> |_00FE2F98_|_2_|_BB_|_00FE0DF0_| <--> |_00FE0DC8_|_3_|_CC_|_00000000_|
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -23,20 +19,50 @@ void freeDLL(DLLNode*);
 DLLNode* deletePosition(DLLNode*);
 
 int main() {
-    
     DLLNode *head = NULL;
+
+    printf("\n\t ***** Delete a node at the given position : Doubly Linked List ***** \n");
+
+    printf("\n\t -------------------------------------------------------------");
+    printf("\n\t Create a linked list to delete a node at the given position : \n");
+    printf("\t ------------------------------------------------------------- \n");
 
     head = createDLL();
 
-    printf("\n\tLinked List : ");
-    displayDLL(head);
-
-    head = deletePosition(head);
-
-    printf("\n\tLinked List after Deletion of node at Given position : ");
+    printf("\n\t ------------------------------------------------------------- \n");
+    printf("\n\t Linked List : ");
     displayDLL(head);
     
-    freeDLL(head);
+    while (1) {
+        int ch; 
+        printf("\n\t --------------------------------------");
+        printf("\n\t 1. Delete a node at the given position ");
+        printf("\n\t 2. Exit ");
+        printf("\n\t --------------------------------------");
+        printf("\n\t Enter your choice : ");
+        scanf("%d",&ch);
+        printf("\t -------------------------------------- \n");
+        
+        switch (ch) {
+            case 1:
+                if (head == NULL) {
+                    printf("\n\t Linked list is empty! \n\n");
+                    exit(1);
+                }
+                head = deletePosition(head);
+                break;
+            
+            case 2:
+                freeDLL(head);
+                head = NULL;
+                printf("\n\t Program Exited Successfully. \n\n");
+                exit(0);
+
+            default: 
+                printf("\n\t Invalid Choice Entered! \n");
+                break;
+        }
+    }
 
     return 0;
     
@@ -58,7 +84,7 @@ DLLNode* createDLL() {
             exit(1);
         }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = NULL;
@@ -74,7 +100,7 @@ DLLNode* createDLL() {
         
         last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -87,28 +113,33 @@ DLLNode* deletePosition(DLLNode *head) {
     DLLNode *del = NULL,*temp = NULL;
     del = head;
 
-    int pos;
-    printf("\n\tEnter the position of the node to be deleted : ");
+    int pos,flag = 0;
+    printf("\n\t Enter the position of the node to be deleted : ");
     scanf("%d", &pos);
 
     if (pos == 1)
     {
+        flag = 1;
         head = del -> next;
-        head -> prev = NULL;
+        if (head != NULL)   head -> prev = NULL;
         free(del);
         del = NULL;
     } else {
         for (int i = 1 ; i < pos-1 && del -> next != NULL ; del = del -> next,i++);
-
-        if (del -> next != NULL) { 
-            temp = del -> next;
+    
+        if (del -> next != NULL) {
+            flag = 1; 
             del -> next = del -> next -> next;
-            free(temp);
-            temp = NULL;
+            free(del -> next -> prev );
+            del -> next -> prev = NULL;
         } else {
-            printf("\n\tInvalid Position Entered!\n\n");
-            exit(0);
+            printf("\n\t Invalid Position Entered! \n");
         }
+    }
+
+    if (flag == 1) {
+        printf("\n\t Linked list after Deletion of node at the given position : ");
+        displayDLL(head);
     }
 
    return head;
@@ -117,11 +148,11 @@ DLLNode* deletePosition(DLLNode *head) {
 
 void displayDLL(DLLNode *d) {
 
-    printf("\n\n|_Head_| ");
+    printf("\n\n\t |_Head_| ");
     for ( ; d != NULL ; d = d -> next )
         printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
@@ -134,50 +165,3 @@ void freeDLL(DLLNode *f) {
         free(t);
     }
 }
-
-/*
-    Output ->
-                    Enter Number and Name : 1 AA
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 3 CC
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    Linked List :
-
-            |_Head_| <--> |_00000000_|_1_|_AA_|_00FE0DC8_| <--> |_00FE2F98_|_2_|_BB_|_00FE0DF0_| <--> |_00FE0DC8_|_3_|_CC_|_00000000_|
-
-
-                    Enter the position of the node to be deleted : 2
-
-                    Linked List after Deletion of node at Given position :
-
-            |_Head_| <--> |_00000000_|_1_|_AA_|_00FE0DF0_| <--> |_00FE2F98_|_3_|_CC_|_00000000_| 
-*/
-
-/*
-    Position = 1 (Head Position) :
-
-        Linked List : 
-
-    |_Head_| <--> |_00000000_|_2_|_BB_|_00FE0DF0_| <--> |_00FE0DC8_|_3_|_CC_|_00000000_|  
-*/
-
-/*
-    Position = 2 (Middle Position) :
-
-        Linked List : 
-
-    |_Head_| <--> |_00000000_|_1_|_AA_|_00FE0DF0_| <--> |_00FE2F98_|_3_|_CC_|_00000000_| 
-*/
-
-/*
-    Position = 3 (End Position) :
-
-        Linked List : 
-
-    |_Head_| <--> |_00000000_|_1_|_AA_|_00FE0DC8_| <--> |_00FE2F98_|_2_|_BB_|_00000000_| 
-*/
