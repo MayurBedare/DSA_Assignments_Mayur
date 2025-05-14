@@ -1,0 +1,75 @@
+         ***** Cycle Detection in Doubly Linked List ***** 
+
+         Enter Number and Name : 1 AA
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+         Enter Number and Name : 2 BB
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+         ----------------------------------------------------------
+         1. Creation & Detection of cycle in the Doubly Linked List 
+         2. Exit 
+         ----------------------------------------------------------
+         Enter your choice : 1
+         ---------------------------------------------------------- 
+
+         Note : Enter -1 for no cycle 
+
+              : Enter 0 to n-1 where n is total no. of nodes in linked list 
+
+         Enter the position of nth node where tail's next points, to make cycle : 0
+
+         Doubly Linked List with cycle : 
+
+         |_Head_| <--> |_00000000_|_1_|_AA_|_00CD1678_| <--> |_00CD1650_|_2_|_BB_|_00CD1650_| -> |_00000000_|_1_|_AA_|_00CD1678_| 
+
+         Cycle is detected in the given linked list.
+
+         ----------------------------------------------------------
+         1. Creation & Detection of cycle in the Doubly Linked List
+         2. Exit
+         ----------------------------------------------------------
+         Enter your choice : 1
+         ---------------------------------------------------------- 
+
+         Note : Enter -1 for no cycle
+
+              : Enter 0 to n-1 where n is total no. of nodes in linked list
+
+         Enter the position of nth node where tail's next points, to make cycle : 1
+
+         Doubly Linked List with cycle :
+
+         |_Head_| <--> |_00000000_|_1_|_AA_|_00CD1678_| <--> |_00CD1650_|_2_|_BB_|_00CD1678_| -> |_00CD1650_|_2_|_BB_|_00CD1678_|
+
+         Cycle is detected in the given linked list.
+
+         ----------------------------------------------------------
+         1. Creation & Detection of cycle in the Doubly Linked List
+         2. Exit
+         ----------------------------------------------------------
+         Enter your choice : 1
+         ---------------------------------------------------------- 
+
+         Note : Enter -1 for no cycle
+
+              : Enter 0 to n-1 where n is total no. of nodes in linked list
+
+         Enter the position of nth node where tail's next points, to make cycle : -1
+
+         Doubly Linked List without cycle :
+
+         |_Head_| <--> |_00000000_|_1_|_AA_|_00CD1678_| <--> |_00CD1650_|_2_|_BB_|_00000000_|
+
+         No cycle detected in the given linked list.
+
+         ----------------------------------------------------------
+         1. Creation & Detection of cycle in the Doubly Linked List
+         2. Exit
+         ----------------------------------------------------------
+         Enter your choice : 2
+         ---------------------------------------------------------- 
+
+         Program Exited Successfully!

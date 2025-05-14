@@ -2,10 +2,6 @@
     A-18 -> write a c program to Detect cycle in doubly linked list.
 */
 
-/* 
-    Input ->                        
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -17,82 +13,67 @@ typedef struct DLLNode
     struct DLLNode *prev;
 } DLLNode;
 
-DLLNode* createDLLWOC();
-DLLNode* createDLLWC();
-void displayDLLWOC(DLLNode*);
-void displayDLLWC(DLLNode*);
+DLLNode* createDLL();
+void createCycle(DLLNode*,DLLNode*);
 void detectCycle(DLLNode*,DLLNode*);
-void freeDLLWOC(DLLNode*);
-void freeDLLWC(DLLNode*);
-
+void displayDLL(DLLNode*,DLLNode*);
+// void freeDLL(DLLNode*,DLLNode*);
 
 int main() {
     
-    int x = 1;
     DLLNode *head = NULL;
     DLLNode *last = NULL;
 
-    while(x) {
+    printf("\n\t ***** Cycle Detection in Doubly Linked List ***** \n");
+
+    head = createDLL(&last);
+
+    while(1) {
         int ch;
-        printf("\n\t Creation of Doubly Linked List (with/without cycle):");
-        printf("\n\t 1. Without cycle.");
-        printf("\n\t 2. With cycle.");
-        printf("\n\n\t Enter your choice :");
+        printf("\n\t ----------------------------------------------------------");
+        printf("\n\t 1. Creation & Detection of cycle in the Doubly Linked List ");
+        printf("\n\t 2. Exit ");
+        printf("\n\t ----------------------------------------------------------");
+        printf("\n\t Enter your choice : ");
         scanf("%d",&ch);
+        printf("\t ---------------------------------------------------------- \n");
 
         switch (ch) {
-        case 1:
-            head = createDLLWOC();
-            printf("\n\t Doubly Linked List without cycle : ");
-            displayDLLWOC(head);
-            detectCycle(head,last);
-            freeDLLWOC(head);
-            x = 0;
-            break;
+            case 1:
+                createCycle(head,last);
+                break;
 
-        case 2:
-            last = createDLLWC(); 
-            x = 0;
-            break;
-        
-        default:
-            printf("\n\t Invalid choice entered!\n");
-            x = 1;
-            break;
+            case 2:
+                // freeDLL(head,last);
+                printf("\n\t Program Exited Successfully! \n\n");
+                exit(0);
+            
+            default:
+                printf("\n\t Invalid choice entered!\n");
+                break;
         }
         
     }
 
-    if (head != NULL) {
-        printf("\n\t Doubly Linked List without cycle : ");
-        displayDLLWOC(head);
-        detectCycle(head,last);
-        freeDLLWOC(head);
-    }
-
-    if (last != NULL) {
-        printf("\n\t Doubly Linked List with cycle : ");
-        displayDLLWC(last);
-        detectCycle(head,last);
-        freeDLLWC(last);
-    }
-
     return 0;
-    
 }
 
-DLLNode* createDLLWOC() {
+DLLNode* createDLL(DLLNode **last) {
 
-    DLLNode *head, *nw, *last;
-    head = NULL, nw = NULL, last = NULL;
+    DLLNode *head, *nw;
+    head = NULL, nw = NULL;
 
     int cnt;
 
     do
     {
-        nw = malloc(sizeof(DLLNode));
+        nw = (DLLNode*)malloc(sizeof(DLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocatin Failed! \n\n");
+            exit(1);
+        }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = NULL;
@@ -102,13 +83,13 @@ DLLNode* createDLLWOC() {
             nw -> prev = NULL;
         }
         else {
-            last -> next = nw;
-            nw -> prev = last;
+            (*last) -> next = nw;
+            nw -> prev = *last;
         }
         
-        last = nw;
+        *last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -116,128 +97,90 @@ DLLNode* createDLLWOC() {
 
 }
 
-DLLNode* createDLLWC() {
+void createCycle(DLLNode *head, DLLNode *last) {
+    DLLNode *p = NULL;
+    p = head;
+    int pos;
 
-    DLLNode *head = NULL,*nw = NULL, *last = NULL;
+    printf("\n\t Note : Enter -1 for no cycle \n"); 
+    printf("\n\t      : Enter 0 to n-1 where n is total no. of nodes in linked list \n");
+    printf("\n\t Enter the position of nth node where tail's next points, to make cycle : ");
+    scanf("%d",&pos);
     
-    int cnt;
+    if (pos != -1) {     
+        for (int i = 0 ; i < pos && p != NULL ; i++,p = p -> next);
+        last -> next = p;
+    }
 
-    do
-    {
-        nw = malloc(sizeof(DLLNode));
-
-        printf("\n\tEnter Number and Name : ");
-        scanf("%d %s", &(nw -> number), nw -> name);
-
-        nw -> next = nw;
-        nw -> prev = nw;
-
-        if (head == NULL) {
-            head = nw;
-        }
-        else {
-            last -> next = nw;
-            nw -> prev = last;
-            nw -> next = head;
-            head -> prev = nw;
-        }
-        
-        last = nw;
-
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
-        scanf("%d", &cnt);
-    } while (cnt != 0);
-
-    return last;
-
+    displayDLL(head,last);
+    detectCycle(head,last);
 }
 
-void detectCycle(DLLNode *head, DLLNode *last) {
-    
+void detectCycle(DLLNode *head,DLLNode *last) {
     int flag = 0;
-    if (head != NULL) {
-        flag = 0;
-    }
-    if (last != NULL) {
-
-        DLLNode *p = NULL;
-        p = last -> next;
-
-        for ( ; p != last ; p = p -> next);
-
-        if (p -> next == last -> next)
-            flag = 1;
- 
-    }
+    
+    for ( ; head != last -> next ; head = head -> next);
+    
+    if (head == last -> next && head != NULL)   flag = 1;
 
     if (flag == 1) 
-      printf("\n\t Cycle is detected in the given linked list.\n\n");
+        printf("\n\t Cycle is detected in the given linked list.\n");
+        if (last -> next != NULL)   last -> next = NULL;
     else
-        printf("\n\t No cycle detected in the given linked list.\n\n");
-    
-
+        printf("\n\t No cycle detected in the given linked list.\n");
 }
 
-void displayDLLWOC(DLLNode *d) {
+void displayDLL(DLLNode *d,DLLNode *last) {
 
-    printf("\n\n|_Head_| ");
-    for ( ; d != NULL ; d = d -> next )
-        printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
-
-    printf("\n\n");
-
-}
-
-void displayDLLWC(DLLNode *last) {
-
-    DLLNode *d = NULL;
-    d = last -> next;
-    printf("\n\n|_Head_| ");
-
-    for ( ; d != last ; d = d -> next )
-        printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
-
-    printf("<--> |_%p_|_%d_|_%s_|_%p_| <--> |_last_|", d -> prev, d -> number, d -> name, d -> next);
-
-    printf("\n\n");
-
-}
-
-void freeDLLWOC(DLLNode *f) {
-
-    if (f == NULL)
-        return;
-
-    while (f != NULL) {
-        f = f -> next;
-        free(f -> prev);
-        f -> prev = NULL;
+    if (last -> next == NULL) {
+        printf("\n\t Doubly Linked List without cycle : \n");
+        printf("\n\t |_Head_| ");
+        for ( ; d != NULL ; d = d -> next )
+            printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next); 
+    } else {
+        printf("\n\t Doubly Linked List with cycle : \n");
+        printf("\n\t |_Head_| ");
+        for ( ; d != last ; d = d -> next ) {
+                printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
+        }
+        printf("<--> |_%p_|_%d_|_%s_|_%p_| -> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next, last -> next -> prev, last -> next -> number, last -> next -> name, last -> next -> next);
     }
 
-    free(f);
-    f = NULL;
+    printf("\n");
+
+}
+
+// void freeDLLWOC(DLLNode *f) {
+
+//     if (f == NULL)
+//         return;
+
+//     while (f != NULL) {
+//         f = f -> next;
+//         free(f -> prev);
+//         f -> prev = NULL;
+//     }
+
+//     free(f);
+//     f = NULL;
     
-}
+// }
 
-void freeDLLWC(DLLNode *last) {
+// void freeDLLWC(DLLNode *last) {
 
-    if (last == NULL)
-        return;
+//     if (last == NULL)
+//         return;
 
-    DLLNode *f = NULL;
-    f = last -> next;
+//     DLLNode *f = NULL;
+//     f = last -> next;
 
-    while (f != last) {   
-        f = f -> next;
-        free(f -> prev);
-        f -> prev = NULL;
-    }
+//     while (f != last) {   
+//         f = f -> next;
+//         free(f -> prev);
+//         f -> prev = NULL;
+//     }
 
-    free(f);
-    f = NULL;
+//     free(f);
+//     f = NULL;
 
-}
-
-/*
-    Output ->
-*/
+// }
