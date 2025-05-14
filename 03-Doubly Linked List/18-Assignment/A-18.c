@@ -45,6 +45,7 @@ int main() {
 
             case 2:
                 freeDLL(head,last);
+                head = NULL;
                 printf("\n\t Program Exited Successfully! \n\n");
                 exit(0);
             
