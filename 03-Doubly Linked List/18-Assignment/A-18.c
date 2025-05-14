@@ -17,7 +17,7 @@ DLLNode* createDLL();
 void createCycle(DLLNode*,DLLNode*);
 void detectCycle(DLLNode*,DLLNode*);
 void displayDLL(DLLNode*,DLLNode*);
-// void freeDLL(DLLNode*,DLLNode*);
+void freeDLL(DLLNode*,DLLNode*);
 
 int main() {
     
@@ -44,7 +44,7 @@ int main() {
                 break;
 
             case 2:
-                // freeDLL(head,last);
+                freeDLL(head,last);
                 printf("\n\t Program Exited Successfully! \n\n");
                 exit(0);
             
@@ -150,37 +150,10 @@ void displayDLL(DLLNode *d,DLLNode *last) {
 
 }
 
-// void freeDLLWOC(DLLNode *f) {
-
-//     if (f == NULL)
-//         return;
-
-//     while (f != NULL) {
-//         f = f -> next;
-//         free(f -> prev);
-//         f -> prev = NULL;
-//     }
-
-//     free(f);
-//     f = NULL;
-    
-// }
-
-// void freeDLLWC(DLLNode *last) {
-
-//     if (last == NULL)
-//         return;
-
-//     DLLNode *f = NULL;
-//     f = last -> next;
-
-//     while (f != last) {   
-//         f = f -> next;
-//         free(f -> prev);
-//         f -> prev = NULL;
-//     }
-
-//     free(f);
-//     f = NULL;
-
-// }
+void freeDLL(DLLNode *f,DLLNode *last) {
+    while (f != last) {
+        f = f -> next;
+        free(f -> prev);
+    }
+    free(f);
+}
