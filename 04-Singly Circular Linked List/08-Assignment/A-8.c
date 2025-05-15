@@ -128,7 +128,7 @@ SCLLNode* insert(SCLLNode *last) {
 
     printf("\n\t Enter number and name of the node to be inserted at the given position : ");
     scanf("%d %s", &(nw -> number),nw -> name);
-    nw -> next = NULL;
+    nw -> next = nw;
 
     int pos;
     printf("\n\t Enter the position where new node to be insereted : ");
