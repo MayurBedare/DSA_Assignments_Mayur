@@ -182,8 +182,6 @@ SLLNode* delete(SLLNode *head) {
             }
         } else {
             printf("\n\tInvalid Position Entered!\n\n");
-            free(del);
-            del = NULL;
         }
     }
 
