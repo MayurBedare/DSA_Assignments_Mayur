@@ -114,6 +114,7 @@ SLLNode* positionNodeInsertion(SLLNode *head) {
     
     printf("\n\t Enter the number and name of new inserted node at Given position : ");
     scanf("%d %s", &(nw -> number), nw -> name);
+    nw -> next = NULL;
 
     if (pos == 1) {
         nw -> next = head;
@@ -126,6 +127,8 @@ SLLNode* positionNodeInsertion(SLLNode *head) {
             p -> next = nw;
         } else {
             printf("\n\t Invalid Position Entered! \n");
+            free(nw);
+            nw = NULL;
         }
     }
 
