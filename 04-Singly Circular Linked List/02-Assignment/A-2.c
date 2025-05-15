@@ -37,6 +37,7 @@ int main() {
     displaySCLL(last);
     
     freeSCLL(last);
+    last = NULL;
 
     return 0;
     
@@ -50,7 +51,11 @@ SCLLNode* createSCLL() {
 
     do
     {
-        nw = malloc(sizeof(SCLLNode));
+        nw = (SCLLNode*)malloc(sizeof(SCLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -78,7 +83,12 @@ SCLLNode* createSCLL() {
 SCLLNode* insertBeg(SCLLNode *last) {
     
     SCLLNode *nw = NULL;
-    nw = malloc(sizeof(SCLLNode));
+    nw = (SCLLNode*)malloc(sizeof(SCLLNode));
+    if (nw == NULL) {
+        printf("\n\t Memory Allocation Failed! \n\n");
+        exit(1);
+    }
+
     printf("\n\t Enter number and name of the node to be inserted at the beginning :");
     scanf("%d %s", &(nw -> number),nw -> name);
     
@@ -94,7 +104,7 @@ void displaySCLL(SCLLNode *last) {
     SCLLNode *d = NULL;
     d = last -> next;
     printf("\n\n|_Head_| ");
-
+    
     for ( ; d != last ; d = d -> next )
         printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
 
