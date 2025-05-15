@@ -2,10 +2,6 @@
     A-3 ->  write a c program to Create a circular singly  linked list and insert a new node  at given position  
 */
 
-/*
-    Input -> |_Head_| --> |_1_|_AA_|_00E91388_| --> |_2_|_BB_|_00E913B0_| --> |_3_|_CC_|_00E92FC0_| <-- |_last_|
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -26,17 +22,44 @@ int main() {
    
     SCLLNode *last = NULL;
 
+    printf("\n\t ***** Insert a node at the given position : Singly Circular Linked List ***** \n");
+
+    printf("\n\t -------------------------------------------------------------");
+    printf("\n\t Create a linked list to insert a node at the given position : \n");
+    printf("\t ------------------------------------------------------------- \n");
+
     last = createSCLL();
 
-    printf("\n\t Singly Circular Linked List : ");
+    printf("\n\t ------------------------------------------------------------- \n");
+    printf("\n\t Linked List : ");
     displaySCLL(last);
     
-    last = insertPos(last);
+    while (1) {
+        int ch; 
+        printf("\n\t --------------------------------------");
+        printf("\n\t 1. Insert a node at the given position ");
+        printf("\n\t 2. Exit ");
+        printf("\n\t --------------------------------------");
+        printf("\n\t Enter your choice : ");
+        scanf("%d",&ch);
+        printf("\t -------------------------------------- \n");
+        
+        switch (ch) {
+            case 1:
+                last = insertPos(last);
+                break;
+            
+            case 2:
+                freeSCLL(last);
+                last = NULL;
+                printf("\n\t Program Exited Successfully. \n\n");
+                exit(0);
 
-    printf("\n\t Singly Circular Linked List after insertion of node at the given position : ");
-    displaySCLL(last);
-
-    freeSCLL(last);
+            default: 
+                printf("\n\t Invalid Choice Entered! \n");
+                break;
+        }
+    }
 
     return 0;
     
@@ -50,9 +73,13 @@ SCLLNode* createSCLL() {
 
     do
     {
-        nw = malloc(sizeof(SCLLNode));
+        nw = (SCLLNode*)malloc(sizeof(SCLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = nw;
@@ -67,7 +94,7 @@ SCLLNode* createSCLL() {
         
         last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -81,15 +108,22 @@ SCLLNode* insertPos(SCLLNode *last) {
     p = last -> next;
 
     SCLLNode *nw = NULL;
-    nw = malloc(sizeof(SCLLNode));
+    nw = (SCLLNode*)malloc(sizeof(SCLLNode));
+    if (nw == NULL) {
+        printf("\n\t Memory Allocation Failed! \n\n");
+        exit(1);
+    }
+
     printf("\n\t Enter number and name of the node to be inserted at the given position : ");
     scanf("%d %s", &(nw -> number),nw -> name);
+    nw -> next = NULL;
 
-    int pos;
+    int pos,flag = 0;
     printf("\n\t Enter the position where new node to be insereted : ");
     scanf("%d",&pos);
 
     if (pos == 1) {
+        flag = 1;
         nw -> next = last -> next;
         last -> next = nw;
     } else {
@@ -97,18 +131,26 @@ SCLLNode* insertPos(SCLLNode *last) {
         for(i = 1 ; i < (pos - 1) && p != last ; i++, p = p -> next);
 
         if (p != last) {
+            flag = 1;
             nw -> next = p -> next;
             p -> next = nw;
         } else {
             if (i == (pos - 1)) {
+            flag = 1;
             nw -> next = p -> next;
             p -> next = nw;
             last = nw;
             } else {
-                printf("\n\t Invalid position entered!\n\n");
-                exit(0);
+                printf("\n\t Invalid position entered! \n");
+                free(nw);
+                nw = NULL;
             }
         }
+    }
+
+    if (flag == 1) {
+        printf("\n\t Linked list after Insertion of node at given position : ");
+        displaySCLL(last);
     }
 
     return last;
@@ -119,14 +161,14 @@ void displaySCLL(SCLLNode *last) {
     
     SCLLNode *d = NULL;
     d = last -> next;
-    printf("\n\n|_Head_| ");
+    printf("\n\n\t |_Head_| ");
 
     for ( ; d != last ; d = d -> next )
         printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
 
     printf("--> |_%d_|_%s_|_%p_| <-- |_last_|", d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
@@ -149,51 +191,3 @@ void freeSCLL(SCLLNode *last) {
     f = NULL;
 }
 
-/*
-    Output ->   
-                    Enter Number and Name : 1 AA
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 3 CC
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    Singly Circular Linked List :
-
-            |_Head_| --> |_1_|_AA_|_00E91388_| --> |_2_|_BB_|_00E913B0_| --> |_3_|_CC_|_00E92FC0_| <-- |_last_|
-
-
-                    Enter number and name of the node to be inserted at the given position : 5 MM
-
-                    Enter the position where new node to be insereted : 2
-
-                    Singly Circular Linked List after insertion of node at the given position :
-
-            |_Head_| --> |_1_|_AA_|_00E913D8_| --> |_5_|_MM_|_00E91388_| --> |_2_|_BB_|_00E913B0_| --> |_3_|_CC_|_00E92FC0_| <-- |_last_|
-*/
-
-/*
-    Position = 1 (Head Position) :
-
-        Singly Circular Linked List : 
-
-    |_Head_| --> |_5_|_MM_|_next_| --> |_1_|_AA_|_next_| --> |_2_|_BB_|_next_| --> |_3_|_CC_|_next_| <-- |_last_| 
-*/
-
-/*
-    Position = 2 (Middle Position) :
-
-        Singly Circular Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_next_| --> |_5_|_MM_|_next_| --> |_2_|_BB_|_next_| --> |_3_|_CC_|_next_| <-- |_last_| 
-*/
-
-/*
-    Position = 3 (End Position) :
-
-        Singly Circular Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_next_| --> |_2_|_BB_|_next_| --> |_3_|_CC_|_next_| --> |_5_|_MM_|_next_| <-- |_last_| 
-*/
