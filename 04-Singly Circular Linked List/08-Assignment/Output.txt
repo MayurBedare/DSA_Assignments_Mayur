@@ -1,0 +1,189 @@
+         *****Menu Driven Program = Singly Circular Linked List*****
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 1 
+
+         Enter Number and Name : 2 BB
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+         Enter Number and Name : 4 DD
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 4
+
+         |_Head_| --> |_2_|_BB_|_00831680_| --> |_4_|_DD_|_00831658_| <-- |_last_|
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 2
+
+         Enter number and name of the node to be inserted at the given position : 1 AA
+
+         Enter the position where new node to be insereted : 1
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 4
+
+         |_Head_| --> |_1_|_AA_|_00831658_| --> |_2_|_BB_|_00831680_| --> |_4_|_DD_|_008316A8_| <-- |_last_|
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 2
+
+         Enter number and name of the node to be inserted at the given position : 3 CC
+
+         Enter the position where new node to be insereted : 3
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 4
+
+         |_Head_| --> |_1_|_AA_|_00831658_| --> |_2_|_BB_|_008316D0_| --> |_3_|_CC_|_00831680_| --> |_4_|_DD_|_008316A8_| <-- |_last_|
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 2
+
+         Enter number and name of the node to be inserted at the given position : 5 EE
+
+         Enter the position where new node to be insereted : 5
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 4
+
+         |_Head_| --> |_1_|_AA_|_00831658_| --> |_2_|_BB_|_008316D0_| --> |_3_|_CC_|_00831680_| --> |_4_|_DD_|_008316F8_| --> |_5_|_EE_|_008316A8_| <-- |_last_|   
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 3
+
+         Enter the position of the node to be deleted from the given linked list : 1
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 4
+
+         |_Head_| --> |_2_|_BB_|_008316D0_| --> |_3_|_CC_|_00831680_| --> |_4_|_DD_|_008316F8_| --> |_5_|_EE_|_00831658_| <-- |_last_|
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 3
+
+         Enter the position of the node to be deleted from the given linked list : 2
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 4
+
+         |_Head_| --> |_2_|_BB_|_00831680_| --> |_4_|_DD_|_008316F8_| --> |_5_|_EE_|_00831658_| <-- |_last_|
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 3
+
+         Enter the position of the node to be deleted from the given linked list : 3
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 4
+
+         |_Head_| --> |_2_|_BB_|_00831680_| --> |_4_|_DD_|_00831658_| <-- |_last_|
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 2
+
+         Enter number and name of the node to be inserted at the given position : 4 DD
+
+         Enter the position where new node to be insereted : 4
+
+         Invalid position entered! 
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 3
+
+         Enter the position of the node to be deleted from the given linked list : 4
+
+         Invalid Position entered!
+
+         1. Create Doubly Linked List
+         2. Insert Node at any position in Singly Circular Linked List
+         3. Delete Node at any position in Singly Circular Linked List
+         4. Print Singly Circular Linked List
+         5. Exit
+
+         Enter you choice : 5
+
+         Program Exited Successfully!

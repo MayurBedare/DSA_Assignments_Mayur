@@ -51,6 +51,10 @@ int main() {
             break;
 
         case 3:
+            if (last == NULL) {
+                printf("\n\t Linked List is Empty! \n");
+                break;
+            }
             last = delete(last);
             break;
 
@@ -59,15 +63,15 @@ int main() {
             break;
         
         case 5:
-            printf("\n");
-            return 0;
+            freeSCLL(last);
+            last = NULL;
+            printf("\n\t Program Exited Successfully! \n\n");
+            exit(0);
 
         default:
-            printf("\n\t Invalid choice! Please try again.");
+            printf("\n\t Invalid choice! Please try again. \n");
         }
     }
-    
-    freeSCLL(last);
 
     return 0;
     
@@ -81,9 +85,13 @@ SCLLNode* createSCLL() {
 
     do
     {
-        nw = malloc(sizeof(SCLLNode));
+        nw = (SCLLNode*)malloc(sizeof(SCLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = nw;
@@ -98,7 +106,7 @@ SCLLNode* createSCLL() {
         
         last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -112,9 +120,15 @@ SCLLNode* insert(SCLLNode *last) {
     p = last -> next;
 
     SCLLNode *nw = NULL;
-    nw = malloc(sizeof(SCLLNode));
+    nw = (SCLLNode*)malloc(sizeof(SCLLNode));
+    if (nw == NULL) {
+        printf("\n\t Memory Allocation Failed! \n\n");
+        exit(1);
+    }
+
     printf("\n\t Enter number and name of the node to be inserted at the given position : ");
     scanf("%d %s", &(nw -> number),nw -> name);
+    nw -> next = NULL;
 
     int pos;
     printf("\n\t Enter the position where new node to be insereted : ");
@@ -136,8 +150,9 @@ SCLLNode* insert(SCLLNode *last) {
             p -> next = nw;
             last = nw;
             } else {
-                printf("\n\t Invalid position entered!\n\n");
-                exit(0);
+                printf("\n\t Invalid position entered! \n");
+                free(nw);
+                nw = NULL;
             }
         }
     }
@@ -179,8 +194,7 @@ SCLLNode* delete(SCLLNode *last) {
             free(d);
             d = NULL;
             } else {
-                printf("\n\t Invalid Position entered!\n\n");
-                exit(0);
+                printf("\n\t Invalid Position entered! \n");
             }
         }
     }
@@ -193,14 +207,14 @@ void displaySCLL(SCLLNode *last) {
     
     SCLLNode *d = NULL;
     d = last -> next;
-    printf("\n\n|_Head_| ");
+    printf("\n\t |_Head_| ");
 
     for ( ; d != last ; d = d -> next )
         printf("--> |_%d_|_%s_|_%p_| ", d -> number, d -> name, d -> next);
 
     printf("--> |_%d_|_%s_|_%p_| <-- |_last_|", d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
@@ -223,90 +237,3 @@ void freeSCLL(SCLLNode *last) {
     f = NULL;
 }
 
-/*
-    Output ->
-                    *****Menu Driven Program = Singly Circular Linked List*****
-
-                    1. Create Doubly Linked List
-                    2. Insert Node at any position in Singly Circular Linked List
-                    3. Delete Node at any position in Singly Circular Linked List
-                    4. Print Doubly Linked List
-                    5. Exit
-
-                    Enter you choice : 1
-
-                    Enter Number and Name : 1 AA
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 3 CC
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    1. Create Doubly Linked List
-                    2. Insert Node at any position in Singly Circular Linked List
-                    3. Delete Node at any position in Singly Circular Linked List
-                    4. Print Doubly Linked List
-                    5. Exit
-
-                    Enter you choice : 4
-
-
-            |_Head_| --> |_1_|_AA_|_00BF13B0_| --> |_2_|_BB_|_00BF13D8_| --> |_3_|_CC_|_00BF1388_| <-- |_last_|
-
-
-                    1. Create Doubly Linked List
-                    2. Insert Node at any position in Singly Circular Linked List
-                    3. Delete Node at any position in Singly Circular Linked List
-                    4. Print Doubly Linked List
-                    5. Exit
-
-                    Enter you choice : 2
-
-                    Enter number and name of the node to be inserted at the given position : 5 MM
-
-                    Enter the position where new node to be insereted : 2
-
-                    1. Create Doubly Linked List
-                    2. Insert Node at any position in Singly Circular Linked List
-                    3. Delete Node at any position in Singly Circular Linked List
-                    4. Print Doubly Linked List
-                    5. Exit
-
-                    Enter you choice : 4
-
-
-            |_Head_| --> |_1_|_AA_|_00BF1400_| --> |_5_|_MM_|_00BF13B0_| --> |_2_|_BB_|_00BF13D8_| --> |_3_|_CC_|_00BF1388_| <-- |_last_|
-
-
-                    1. Create Doubly Linked List
-                    2. Insert Node at any position in Singly Circular Linked List
-                    3. Delete Node at any position in Singly Circular Linked List
-                    4. Print Doubly Linked List
-                    5. Exit
-
-                    Enter you choice : 3
-
-                    Enter the position of the node to be deleted from the given linked list : 2
-
-                    1. Create Doubly Linked List
-                    2. Insert Node at any position in Singly Circular Linked List
-                    3. Delete Node at any position in Singly Circular Linked List
-                    4. Print Doubly Linked List
-                    5. Exit
-
-                    Enter you choice : 4
-
-
-            |_Head_| --> |_1_|_AA_|_00BF13B0_| --> |_2_|_BB_|_00BF13D8_| --> |_3_|_CC_|_00BF1388_| <-- |_last_|
-
-
-                    1. Create Doubly Linked List
-                    2. Insert Node at any position in Singly Circular Linked List
-                    3. Delete Node at any position in Singly Circular Linked List
-                    4. Print Doubly Linked List
-                    5. Exit
-
-                    Enter you choice : 5
-*/
