@@ -42,6 +42,7 @@ int main() {
     displaySCLL(last);
 
     freeSCLL(last);
+    last = NULL;
 
     return 0;
     
@@ -56,6 +57,10 @@ SCLLNode* createSCLL() {
     do
     {
         nw = (SCLLNode*)malloc(sizeof(SCLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
