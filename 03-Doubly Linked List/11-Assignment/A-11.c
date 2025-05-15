@@ -159,9 +159,9 @@ DLLNode* insert(DLLNode *head) {
             p -> next = nw;
             nw -> prev = p;
         } else {
-            printf("\n\tInvalid Position Entered!\n\n");
+            printf("\n\tInvalid Position Entered! \n");
             free(p);
-            exit(0);
+            p = NULL;
         }
     }
 
@@ -197,10 +197,7 @@ DLLNode* delete(DLLNode *head) {
                 free(temp);
             }
         } else {
-            printf("\n\tInvalid Position Entered!\n\n");
-            free(del);
-            del = NULL;
-            exit(0);
+            printf("\n\tInvalid Position Entered!\n");
         }
     }
 
