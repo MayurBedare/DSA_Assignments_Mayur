@@ -16,7 +16,7 @@
 
          Linked List : 
 
-         |_Head_| <--> |_00000000_|_2_|_BB_|_00BF1480_| <--> |_00BF1458_|_4_|_DD_|_00000000_| 
+         |_Head_| <--> |_00000000_|_2_|_BB_|_00C81480_| <--> |_00C81458_|_4_|_DD_|_00000000_| 
 
          --------------------------------------
          1. Insert a node at the given position 
@@ -25,13 +25,13 @@
          Enter your choice : 1
          -------------------------------------- 
 
-         Enter the position of node to insert : 1
+         Enter the position of node to insert : 1 
 
          Enter the number and name of new inserted node at Given position : 1 AA
 
          Linked list after Insertion of node at given position :
 
-         |_Head_| <--> |_7F7E7D7C_|_1_|_AA_|_00BF1458_| <--> |_00BF14A8_|_2_|_BB_|_00BF1480_| <--> |_00BF1458_|_4_|_DD_|_00000000_|
+         |_Head_| <--> |_00000000_|_1_|_AA_|_00C81458_| <--> |_00C814A8_|_2_|_BB_|_00C81480_| <--> |_00C81458_|_4_|_DD_|_00000000_|
 
          --------------------------------------
          1. Insert a node at the given position
@@ -46,7 +46,7 @@
 
          Linked list after Insertion of node at given position :
 
-         |_Head_| <--> |_7F7E7D7C_|_1_|_AA_|_00BF1458_| <--> |_00BF14A8_|_2_|_BB_|_00BF14D0_| <--> |_00BF1458_|_3_|_CC_|_00BF1480_| <--> |_00BF14D0_|_4_|_DD_|_00000000_|
+         |_Head_| <--> |_00000000_|_1_|_AA_|_00C81458_| <--> |_00C814A8_|_2_|_BB_|_00C814D0_| <--> |_00C81458_|_3_|_CC_|_00C81480_| <--> |_00C814D0_|_4_|_DD_|_00000000_|
 
          --------------------------------------
          1. Insert a node at the given position
@@ -61,7 +61,7 @@
 
          Linked list after Insertion of node at given position :
 
-         |_Head_| <--> |_7F7E7D7C_|_1_|_AA_|_00BF1458_| <--> |_00BF14A8_|_2_|_BB_|_00BF14D0_| <--> |_00BF1458_|_3_|_CC_|_00BF1480_| <--> |_00BF14D0_|_4_|_DD_|_00BF14F8_| <--> |_00BF1480_|_5_|_EE_|_00000000_|
+         |_Head_| <--> |_00000000_|_1_|_AA_|_00C81458_| <--> |_00C814A8_|_2_|_BB_|_00C814D0_| <--> |_00C81458_|_3_|_CC_|_00C81480_| <--> |_00C814D0_|_4_|_DD_|_00C814F8_| <--> |_00C81480_|_5_|_EE_|_00000000_|
 
          --------------------------------------
          1. Insert a node at the given position
@@ -72,7 +72,7 @@
 
          Enter the position of node to insert : 7
 
-         Enter the number and name of new inserted node at Given position : 7 GG
+         Enter the number and name of new inserted node at Given position : 7 F
 
          Invalid Position Entered!
 

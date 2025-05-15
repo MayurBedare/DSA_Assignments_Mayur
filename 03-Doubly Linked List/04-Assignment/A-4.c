@@ -128,6 +128,8 @@ DLLNode* insertPosition(DLLNode *head) {
     
     printf("\n\t Enter the number and name of new inserted node at Given position : ");
     scanf("%d %s", &(nw -> number), nw -> name);
+    nw -> next = NULL;
+    nw -> prev = NULL;
 
     if (pos == 1) {
         nw -> next = head;
@@ -146,6 +148,8 @@ DLLNode* insertPosition(DLLNode *head) {
             nw -> prev = p;
         } else {
             printf("\n\t Invalid Position Entered! \n");
+            free(nw);
+            nw = NULL;
         }
     }
 
