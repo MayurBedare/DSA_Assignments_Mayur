@@ -9,6 +9,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct SLLNode
 {
@@ -97,7 +98,10 @@ SLLNode* create() {
         }
 
         printf("\n\tEnter Number and Name : ");
-        scanf("%d %s", &(nw -> number), nw -> name);
+        scanf("%d", &(nw -> number));
+        getchar();
+        fgets(nw -> name,20,stdin);
+        nw -> name[strcspn(nw -> name,"\n")] = '\0';
 
         nw -> next = NULL;
 
@@ -133,7 +137,10 @@ SLLNode* insert(SLLNode *head) {
     }
     
     printf("\n\tEnter the number and name of new inserted node at Given position : ");
-    scanf("%d %s", &(nw -> number), nw -> name);
+    scanf("%d", &(nw -> number));
+    getchar();
+    fgets(nw -> name,20,stdin);
+    nw -> name[strcspn(nw -> name,"\n")] = '\0';
 
     if (pos == 1) {
         nw -> next = head;
