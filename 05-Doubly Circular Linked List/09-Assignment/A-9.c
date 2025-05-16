@@ -37,6 +37,7 @@ int main() {
     displayDCLL(last);
     
     freeDCLL(last);
+    last = NULL;
 
     return 0;
     
@@ -50,7 +51,11 @@ DCLLNode* createDCLL() {
 
     do
     {
-        nw = malloc(sizeof(DCLLNode));
+        nw = (DCLLNode*)malloc(sizeof(DCLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
         printf("\n\tEnter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
