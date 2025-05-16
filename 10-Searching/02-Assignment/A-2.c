@@ -16,7 +16,7 @@ int main() {
     printf("\n\t The Time Complexity of the Linear Search [worst cases]: O(log n) \n");
     printf("\t ------------------------------------------------------------------ \n");
 
-    int *arr = NULL,i = -1,key,ch;
+    int *arr = NULL,i = -1,key;
     arr = (int*)malloc(SIZE*sizeof(int));    
     if (arr == NULL) {
         printf("\n\t Memory Allocation Failed! \n\n");
