@@ -12,7 +12,7 @@ int main() {
 
     printf("\n\t -------------------------------------------------------------- ");
     printf("\n\t The Time Complexity of the Exchange Sort [worst cases]: O(n^2) \n");
-    printf("\t -------------------------------------------------------------- \n");
+    printf("\t  \n");
 
     int *arr = NULL;
     arr = (int*)malloc(SIZE*sizeof(int));    
