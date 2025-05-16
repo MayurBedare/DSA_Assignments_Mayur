@@ -2,10 +2,6 @@
     A-9 ->  write a c program to create a circular singly linked list and delete the node by position
 */
 
-/*
-    Input -> |_Head_| --> |_1_|_AA_|_00771388_| --> |_2_|_BB_|_007713B0_| --> |_3_|_CC_|_00772FC0_| <-- |_last_| 
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -194,49 +190,3 @@ void freeSCLL(SCLLNode *last) {
     f = NULL;
 }
 
-/*
-    Output ->
-                    Enter Number and Name : 1 AA
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 3 CC
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    Singly Circular Linked List :
-
-            |_Head_| --> |_1_|_AA_|_00771388_| --> |_2_|_BB_|_007713B0_| --> |_3_|_CC_|_00772FC0_| <-- |_last_|
-
-
-                    Enter the position of the node to be deleted from the given linked list : 2
-
-                    Singly Circular Linked List after deletion of node at given position :
-
-            |_Head_| --> |_1_|_AA_|_007713B0_| --> |_3_|_CC_|_00772FC0_| <-- |_last_|
-*/
-
-/*
-    Position = 1 (Head Position) :
-
-        Singly Circular Linked List : 
-
-    |_Head_| --> |_2_|_BB_|_007713B0_| --> |_3_|_CC_|_007713B0_| <-- |_last_|
-*/
-
-/*
-    Position = 2 (Middle Position) :
-
-        Singly Circular Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_007713B0_| --> |_3_|_CC_|_00772FC0_| <-- |_last_|
-*/
-
-/*
-    Position = 3 (End Position) :
-
-        Singly Circular Linked List : 
-
-    |_Head_| --> |_1_|_AA_|_00771388_| --> |_2_|_BB_|_00772FC0_| <-- |_last_|
-*/
