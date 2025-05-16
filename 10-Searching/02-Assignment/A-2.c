@@ -13,7 +13,7 @@ int main() {
     printf("\n\t ***** Binary Search : Searching ***** \n");
 
     printf("\n\t ----------------------------------------------------------------");
-    printf("\n\t The Time Complexity of the Linear Search [worst cases]: O(log n) \n");
+    printf("\n\t The Time Complexity of the Binary Search [worst cases]: O(log n) \n");
     printf("\t ------------------------------------------------------------------ \n");
 
     int *arr = NULL,i = -1,key;
