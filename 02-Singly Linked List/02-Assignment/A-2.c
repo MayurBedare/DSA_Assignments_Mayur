@@ -56,13 +56,17 @@ Student* createSLL() {
         }
 
         printf("\n\tEnter Student name : ");
-        scanf("%s", nw -> std_name);
+        fgets(nw -> std_name,20,stdin);
+        nw -> std_name[strcspn(nw -> std_name,"\n")] = '\0';    
         printf("\tEnter Student roll no : ");
         scanf("%d",&(nw -> std_rollNo));
         printf("\tEnter Student standard : ");
-        scanf("%s", nw -> std_standard);
+        getchar();
+        fgets(nw -> std_standard,10,stdin);
+        nw -> std_standard[strcspn(nw -> std_standard,"\n")] = '\0';    
         printf("\tEnter Student division : ");
-        scanf("%s", nw -> std_div);
+        fgets(nw -> std_div,3,stdin);
+        nw -> std_div[strcspn(nw -> std_div,"\n")] = '\0';    
         nw -> next = NULL;
 
         if (head == NULL) {
@@ -75,6 +79,7 @@ Student* createSLL() {
 
         printf("\n\tDo you want to enter more records ( yes(1) / no(0) ) :");
         scanf("%d", &cnt);
+        getchar();
 
         i++;
     } while (cnt != 0);
@@ -102,12 +107,14 @@ void freeSLL(Student *f) {
 }
 
 /*
-    Output ->     
+    Output ->  
                 Give Student 1 details : 
                 Enter Student name : kartik
                 Enter Student roll no : 1
                 Enter Student standard : 7th
                 Enter Student division : B
+
+                Do you want to enter more records ( yes(1) / no(0) ) :1
 
                 Give Student 2 details : 
                 Enter Student name : chirag
@@ -115,11 +122,15 @@ void freeSLL(Student *f) {
                 Enter Student standard : 7th
                 Enter Student division : B
 
-                Give Student 3 details : 
+                Do you want to enter more records ( yes(1) / no(0) ) :1
+
+                Give Student 3 details :
                 Enter Student name : soham
                 Enter Student roll no : 3
                 Enter Student standard : 7th
                 Enter Student division : B
 
-                |_head_| --> |_kartik_|_1_|_7th_|_B_|_00C10D40_| --> |_chirag_|_2_|_7th_|_B_|_00C10D70_| --> |_soham_|_3_|_7th_|_B_|_00000000_|                           
+                Do you want to enter more records ( yes(1) / no(0) ) :0
+
+                |_head_| --> |_kartik_|_1_|_7th_|_B_|_00D70D40_| --> |_chirag_|_2_|_7th_|_B_|_00D70D70_| --> |_soham_|_3_|_7th_|_B_|_00000000_|    
 */
