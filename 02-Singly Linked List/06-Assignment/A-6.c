@@ -57,7 +57,10 @@ SLLNode* createSLL() {
         }
 
         printf("\n\tEnter Number and Name : ");
-        scanf("%d %s", &(nw -> number), nw -> name);
+        scanf("%d", &(nw -> number));
+        getchar();
+        fgets(nw -> name,20,stdin);
+        nw -> name[strcspn(nw -> name,"\n")] = '\0';
 
         nw -> next = NULL;
 
@@ -86,7 +89,12 @@ void add2CN(SLLNode *head) {
         printf("\n\tDisplaying Addition of two consecutive nodes is not possible!\n\n");
     } else {
         for ( ; a1 != NULL && a2 != NULL ; a2 = a1 -> next) {
-            nw = malloc(sizeof(SLLNode));
+            nw = (SLLNode*)malloc(sizeof(SLLNode));
+            if (nw == NULL)
+            {
+                printf("\n\t Memory Allocation Failed!");
+                exit(1);
+            }
             
             nw -> next = a2 -> next;
             a2 -> next = nw;
