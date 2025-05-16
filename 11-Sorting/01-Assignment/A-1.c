@@ -18,7 +18,7 @@ int main() {
     arr = (int*)malloc(SIZE*sizeof(int));    
     if (arr == NULL) {
         printf("\n\t Memory Allocation Failed! \n\n");
-        exit(1);
+        exit(0);
     }
 
     printf("\n\t Enter the elements of arr[%d] one by one : \n\n",SIZE);
