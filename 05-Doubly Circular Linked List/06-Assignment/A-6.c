@@ -2,10 +2,6 @@
     A-6 ->  write a c program to Create a circular doubly linked list and delete the node which key matches the user's key
 */
 
-/*
-    Input -> |_Head_| <--> |_008213B0_|_1_|_AA_|_00821388_| <--> |_00822FC0_|_2_|_BB_|_008213B0_| <--> |_00821388_|_3_|_CC_|_00822FC0_|  <--> |_last_|
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -27,22 +23,48 @@ int main() {
    
     DCLLNode *last = NULL;
 
+    printf("\n\t ***** Delete a node at the given key : Doubly Circular Linked List ***** \n");
+
+    printf("\n\t --------------------------------------------------------");
+    printf("\n\t Create a linked list to delete a node at the given key : \n");
+    printf("\t -------------------------------------------------------- \n");
+
     last = createDCLL();
 
-    printf("\n\t Doubly Circular Linked List : ");
-    displayDCLL(last);
-
-    last = deleteKey(last);
-
-    if (last == NULL) {
-        printf("\n\t Doubly Circular Linked List is empty!\n\n");
-        exit(0);
-    }
-
-    printf("\n\t Doubly Circular Linked List after deletion of the key/value : ");
+    printf("\n\t -------------------------------------------------------- \n");
+    printf("\n\t Linked List : ");
     displayDCLL(last);
     
-    freeDCLL(last);
+    while (1) {
+        int ch; 
+        printf("\n\t ---------------------------------");
+        printf("\n\t 1. Delete a node at the given key ");
+        printf("\n\t 2. Exit ");
+        printf("\n\t ---------------------------------");
+        printf("\n\t Enter your choice : ");
+        scanf("%d",&ch);
+        printf("\t --------------------------------- \n");
+        
+        switch (ch) {
+            case 1:
+                if (last == NULL) {
+                    printf("\n\t Linked List is Empty! \n");
+                    break;
+                }
+                last = deleteKey(last);
+                break;
+            
+            case 2:
+                freeDCLL(last);
+                last = NULL;
+                printf("\n\t Program Exited Successfully. \n\n");
+                exit(0);
+
+            default: 
+                printf("\n\t Invalid Choice Entered! \n");
+                break;
+        }
+    }
 
     return 0;
     
@@ -56,9 +78,13 @@ DCLLNode* createDCLL() {
 
     do
     {
-        nw = malloc(sizeof(DCLLNode));
+        nw = (DCLLNode*)malloc(sizeof(DCLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
-        printf("\n\tEnter Number and Name : ");
+        printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
 
         nw -> next = nw;
@@ -76,7 +102,7 @@ DCLLNode* createDCLL() {
         
         last = nw;
 
-        printf("Do you want to enter more records ( yes(1) / no(0) ) : ");
+        printf("\n\t Do you want to enter more records ( yes(1) / no(0) ) : ");
         scanf("%d", &cnt);
     } while (cnt != 0);
 
@@ -86,13 +112,15 @@ DCLLNode* createDCLL() {
 
 DCLLNode* deleteKey(DCLLNode *last) {
 
-    DCLLNode *p = NULL,*prev = NULL,t;
+    int t,flag = 0;
+    DCLLNode *p = NULL;
     p = last -> next;
 
     printf("\n\t Enter the kay/value of the node to be deleted eg.1 AA : ");
-    scanf("%d %s", &(t.number), t.name);
+    scanf("%d", &t);
 
-    if (p -> number == t.number && !(strcmp(p -> name, t.name))) {
+    if (p -> number == t) {
+        flag = 1;
         if (p == last) {
             free(p);
             p = NULL;
@@ -103,25 +131,26 @@ DCLLNode* deleteKey(DCLLNode *last) {
         free(p);
         p = NULL;
     } else {
-        for (prev = p,p = p -> next ; p -> number != t.number && (strcmp(p -> name, t.name)) && p != last ; p = p -> next,prev = prev -> next);
+        for (p = p -> next ; p -> number != t && p != last ; p = p -> next);
 
-        if (p -> number == t.number && !(strcmp(p -> name, t.name))) {
-            if (p != last) {
-                prev -> next = p -> next;
-                p -> next -> prev = prev;
-                free(p);
-                p = NULL;
-            } else {
-                prev -> next = p -> next;
-                prev -> next -> prev = prev;
-                free(p);
-                p = NULL;
-                last = prev;
+        if (p -> number == t) {
+            flag = 1;
+            p -> prev -> next = p -> next;
+            p -> next -> prev = p -> prev;
+            if (p == last) {
+                last -> next -> prev = p -> prev;
+                last = p -> prev;
             }
+            free(p);
+            p = NULL;
         } else {
-            printf("\n\t Key/Value not found!\n\n");
-            exit(0);
+            printf("\n\t Key not found! \n");
         }
+    }
+
+    if (flag == 1) {
+        printf("\n\t Linked List after deletion of the key : ");
+        displayDCLL(last);
     }
 
     return last;
@@ -132,7 +161,7 @@ void displayDCLL(DCLLNode *last) {
 
     DCLLNode *d = NULL;
     d = last -> next;
-    printf("\n\n|_Head_| ");
+    printf("\n\n\t |_Head_| ");
     printf("<--> |_%p_|_%d_|_%s_|_%p_| ", d -> prev, d -> number, d -> name, d -> next);
 
 
@@ -141,7 +170,7 @@ void displayDCLL(DCLLNode *last) {
 
     printf(" <--> |_last_|");
 
-    printf("\n\n");
+    printf("\n");
 
 }
 
@@ -163,26 +192,3 @@ void freeDCLL(DCLLNode *last) {
     f = NULL;
 
 }
-
-/*
-    Output ->
-                    Enter Number and Name : 1 AA
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-            Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 3 CC
-            Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    Doubly Circular Linked List :
-
-            |_Head_| <--> |_008213B0_|_1_|_AA_|_00821388_| <--> |_00822FC0_|_2_|_BB_|_008213B0_| <--> |_00821388_|_3_|_CC_|_00822FC0_|  <--> |_last_|
-
-
-                    Enter the kay/value of the node to be deleted eg.1 AA : 2 BB
-
-                    Doubly Circular Linked List after deletion of the key/value :
-
-            |_Head_| <--> |_008213B0_|_1_|_AA_|_008213B0_| <--> |_00822FC0_|_3_|_CC_|_00822FC0_|  <--> |_last_|
-*/
