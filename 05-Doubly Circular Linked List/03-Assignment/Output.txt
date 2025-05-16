@@ -1,0 +1,86 @@
+         ***** Insert a node at the given position : Doubly Circular Linked List ***** 
+
+         -------------------------------------------------------------
+         Create a linked list to insert a node at the given position : 
+         ------------------------------------------------------------- 
+
+         Enter Number and Name : 2 BB
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 1
+
+         Enter Number and Name : 4 DD
+
+         Do you want to enter more records ( yes(1) / no(0) ) : 0
+
+         ------------------------------------------------------------- 
+
+         Linked List : 
+
+         |_Head_| <--> |_00CA1690_|_2_|_BB_|_00CA1690_| <--> |_00CA1668_|_4_|_DD_|_00CA1668_|  <--> |_last_|
+
+         --------------------------------------
+         1. Insert a node at the given position 
+         2. Exit 
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter number and name of the node to be inserted at the given position : 1 AA
+
+         Enter the position where new node to be insereted : 1
+
+         Linked List after insertion of node at the given position :
+
+         |_Head_| <--> |_00CA1690_|_1_|_AA_|_00CA1668_| <--> |_00CA16B8_|_2_|_BB_|_00CA1690_| <--> |_00CA1668_|_4_|_DD_|_00CA16B8_|  <--> |_last_|
+
+         --------------------------------------
+         1. Insert a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter number and name of the node to be inserted at the given position : 3 CC
+
+         Enter the position where new node to be insereted : 3
+
+         Linked List after insertion of node at the given position :
+
+         |_Head_| <--> |_00CA1690_|_1_|_AA_|_00CA1668_| <--> |_00CA16B8_|_2_|_BB_|_00CA16E0_| <--> |_00CA1668_|_3_|_CC_|_00CA1690_| <--> |_00CA16E0_|_4_|_DD_|_00CA16B8_|  <--> |_last_|
+
+         --------------------------------------
+         1. Insert a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter number and name of the node to be inserted at the given position : 5 EE
+
+         Enter the position where new node to be insereted : 5
+
+         Linked List after insertion of node at the given position :
+
+         |_Head_| <--> |_00CA1690_|_1_|_AA_|_00CA1668_| <--> |_00CA16B8_|_2_|_BB_|_00CA16E0_| <--> |_00CA1668_|_3_|_CC_|_00CA1690_| <--> |_00CA16E0_|_4_|_DD_|_00CA1708_| <--> |_00CA1690_|_5_|_EE_|_00CA16B8_|  <--> |_last_|
+
+         --------------------------------------
+         1. Insert a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 1
+         -------------------------------------- 
+
+         Enter number and name of the node to be inserted at the given position : 7 FF
+
+         Enter the position where new node to be insereted : 7
+
+         Invalid position entered!
+
+         --------------------------------------
+         1. Insert a node at the given position
+         2. Exit
+         --------------------------------------
+         Enter your choice : 2
+         -------------------------------------- 
+
+         Program Exited Successfully.
