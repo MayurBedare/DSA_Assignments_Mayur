@@ -43,13 +43,11 @@ int main() {
                 break;
             
             case 2:
-                last = deletePos(last);
                 if (!last) {
                     printf("\n\t Doubly Circular Linked List is empty!\n");
                     break;
                 }
-                printf("\n\t Doubly Circular Linked List after deletion of node at given position : ");
-                displayDCLL(last);
+                last = deletePos(last);
                 break;
 
             case 3:
@@ -72,7 +70,11 @@ DCLLNode* createDCLL(DCLLNode *last) {
     do
     {
         DCLLNode *nw = NULL;
-        nw = malloc(sizeof(DCLLNode));
+        nw = (DCLLNode*)malloc(sizeof(DCLLNode));
+        if (nw == NULL) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
+        }
 
         printf("\n\t Enter Number and Name : ");
         scanf("%d %s", &(nw -> number), nw -> name);
@@ -95,7 +97,7 @@ DCLLNode* createDCLL(DCLLNode *last) {
 }
 
 DCLLNode* deletePos(DCLLNode *last) {
-    int pos,i;
+    int pos,i,flag = 0;
     DCLLNode *d = NULL,*prev = NULL;
     d = last -> next;
 
@@ -105,6 +107,7 @@ DCLLNode* deletePos(DCLLNode *last) {
     for (i = 1 ; i < pos && d != last ; d = d -> next,i++);
 
     if (d != last) { // d is not last node 
+        flag = 1;
         if (d != last -> next) { // d is not first node
             d -> prev -> next = d -> next;
             d -> next -> prev = d -> prev;
@@ -112,23 +115,27 @@ DCLLNode* deletePos(DCLLNode *last) {
             last -> next = d -> next;
             d -> prev = last;
         }
+        free(d);
+        d = NULL;
     } else { // d is last node
         if (i == pos) { // indicates last node where last and d points
-            if (pos == 1) { // single doubly linked list node present 
-                last = NULL;
-                return last;
+            flag = 1; 
+            if (pos != 1) { // single doubly linked list node present 
+                last = last -> prev;
+                last -> next = d -> next;
+                last -> next -> prev = last;
             }
-            last = last -> prev;
-            last -> next = d -> next;
-            last -> next -> prev = last;
+            free(d);
+            d = NULL;
         } else {
-            printf("\n\t Invalid Position entered!\n\n");
-            exit(0);
+            printf("\n\t Invalid Position entered!\n");
         }
     }
-    // as in every if condition we wants to remove d then written free(d) at last
-    free(d);
-    d = NULL;
+
+    if (flag == 1) {
+        printf("\n\t Linked List after deletion of node at the given position : ");
+        displayDCLL(last);
+    }
 
     return last;
 }
@@ -143,7 +150,7 @@ void displayDCLL(DCLLNode *last) {
 
     printf("<--> |_%d_|_%s_|_%p_| <--> |_last_|", d -> number, d -> name, d -> next);
 
-    printf("\n\n");
+    printf("\n");
 }
 
 void freeDCLL(DCLLNode *last) {
