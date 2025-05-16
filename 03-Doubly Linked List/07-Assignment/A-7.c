@@ -4,6 +4,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct DLLNode
 {
@@ -85,7 +86,10 @@ DLLNode* createDLL() {
         }
 
         printf("\n\t Enter Number and Name : ");
-        scanf("%d %s", &(nw -> number), nw -> name);
+        scanf("%d", &(nw -> number));
+        getchar();
+        fgets(nw -> name,20,stdin);
+        nw -> name[strcspn(nw -> name,"\n")] = '\0';
 
         nw -> next = NULL;
 
