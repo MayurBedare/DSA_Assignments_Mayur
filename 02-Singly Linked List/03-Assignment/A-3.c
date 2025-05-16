@@ -8,6 +8,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct SLLNode
 {
@@ -56,7 +57,10 @@ SLLNode* createSLL() {
         }
 
         printf("\n\tEnter Number and Name : ");
-        scanf("%d %s", &(nw -> number), nw -> name);
+        scanf("%d", &(nw -> number));
+        getchar();
+        fgets(nw -> name,20,stdin);
+        nw -> name[strcspn(nw -> name,"\n")] = '\0';
 
         nw -> next = NULL;
 
@@ -119,23 +123,3 @@ void freeSLL(SLLNode *f) {
         free(t);
     }
 }
-
-/*
-    Output ->      
-                    Enter Number and Name : 1 AA
-                Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 2 BB
-                Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 3 CC
-                Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 4 DD
-                Do you want to enter more records ( yes(1) / no(0) ) : 1
-
-                    Enter Number and Name : 5 EE
-                Do you want to enter more records ( yes(1) / no(0) ) : 0
-
-                    |_head_| --> |_1_|_AA_|_00B913B0_| --> |_3_|_CC_|_00B91400_| --> |_5_|_EE_|_00000000_|                           
-*/
