@@ -23,7 +23,7 @@ int main() {
     char name[10];
 
     while (1) {
-        printf("\n Queue using linked list\n");
+        printf("\n Queue using linked list \n");
         printf("1. Enqueue\n");
         printf("2. Dequeue\n");
         printf("3. Display\n");
