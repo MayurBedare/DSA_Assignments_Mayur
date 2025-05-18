@@ -48,5 +48,8 @@ int main() {
     }
     printf("\n\n");
 
+    free(arr);
+    arr = NULL;
+
     return 0;   
 }
