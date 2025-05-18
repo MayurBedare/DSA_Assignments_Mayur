@@ -22,19 +22,19 @@ int main() {
     int ch;
 
     while (1) {
-        printf("\n\t Queue with array ");
+        printf("\n\n\t Queue with array ");
         printf("\n\t 1. Enqeue");
         printf("\n\t 2. Dequeue");
         printf("\n\t 3. Display");
         printf("\n\t 4. Exit");
-        printf("Enter your choice :");
+        printf("\n\t Enter your choice :");
         scanf("%d",&ch);
         switch(ch) {
             case 1: rear = enqueue(rear,a);break;
             case 2: front = dequeue(front,rear,a);
                     if(front == 0)  rear = -1;
                     break;
-            case 3: display(front,rear,0);break;
+            case 3: display(front,rear,a);break;
             case 4: exit(0);
 
             default: printf("Invalid choice");
@@ -44,7 +44,7 @@ int main() {
 }
 
 int enqueue(int rear,queue *a) {
-    if (rear == MAX-1)  printf("Queue is Full!");
+    if (rear == MAX-1)  printf("\n\t Queue is Full!");
     else {
         rear++;
         printf("Eneter no. & name: ");
@@ -65,10 +65,10 @@ int dequeue(int front,int rear, queue *a) {
 
 void display(int front,int rear,queue *a) {
     if (rear == -1) {
-        printf("Queue is empty");
+        printf("\n\t Queue is empty");
         return;
     }
     for (int i = front ; i <= rear ; i++) {
-        printf("%d\t%s\t\t",a[i].no,a[i].name);
+        printf("\n\t %d %s",a[i].no,a[i].name);
     }
 }
