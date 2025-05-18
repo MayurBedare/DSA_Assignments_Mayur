@@ -10,6 +10,7 @@
 */
 
 #include<stdio.h>
+#include<ctype.h>
 
 int main()
 {
@@ -32,10 +33,10 @@ int main()
         {
             count_v++;
         }
-        else
+        else if (isalpha(*(p+i)))
         {
             count_c++;
-        }
+        } 
     }
 
     printf("The total number of vowels in the given string : %d \n",count_v);
