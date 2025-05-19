@@ -155,8 +155,9 @@ DCLLNode* insert(DCLLNode *last) {
             p -> next = nw;
             last = nw;
             } else {
-                printf("\n\t Invalid position entered!\n\n");
-                exit(0);
+                printf("\n\t Invalid position entered!\n");
+                free(nw);
+                nw = NULL;
             }
         }
     }
@@ -201,8 +202,7 @@ DCLLNode* delete(DCLLNode *last) {
             free(d);
             d = NULL;
             } else {
-                printf("\n\t Invalid Position entered!\n\n");
-                exit(0);
+                printf("\n\t Invalid Position entered!\n");
             }
         }
     }
