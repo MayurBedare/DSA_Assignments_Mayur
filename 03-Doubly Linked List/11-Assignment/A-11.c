@@ -167,8 +167,8 @@ DLLNode* insert(DLLNode *head) {
             nw -> prev = p;
         } else {
             printf("\n\tInvalid Position Entered! \n");
-            free(p);
-            p = NULL;
+            free(nw);
+            nw = NULL;
         }
     }
 
