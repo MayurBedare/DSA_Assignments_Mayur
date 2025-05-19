@@ -165,12 +165,11 @@ void freeDCLL(DCLLNode *last) {
     DCLLNode *f = NULL;
     f = last -> next;
 
-    while (f != last -> next) {   
+    while (f != last) {   
         f = f -> next;
         free(f -> prev);
-        f -> prev = NULL;
-    }
+    } 
     
     free(f);
-    f = NULL;
+
 }
