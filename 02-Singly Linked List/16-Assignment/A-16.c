@@ -23,6 +23,7 @@ typedef struct SLLNode
 SLLNode* createSLL();
 void reverse(SLLNode*);
 void displaySLL(SLLNode*);
+void freeSLL(SLLNode*);
 
 int main() {
     
@@ -35,7 +36,7 @@ int main() {
 
     reverse(head);
     
-    free(head);
+    freeSLL(head);
     head = NULL;
 
     return 0;
@@ -113,6 +114,16 @@ void displaySLL(SLLNode *d) {
 
     printf("\n\n");
 
+}
+
+void freeSLL(SLLNode *f) {
+    SLLNode *t = NULL;
+
+    while (f != NULL) {
+        t = f;
+        f = f -> next;
+        free(t);
+    }
 }
 
 /*
