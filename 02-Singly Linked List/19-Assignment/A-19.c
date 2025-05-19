@@ -196,33 +196,18 @@ SLLNode* delete(SLLNode *head) {
 
 }
 
-SLLNode* revert(SLLNode *head) {
+SLLNode* revert(SLLNode *p) {
 
-    SLLNode *x,*y,*z;
-    x = head; 
-    y = x -> next;
-    z = y -> next;
-    
-    while (x -> next != NULL)
-    {
-        if (z -> next != NULL)
-        {
-            head = y -> next;
-            y -> next = z -> next;
-            z -> next = z -> next -> next;
-            y -> next -> next = head; 
-        }
-        else
-        {
-            head = y -> next;
-            z -> next = y;
-            y -> next = x;
-            x -> next = NULL;
-            
-        }
-    }    
-    
-    return(head);
+    SLLNode *q = NULL, *r = NULL;
+
+    while (p != NULL) {
+        r = p -> next;
+        p -> next = q;
+        q = p;
+        p = r;
+    }
+
+    return q;
 
 }
 
