@@ -19,6 +19,7 @@
 */
 
 #include<stdio.h>
+#include<string.h>
 
 int main() {
     char string1[50];
@@ -26,13 +27,15 @@ int main() {
 
     printf("\n\t ***** Password Checker ***** \n");
     printf("\n\t Set the strong password : ");
-    scanf("%s",string1);
+    fgets(string1,50,stdin);
+    string1[strcspn(string1,"\n")] = '\0';
 
     while (1) {
         int flag = 0,ch;
 
         printf("\n\t Re-enter the password   : ");
-        scanf("%s",string2);
+        fgets(string2,50,stdin);
+        string2[strcspn(string2,"\n")] = '\0';
 
         for (int c = 0 ; string1[c] != '\0' && string2[c] != '\0' ; c++) {
             if (string1[c] != string2[c]) {
@@ -48,6 +51,7 @@ int main() {
             printf("\n\t Password didn't match! Please try again \n");
             printf("\n\t Do you want to attempt one more chance ( Yes(1) / No(0) ) : ");
             scanf("%d",&ch);
+            getchar();
             if (ch) {
                 continue;
             } 
@@ -60,7 +64,3 @@ int main() {
 
     return 0;   
 }
-
-/*
-    Output ->                                
-*/
