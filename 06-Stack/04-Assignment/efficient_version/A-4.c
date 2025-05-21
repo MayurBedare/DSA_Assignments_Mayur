@@ -12,12 +12,9 @@
 #define MAX 50
 
 char* postfix(char*);
-char* prefix(char*);
 int isAlpha(char);
 int prior(char);
-void evaluate(char*);
 int push(char operand[][MAX],int top,char ch);
-void reverse(char*);
 
 int main() {
     int ch;
@@ -26,31 +23,19 @@ int main() {
         printf("\n *** Infix Conversion *** ");
         printf("\n 1. Enter Infix Expression ");
         printf("\n 2. Convert to postfix ");
-        printf("\n 3. Convert to prefix ");
-        printf("\n 4. Evaluate Postfix ");
-        printf("\n 5. Exit ");
+        printf("\n 3. Exit ");
         printf("\n Enter your choice : ");
         scanf("%d",&ch);
         getchar();
         switch (ch) {
             case 1:
-                printf("Enter the infix expression : ");
+                printf(" Enter the infix expression : ");
                 scanf("%s",str);
                 break;
             
             case 2:
                 post = postfix(str);
                 if (post != NULL)   printf(" Postfix : %s\n",post);
-                break;
-            
-            case 3:
-                pre = prefix(str);
-                if (pre != NULL)    printf(" Prefix : %s\n",pre);
-                break;
-            
-            case 4:
-                if (post != NULL)   evaluate(post);
-                else    printf(" Please convert to postfix..!\n");
                 break;
             
             default:
@@ -68,7 +53,8 @@ int prior(char ch) {
     switch (ch) {
         case '^': return 4;
         case '*': case '/': case '%': return 3;
-        case '(': case '-': return 2;
+        case '+': case '-': return 2;
+        case '(': return 1;
         default: return 0;
     }
 }
@@ -101,7 +87,7 @@ char* postfix(char *str) {
             op[++top1] = str[i];
         } else if (str[i] == ')') {
             while (top >= 0 && op[top1] != '(') {
-                top = push(operand,top,op[top--]);
+                top = push(operand,top,op[top1--]);
             }
             if (top1 == -1) {
                 printf(" Invalid, parentheses mismatched..!");
@@ -124,60 +110,4 @@ char* postfix(char *str) {
     }
     strcpy(result,operand[top]);
     return result;
-}
-
-void evaluate(char *s) {
-    int stack[MAX],top = -1,i;
-    for (i = 0 ; s[i] != '\0' ; i++) {
-        if (isdigit(s[i])) {
-            stack[++top] = s[i] - '0';
-        } else if (isalpha(s[i])) {
-            int val;
-            printf(" Enter value for %c : ",s[i]);
-            scanf("%d",&val);
-            stack[++top] = val;
-        } else {
-            if (top < 1) {
-                printf(" Invalid postfix expression!");
-                return;
-            }
-            int b = stack[top--];
-            int a = stack[top--];
-            switch (s[i]) {
-                case '+' : stack[++top] = a + b; break;
-                case '-' : stack[++top] = a - b; break;
-                case '*' : stack[++top] = a * b; break;
-                case '/' : stack[++top] = a / b; break;
-                case '%' : stack[++top] = a % b; break;
-                case '^' : stack[++top] = (int)pow(a,b); break;
-                default: printf(" Unknown operator : %c ",s[i]); return;
-            }
-        }
-    }
-    if (top == 0)   printf(" Result : %d\n",stack[top]);
-    else    printf(" Invalid postfix expression..!");
-}
-
-void reverse(char *str) {
-    int len = strlen(str);
-    for (int i = 0 ; i < len/2 ; i++) {
-        char tmp = str[i];
-        str[i] = str[len - i - 1];
-        str[len - i - 1] = tmp;
-    }
-}
-
-char* prefix(char* infix) {
-    static char rev[MAX],tmp[MAX],*post;
-    strcpy(tmp,infix);
-    reverse(tmp);
-    for (int i = 0 ; tmp[i] != '\0' ; i++) {
-        if (tmp[i] == '(') tmp[i] = ')';
-        else if (tmp[i] == ')') tmp[i] = '(';
-    }
-    post = postfix(tmp);
-    if (post == NULL)   return NULL;
-    strcpy(rev,post);
-    reverse(rev);
-    return rev;
 }
