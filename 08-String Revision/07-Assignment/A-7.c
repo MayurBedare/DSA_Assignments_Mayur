@@ -29,7 +29,7 @@
 #include<ctype.h>
 
 int main() {
-    int n;
+    int n,flag = 0;
 
     printf("\n\t ***** Hobbie Counter ***** \n");
     printf("\n\t Enter the total number of hobbies : ");
@@ -60,17 +60,21 @@ int main() {
         }
         while (string[i][j] != '\0') {
             while (!isspace(string[i][j]) && string[i][j] != '\0') {
+                if (isalpha(string[i][j])) {
+                    if (isupper(string[i][j])) {
+                        string[i][j] = tolower(string[i][j]);
+                    }
+                }
                 j++;
             }
 
             if (isspace(string[i][j]))  j++;
             
-            if (string[i][j]) {
-                if(islower(string[i][j])) {
-                    string[i][j] = toupper(string[i][j]);
-                }
-                j++;
+            
+            if(islower(string[i][j])) {
+                string[i][j] = toupper(string[i][j]);
             }
+            j++;
         } 
     }
 
