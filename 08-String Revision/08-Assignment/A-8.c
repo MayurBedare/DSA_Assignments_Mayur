@@ -79,7 +79,11 @@ int main() {
                     flag = 1;
                     break;
                 }
-                if (string[i] == '.' && cnt == 0) {
+                if (string[i] == '.') {
+                    if (cnt == 1) {
+                        flag = 1;
+                        break;
+                    }
                     cnt = 1;
                     i++;
                     continue;
