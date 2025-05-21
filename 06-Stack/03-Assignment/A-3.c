@@ -1,5 +1,5 @@
 /*
-    A-1 ->  Use Stacks to check a program for balanced symbols (such as {}, (), []). 
+    A-3 ->  Use Stacks to check a program for balanced symbols (such as {}, (), []). 
             The closing symbol should be matched with the most recently seen opening symbol.
             Example: {()} is legal, {() ({})} is legal, but {((} and {(}) are not legal
 */
