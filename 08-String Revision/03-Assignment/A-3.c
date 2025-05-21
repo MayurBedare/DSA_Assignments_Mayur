@@ -7,6 +7,7 @@
 */
 
 #include<stdio.h>
+#include<string.h>
 
 int main() {
 
@@ -23,6 +24,9 @@ int main() {
     }
     reverseString[j] = '\0';
 
+    strrev(string);
+
+    printf("\n\t Reverse of the given string (using inbuilt function) : %s \n",string);
     printf("\n\t Reverse of the given string : %s \n\n",reverseString);
 
     return 0;
