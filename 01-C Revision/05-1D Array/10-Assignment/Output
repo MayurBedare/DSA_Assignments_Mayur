@@ -1,0 +1,113 @@
+         Output 1 : when all elements are positive elements
+         
+         ***** Finding subarray with maximum sum of given array ***** 
+
+         Enter the elements of arr[10] one by one : 
+
+         Enter arr[0] : 1
+
+         Enter arr[1] : 2
+
+         Enter arr[2] : 3
+
+         Enter arr[3] : 4
+
+         Enter arr[4] : 5
+
+         Enter arr[5] : 6
+
+         Enter arr[6] : 7
+
+         Enter arr[7] : 8
+
+         Enter arr[8] : 9
+
+         Enter arr[9] : 10
+
+         The given arr[10] :
+
+         |_1_|_2_|_3_|_4_|_5_|_6_|_7_|_8_|_9_|_10_|
+
+         The subarray with maximum sum :
+
+         |_1_|_2_|_3_|_4_|_5_|_6_|_7_|_8_|_9_|_10_|
+
+         The maximum sum of subarray of arr[10] : 55
+
+
+
+         Output 2 : when all elements are negative elements
+
+         ***** Finding subarray with maximum sum of given array ***** 
+
+         Enter the elements of arr[10] one by one : 
+
+         Enter arr[0] : -1
+
+         Enter arr[1] : -2
+
+         Enter arr[2] : -3
+
+         Enter arr[3] : -4
+
+         Enter arr[4] : -5
+
+         Enter arr[5] : -6
+
+         Enter arr[6] : -7
+
+         Enter arr[7] : -8
+
+         Enter arr[8] : -9
+
+         Enter arr[9] : -10
+
+         The given arr[10] :
+
+         |_-1_|_-2_|_-3_|_-4_|_-5_|_-6_|_-7_|_-8_|_-9_|_-10_|   
+
+         The subarray with maximum sum :
+
+         |_-1_|
+
+         The maximum sum of subarray of arr[10] : -1
+
+
+
+         Output 3 : when all elements are mix of positive & negative elements
+         
+         ***** Finding subarray with maximum sum of given array ***** 
+
+         Enter the elements of arr[10] one by one : 
+
+         Enter arr[0] : -2
+
+         Enter arr[1] : 1
+
+         Enter arr[2] : -3
+
+         Enter arr[3] : 4
+
+         Enter arr[4] : -1
+
+         Enter arr[5] : 2
+
+         Enter arr[6] : 1
+
+         Enter arr[7] : -5
+
+         Enter arr[8] : 4
+
+         Enter arr[9] : 3
+
+         The given arr[10] :
+
+         |_-2_|_1_|_-3_|_4_|_-1_|_2_|_1_|_-5_|_4_|_3_|
+
+         The subarray with maximum sum :
+
+         |_4_|_-1_|_2_|_1_|_-5_|_4_|_3_|
+
+         The maximum sum of subarray of arr[10] : 8
+
+         
