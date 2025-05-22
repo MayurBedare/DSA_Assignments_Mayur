@@ -73,17 +73,15 @@ int main() {
                     printf("\n\t Memory Allocation Failed! \n\n");
                     exit(1);
                 }
-                temp[x][size[x]] = arr[i];
-                size[x]++;
             } else {
                 temp[x] = (int*)realloc(temp[x],(size[x]+1)*sizeof(int));
                 if (temp[x] == NULL) {
                     printf("\n\t Memory Allocation Failed! \n\n");
                     exit(1);
                 }
-                temp[x][size[x]] = arr[i];
-                size[x]++;
             }
+            temp[x][size[x]] = arr[i];
+            size[x]++;
         }
         t++;
 
