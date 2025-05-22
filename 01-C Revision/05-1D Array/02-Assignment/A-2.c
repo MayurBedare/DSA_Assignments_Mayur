@@ -1,5 +1,5 @@
 /*
-    A-3 ->  - Write a C program which allocates an array dynamically.
+    A-2 ->  - Write a C program which allocates an array dynamically.
 	        - Implement logic which accepts only unique elements in array
 */
 
@@ -10,9 +10,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define SIZE 10
-
 int main() {
+    int SIZE;
+    printf("\n\t Enter the size of an array : ");
+    scanf("%d",&SIZE);
+
     int *arr = NULL;
     arr = (int*)malloc(SIZE*sizeof(int));
     if (arr == NULL) {
@@ -20,37 +22,32 @@ int main() {
         exit(1);
     }
 
-    int size = 0,flag = 1;
     printf("\n\t Enter the elements of arr[10] one by one : \n\n");
-    for (int i = 0 ; i < SIZE ; i++) {
-        printf("\t Enter arr[%d] : ",i);
+    int i = 0,j = 0;
+    while (i < SIZE) {
+        printf("\t Enter arr[%d] : ",j++);
         scanf("%d",&arr[i]);
         
         if (i != 0) {
-            for (int k = 0 ; k < size ; k++) {
+            for (int k = 0 ; k < i ; k++) {
                 if (arr[k] == arr[i]) {
-                    flag = 0;
-                } else {
-                    if (flag != 0) {
-                    flag = 1;
+                    i--;
+                    arr = (int*)realloc(arr,(SIZE--)*sizeof(int));
+                    if (arr == NULL) {
+                        printf("\n\t Memory Allocation Failed!\n\n");
+                        exit(1);
                     }
-                }
+                    break;
+                } 
             }
-
-            if (flag != 0) {
-                arr[size] = arr[i];
-                size++;
-            }
-            flag = 1;
-        } else {
-            size++;
-        }
+        } 
+        i++;
     }
 
-    printf("\n\t Array with removal of duplicate elements from the given array : \n");
-    printf("\n\t arr[%d] : ",size);
+    printf("\n\t Array with accepting only unique elements from the given array : \n");
+    printf("\n\t arr[%d] : ",SIZE);
     printf("|_%d_|",arr[0]);
-    for (int i = 1 ; i < size ; i++) {
+    for (int i = 1 ; i < SIZE ; i++) {
         printf("_%d_|",arr[i]);
     }
     printf("\n\n");
@@ -76,7 +73,7 @@ int main() {
                 Enter arr[8] : 5
                 Enter arr[9] : 5
 
-                Array with removal of duplicate elements from the given array : 
+                Array with accepting only unique elements from the given array :
 
                 arr[5] : |_1_|_2_|_3_|_4_|_5_|                            
 */
