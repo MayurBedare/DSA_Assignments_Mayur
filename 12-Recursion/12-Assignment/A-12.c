@@ -11,9 +11,7 @@ int gcd(int**,int,int,int,int[],int);
 int main() {
     printf("\n\t ***** Finding GCD of the numbers using Recursion ***** \n");
 
-    int n,i = 0;
-    printf("\n\t Enter the no. of elements to be entered to find GCD : ");
-    scanf("%d",&n);
+    int n = 2,i = 0;
 
     int **arr = NULL;
     arr = (int**)malloc(n*sizeof(int*));
@@ -78,7 +76,7 @@ int main() {
 
     free(common_factor);
     common_factor = NULL;
-    
+
     return 0;   
 }
 
