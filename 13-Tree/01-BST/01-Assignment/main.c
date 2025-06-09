@@ -5,11 +5,11 @@
 /*
     Tree created : 
 
-                            10
-                           /   \
-                          8      15
-                         / \       \
-                        5   9       30
+                    10
+                   /   \
+                  8      15
+                 / \       \
+                5   9       30
 */
 
 #include "A-1[BST_Create].c"
