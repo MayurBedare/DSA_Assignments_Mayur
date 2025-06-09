@@ -2,6 +2,16 @@
     A-1 ->  Write a C program to create BST (Binary Search Tree) 
 */
 
+/*
+    Tree created : 
+
+                            10
+                           /   \
+                          8      15
+                         / \       \
+                        5   9       30
+*/
+
 #include "A-1[BST_Create].c"
 
 int main() {
