@@ -6,7 +6,7 @@
 #include<stdlib.h>
 
 int factors(int**,int,int,int);
-int gcd(int**,int,int,int,int[],int);
+int prime_or_not(int,int);
 
 int main() {
     printf("\n\t ***** Finding GCD of the numbers using Recursion ***** \n");
@@ -19,8 +19,10 @@ int main() {
         printf("\n\t Memory Allocation Failed! \n\n");
         exit(1);
     }
+    
+    int factor_size[2];
 
-    int common_factor_length = 1,common_factor_index = 0;
+    int common_factor_length = 1;
 
     while (n != 0) {
         int j = 0;
@@ -32,39 +34,42 @@ int main() {
         
         printf("\n\t Enter the Element %d : ",i+1);
         scanf("%d",&arr[i][j]);
+        
+        factor_size[i] = factors(arr,i,j,arr[i][j]);
 
-        int c_f;
-        c_f = factors(arr,i,j,arr[i][j]);
-
-        if (c_f < common_factor_length) {
-            common_factor_length = c_f;
-            common_factor_index = i;
+        if (factor_size[i] > common_factor_length) {
+            common_factor_length = factor_size[i];
         }
 
         i++,n--;
     }
 
-    int *common_factor = NULL;
-    common_factor = malloc(common_factor_length*sizeof(int));
-    if (common_factor == NULL) {
-        printf("\n\t Memory Allocation Failed! \n\n");                
-        exit(1);
-    }
-
-    n = gcd(arr,i-1,common_factor_index,common_factor_length+1,common_factor,0);
-
-    if (n == 1) {
-        printf("\n\t The GCD of the given numbers : %d \n\n",common_factor[0]);
+    int gcd = 1;
+    if (factor_size[0] == factor_size[1]) {
+        for (int x = 0 ; x < common_factor_length ; x++) {
+            if (arr[0][x] == arr[1][x]) {
+                gcd *= arr[0][x];
+            }
+        } 
     } else {
-        int largest = common_factor[0];
-        for (int u = 1 ; u < n ; u++) {
-            if (common_factor[u] > largest) {
-                largest = common_factor[u];
+        int temp;
+        if (factor_size[0] > factor_size[1]) {
+            temp = factor_size[0];
+            factor_size[0] = factor_size[1];
+            factor_size[1] = temp;
+        }
+        for (int x = 0 ; x < factor_size[0] ; x++) {
+            for (int y = 0 ; y < factor_size[1] ; y++) {
+                if (arr[0][x] == arr[1][y]) {
+                    gcd *= arr[0][x];
+                    arr[1][y] = 0;
+                    break;
+                }
             }
         }
-
-        printf("\n\t The GCD of the given numbers : %d \n\n",largest);
     }
+
+    printf("\n\t The GCD of the given numbers : %d \n\n",gcd);
 
     if (arr != NULL) {
         for (int f = 0 ; f < i ; f++) {
@@ -74,44 +79,53 @@ int main() {
         arr = NULL;
     }
 
-    free(common_factor);
-    common_factor = NULL;
-
     return 0;   
 }
 
 int factors(int **arr,int i,int j,int n) {
-    if (arr[i][j] == 1) return j+1;
-    
-    if (arr[i][0] % n == 0) {
-        arr[i] = realloc(arr[i],(j+2)*sizeof(int));
-        if (arr[i] == NULL) {
-            printf("\n\t Memory Allocation Failed! \n\n");                
-            exit(1);
-        }
-
-        arr[i][++j] = n;
-    }
-
-    factors(arr,i,j,--n);
-}
-
-int gcd(int **arr,int n,int i,int j,int common_factor[],int t) {
-    if (j == 0)    return t;
-
-    int flag = 0;
-    for (int h = 0 ; h < n+1 ; h++) {
-        for (int f = 1 ; h != i && arr[h][f-1] != 1 ; f++) {
-            if (arr[i][j] == arr[h][f]) {
-                flag++;
-                break;
+    if (prime_or_not(n,2)) {
+        if (j != 0) {
+            arr[i] = realloc(arr[i],(j+1)*sizeof(int));
+            if (arr[i] == NULL) {
+                printf("\n\t Memory Allocation Failed! \n\n");                
+                exit(1);
             }
-        }
+        } 
+        arr[i][j] = n;
+        return j+1;
+    }
+    if (n == 1) return j;
+
+    int m;
+    for (m = 2 ; m < 9 ; m++) {
+        if (n % m == 0 && n == m && j == 0) {
+            arr[i][j] = m;
+            return j+1;
+        } else if (n % m == 0) {
+            if (j == 0) {
+                arr[i][j] = m;
+            } else {
+                arr[i] = realloc(arr[i],(j+1)*sizeof(int));
+                if (arr[i] == NULL) {
+                    printf("\n\t Memory Allocation Failed! \n\n");                
+                    exit(1);
+                }
+            }
+            arr[i][j] = m;
+            j++;
+            break;
+        } 
     }
 
-    if (flag == n) {
-        common_factor[t++] = arr[i][j];
-    }
-
-    gcd(arr,n,i,--j,common_factor,t);
+    factors(arr,i,j,n/m);
 }
+
+int prime_or_not(int n,int m) {
+    if (n == 1) return 0;
+    
+    if (n%m == 0 && m != n) { return 0; }
+    else if (m == n) { return 1; }
+    else { prime_or_not(n,++m); }   
+}
+
+
