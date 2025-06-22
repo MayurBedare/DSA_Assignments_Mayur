@@ -12,7 +12,7 @@
                 5   9       30
 */
 
-#include "A-1[BST_Create].h"
+#include "A-1_BST_Create.h"
 
 int main() {
     printf("\n\t ***** Creating BST ***** \n");
