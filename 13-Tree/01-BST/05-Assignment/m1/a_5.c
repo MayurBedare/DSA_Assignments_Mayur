@@ -53,3 +53,11 @@ void postorder(BST *root) {
         printf(" %d ",root->data);
     } 
 }
+
+void freeTree(BST* root) {
+    if (root == NULL)   return;
+    freeTree(root->left);
+    freeTree(root->right);
+
+    free(root);
+}

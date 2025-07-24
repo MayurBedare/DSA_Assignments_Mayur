@@ -16,5 +16,7 @@ int main() {
     postorder(root);
     printf("\n\n");
 
+    freeTree(root);
+
     return 0;   
 }

@@ -9,5 +9,6 @@ typedef struct BST{
 
 BST* create(BST *root);
 void postorder (BST *root);
+void freeTree(BST*);
 
 #endif
