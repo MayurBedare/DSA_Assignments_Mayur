@@ -19,5 +19,7 @@ int main() {
 
     printf("\n\t Height of BST: %d \n", findHeight (root));
 
+    freeTree(root);
+
     return 0;   
 }

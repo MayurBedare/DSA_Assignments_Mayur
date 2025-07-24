@@ -10,5 +10,6 @@ typedef struct BST{
 BST* create(BST *root);
 int findHeight(const BST* root);
 void inorder (BST *root);
+void freeTree(BST*);
 
 #endif
