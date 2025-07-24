@@ -12,8 +12,7 @@
                 5   9       30
 */ 
 
-#include "A-2_BST_insertion.h"
-#include "../01-Assignment/A-1_BST_Create.h"
+#include "A_2.h"
 
 int main() {
     printf("\n\t ***** Creating BST ***** \n");

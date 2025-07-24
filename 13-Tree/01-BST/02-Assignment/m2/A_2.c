@@ -1,14 +1,10 @@
-/*  A-2 ->  Write a C program to create BST and insert an element in the BST */
+#include "A_2.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "a_2.h"
-
-BST* create(BST* root) {
-    BST *nw,*p = NULL;
+bst* create(bst* root) {
+    bst *nw,*p = NULL;
     int ch;
     do {
-        nw = (BST*)malloc(sizeof(BST));
+        nw = (bst*)malloc(sizeof(bst));
         if (nw == NULL) {
             printf("\n\t Memory Allocation Failed \n");
             exit(1);
@@ -48,22 +44,7 @@ BST* create(BST* root) {
     return root;
 }
 
-BST* insert (BST* root, int data) {
-     if(root == NULL) {
-        BST* newNode = (BST*) malloc (sizeof(BST));
-        newNode -> data = data;
-        newNode -> left = newNode -> right = NULL;
-        return newNode;
-     }
-     if (data < root -> data)
-        root -> left = insert(root -> left, data);
-    else if (root -> data)
-        root -> right = insert (root -> right, data);
-
-    return root;
-}
-
-void print(BST *root) {
+void print(bst* root) {
     if (root) {
         print(root->left);
         printf(" %d ",root->data);
@@ -71,8 +52,44 @@ void print(BST *root) {
     } 
 }
 
-void freeTree(BST* root) {
+void freeTree(bst* root) {
     if (root == NULL)   return;
+
     freeTree(root->left);
     freeTree(root->right);
+
+    free(root);
+}
+
+void insert(bst* root) {
+    bst *nw,*p = NULL;
+    nw = (bst*)malloc(sizeof(bst));
+    if (nw == NULL) {
+        printf("\n\t Memory Allocation Failed \n");
+        exit(1);
+    }
+
+    printf("\n\t Enter the Data ie Number : ");
+    scanf("%d",&(nw -> data));
+    nw -> left = nw -> right = NULL;
+
+    while (1) {
+        p = root;
+        if (nw -> data < p -> data) {
+            if (p -> left == NULL) {
+                p -> left = nw;
+                break;
+            }
+            p = p -> left;
+        } else if (nw -> data > p -> data) {
+            if (p -> right == NULL) {
+                p -> right = nw;
+                break;
+            }
+            p = p -> right;
+        } else {
+            printf("\n\t No is already exist. \n");
+            break;
+        }
+    }
 }

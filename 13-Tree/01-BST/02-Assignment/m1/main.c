@@ -22,5 +22,7 @@ int main() {
     print(root);
     printf("\n\n");
 
+    freeTree(root);
+
     return 0;   
 }

@@ -10,5 +10,6 @@ typedef struct BST{
 BST* create(BST *root);
 BST* insert (BST* root,int data);
 void print (BST *root);
+void freeTree(BST*);
 
 #endif
