@@ -20,5 +20,7 @@ int main() {
     countLeafNonLeaf (root, &leaf, &nonleaf);
     printf("\n\t Leaf Nodes: %d, Non-leaf nodes: %d \n", leaf,nonleaf);
 
+    freeTree(root);
+
     return 0;   
 }

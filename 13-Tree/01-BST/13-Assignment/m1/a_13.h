@@ -10,5 +10,6 @@ typedef struct BST{
 BST* create(BST *root);
 void countLeafNonLeaf (const BST* root, int* leaf, int* nonleaf);
 void inorder (BST *root);
+void freeTree(BST*);
 
 #endif
