@@ -16,5 +16,7 @@ int main() {
     preorder(root);
     printf("\n\n");
 
+    freeTree(root);
+
     return 0;   
 }

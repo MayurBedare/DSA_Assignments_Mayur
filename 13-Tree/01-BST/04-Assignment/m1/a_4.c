@@ -53,3 +53,11 @@ void preorder(BST *root) {
         preorder(root->right);
     } 
 }
+
+void freeTree(BST* root) {
+    if (root == NULL)   return;
+    freeTree(root->left);
+    freeTree(root->right);
+
+    free(root);
+}
