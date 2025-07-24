@@ -22,5 +22,7 @@ int main() {
     printf("\n\t Total nodes: %d \n", count);
     printf("\n");
 
+    freeTree(root);
+
     return 0;   
 }
