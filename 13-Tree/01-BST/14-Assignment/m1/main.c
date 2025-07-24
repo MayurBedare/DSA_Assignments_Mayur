@@ -20,5 +20,7 @@ int main() {
     printLeafNodes (root);
     printf("\n");
 
+    freeTree(root);
+
     return 0;   
 }

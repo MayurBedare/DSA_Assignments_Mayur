@@ -10,5 +10,6 @@ typedef struct BST{
 BST* create(BST *root);
 void printLeafNodes (const BST* root);
 void inorder (BST *root);
+void freeTree(BST*);
 
 #endif
