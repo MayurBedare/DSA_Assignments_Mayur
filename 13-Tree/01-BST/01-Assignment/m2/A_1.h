@@ -1,3 +1,6 @@
+#ifndef BST_H //if  not defined yet
+#define BST_H //define if now(first time use)
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -10,3 +13,6 @@ typedef struct BST
 
 bst* create(bst*);
 void print(bst*);
+void freeTree(bst*);
+
+#endif

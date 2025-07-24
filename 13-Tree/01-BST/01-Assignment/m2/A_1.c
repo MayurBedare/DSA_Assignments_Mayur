@@ -1,4 +1,4 @@
-#include "A-1_BST_Create.h"
+#include "A_1.h"
 
 bst* create(bst* root) {
     bst *nw,*p = NULL;
@@ -50,4 +50,13 @@ void print(bst* root) {
         printf(" %d ",root->data);
         print(root->right);
     } 
+}
+
+void freeTree(bst* root) {
+    if (root == NULL)   return;
+
+    freeTree(root->left);
+    freeTree(root->right);
+
+    free(root);
 }

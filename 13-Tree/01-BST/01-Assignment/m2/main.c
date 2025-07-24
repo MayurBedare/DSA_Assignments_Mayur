@@ -12,7 +12,7 @@
                 5   9       30
 */
 
-#include "A-1_BST_Create.h"
+#include "A_1.h"
 
 int main() {
     printf("\n\t ***** Creating BST ***** \n");
@@ -24,6 +24,8 @@ int main() {
     printf("\n\t Printing of the given Tree in Inorder Traversal : \n\n\t");
     print(root);
     printf("\n\n");
+
+    freeTree(root);
 
     return 0;   
 }
