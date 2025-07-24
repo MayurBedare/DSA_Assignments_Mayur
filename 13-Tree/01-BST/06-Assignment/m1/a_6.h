@@ -10,5 +10,6 @@ typedef struct BST{
 BST* create(BST *root);
 int searchIterative(const BST *root,int key);
 void inorder (BST *root);
+void freeTree(BST*);
 
 #endif

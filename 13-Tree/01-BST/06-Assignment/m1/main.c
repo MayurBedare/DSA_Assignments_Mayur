@@ -25,5 +25,7 @@ int main() {
     printf("\n\t Not found \n");
     printf("\n");
 
+    freeTree(root);
+
     return 0;   
 }
