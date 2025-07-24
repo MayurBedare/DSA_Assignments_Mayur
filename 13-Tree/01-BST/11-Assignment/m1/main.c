@@ -18,5 +18,7 @@ int main() {
 
     printf("\n\t Maximum element: %d \n", findMax (root));
 
+    freeTree(root);
+
     return 0;   
 }
