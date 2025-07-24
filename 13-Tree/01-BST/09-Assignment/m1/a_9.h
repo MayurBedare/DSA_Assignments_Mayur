@@ -10,5 +10,6 @@ typedef struct BST{
 BST* create(BST *root);
 void countEvenOdd (const BST* root,int* even,int* odd);
 void inorder (BST *root);
+void freeTree(BST*);
 
 #endif

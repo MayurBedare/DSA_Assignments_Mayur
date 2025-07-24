@@ -21,5 +21,7 @@ int main() {
     countEvenOdd (root, & even, & odd);
     printf("\n\t Even: %d, Odd: %d \n", even,odd);
 
+    freeTree(root);
+
     return 0;   
 }
