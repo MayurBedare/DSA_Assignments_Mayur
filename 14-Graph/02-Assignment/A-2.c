@@ -1,3 +1,7 @@
+/*
+    A-2 ->  Write a C program to create a Graph using Adjacency List
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
