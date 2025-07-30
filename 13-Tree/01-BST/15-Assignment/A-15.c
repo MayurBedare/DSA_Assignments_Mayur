@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "a_15.h"
+#include "A-15.h"
 
 BST* create(BST* root) {
     BST *nw,*p = NULL;
@@ -16,30 +16,8 @@ BST* create(BST* root) {
         scanf("%d",&(nw -> data));
         nw -> left = nw -> right = NULL;
 
-        // if (root == NULL) {
-        //     root = nw;
-        // } else {
-        //     p = root;
-            // while(1) {
-                root = insert(root,nw->data);
-                // if (nw -> data < p -> data) {
-                //     if (p -> left == NULL) {
-                //         p -> left = nw;
-                //         break;
-                //     } 
-                //     p = p -> left;
-                // } else if (nw -> data > p -> data) {
-                //     if (p -> right == NULL) {
-                //         p -> right = nw;
-                //         break;
-                //     } 
-                //     p = p -> right;
-                // } else {
-                //     printf("\n\t No is already exist. \n");
-                //     break;
-                // }
-            // }
-        // }
+
+        root = insert(root,nw->data);
         printf("\n\t Do you want to enter more numbers ( Yes (1) / No (0) ) : ");
         scanf("%d",&ch);
     } while (ch != 0);

@@ -4,7 +4,7 @@
 */
 
 #include<stdio.h>
-#include "a_15.h"
+#include "A-15.h"
 
 int main() {
     printf("\n\t ***** Creating BST ***** \n");
@@ -13,11 +13,6 @@ int main() {
     int val;
 
     root = create(root);
-
-    // printf(" \n\t Enter value : ");
-    // scanf("%d",&val);
-
-    // root = insert(root,val);
 
     printf("\n\t Printing of the given Tree in Inorder Traversal : \n\n\t");
     print(root);
