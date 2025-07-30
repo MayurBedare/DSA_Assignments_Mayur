@@ -4,6 +4,8 @@
 
 #include<stdio.h>
 
+int no = 0 ;
+
 void reverse_number(int);
 
 int main() {
@@ -15,6 +17,7 @@ int main() {
 
     printf("\n\t The given number after reversing : ");
     reverse_number(n);
+    printf("%d",no);
     printf("\n\n");
 
     return 0;
@@ -23,8 +26,9 @@ int main() {
 void reverse_number(int x) {
     if (x == 0) return;
     int y = x / 10;
-    x = x % 10;
-    printf("%d",x);
+    x = x % 10; 
+    if (no == 0)    no = x;
+    else    no = no*10 + x;
     reverse_number(y);
 }
 
