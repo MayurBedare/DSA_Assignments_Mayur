@@ -35,6 +35,9 @@ int main() {
         printf("\n\t Pair Not Found \n\n");
     }
 
+    free(arr);
+    arr = NULL;
+
     return 0;
 }
 
