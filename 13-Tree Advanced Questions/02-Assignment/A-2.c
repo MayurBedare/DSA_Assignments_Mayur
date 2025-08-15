@@ -95,16 +95,12 @@ void k_thLS(BST* root,int **arr) {
         k_thLS(root->left,arr);
         if ((*arr) == NULL) {
             (*arr) = (int*)malloc(sizeof(int));
-            if (!(*arr)) {
-                printf("\n\t Memory Allocation Failed! \n\n");
-                exit(1);
-            }
         } else {
             (*arr) = (int*)realloc((*arr),sizeof(int)*(top+2));
-            if (!(*arr)) {
-                printf("\n\t Memory Allocation Failed! \n\n");
-                exit(1);
-            }
+        }
+        if (!(*arr)) {
+            printf("\n\t Memory Allocation Failed! \n\n");
+            exit(1);
         }
         (*arr)[++top] = root->data;
         k_thLS(root->right,arr);
