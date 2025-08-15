@@ -47,7 +47,7 @@ BST* create(BST* root) {
 }
 
 int findHeight(const BST *root) {
-    if (!root) return 0;
+    if (!root) return -1;
 
     int LH = findHeight(root->left);
     int RH = findHeight(root->right);
