@@ -11,12 +11,11 @@ typedef struct BST{
     struct BST* right;
 } BST;
 
-int arr[20];
 int top = -1;
 
 BST* create(BST *root);
 void freeTree(BST*);
-void printKthLS(BST*);
+void k_thLS(BST*,int**);
 
 int main() {
     printf("\n\t ***** Creating BST ***** \n");
@@ -24,21 +23,25 @@ int main() {
     BST *root = NULL;
     int kl,ks;
 
+    int *arr = NULL;
+
     root = create(root);
 
-    printKthLS(root);
+    k_thLS(root,&arr);
     
     printf("\n\n\t Enter Kth value to find smallest elment : ");
     scanf("%d",&ks);
 
-    printf("\n\t Enter Kth value to find smallest elment : ");
+    printf("\n\t Enter Kth value to find largest elment : ");
     scanf("%d",&kl);
     
-    printf("\n\t The %dth smalles element in the given BST : %d \n",ks,arr[ks-1]);
+    printf("\n\t The %dth smallest element in the given BST : %d \n",ks,arr[ks-1]);
 
-    printf("\n\t The %dth smalles element in the given BST : %d \n\n",kl,arr[top-kl+1]);
+    printf("\n\t The %dth largest element in the given BST : %d \n\n",kl,arr[top-kl+1]);
 
     freeTree(root);
+    free(arr);
+    arr = NULL;
 
     return 0;   
 }
@@ -87,11 +90,24 @@ BST* create(BST* root) {
     return root;
 }
 
-void printKthLS(BST* root) {
+void k_thLS(BST* root,int **arr) {
     if (root) {
-        printKthLS(root->left);
-        arr[++top] = root->data;
-        printKthLS(root->right);
+        k_thLS(root->left,arr);
+        if ((*arr) == NULL) {
+            (*arr) = (int*)malloc(sizeof(int));
+            if (!(*arr)) {
+                printf("\n\t Memory Allocation Failed! \n\n");
+                exit(1);
+            }
+        } else {
+            (*arr) = (int*)realloc((*arr),sizeof(int)*(top+2));
+            if (!(*arr)) {
+                printf("\n\t Memory Allocation Failed! \n\n");
+                exit(1);
+            }
+        }
+        (*arr)[++top] = root->data;
+        k_thLS(root->right,arr);
     }
 }
 
