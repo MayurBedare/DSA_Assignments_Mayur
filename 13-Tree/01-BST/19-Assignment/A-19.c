@@ -51,7 +51,7 @@ BST* create(BST* root) {
 void inorderStack(BST* root) {
     BST* temp = NULL;
    
-    arr = (BST**)malloc(sizeof(BST*));
+    arr = (BST**)malloc(sizeof(BST*)*size);
     if (!arr) {
         printf("\n\t Memory Allocation Failed! \n\n");
         exit(1);
