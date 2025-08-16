@@ -49,15 +49,15 @@ BST* create(BST* root) {
 }
 
 BST* insert (BST* root, int data) {
-     if(root == NULL) {
+    if(root == NULL) {
         BST* newNode = (BST*) malloc (sizeof(BST));
         newNode -> data = data;
         newNode -> left = newNode -> right = NULL;
         return newNode;
-     }
-     if (data < root -> data)
+    }
+    if (data < root -> data)
         root -> left = insert(root -> left, data);
-    else if (root -> data)
+    else if (data > root -> data)
         root -> right = insert (root -> right, data);
 
     return root;
