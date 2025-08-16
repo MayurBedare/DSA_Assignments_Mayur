@@ -122,7 +122,7 @@ BST* insert (BST* root, int data) {
     }
     if (data < root -> data)
         root -> left = insert(root -> left, data);
-    else if (data > root -> data)   // FIXED
+    else if (data > root -> data)  
         root -> right = insert (root -> right, data);
     else    
         printf("\n\t Duplicate Values \n\n");
@@ -133,7 +133,7 @@ BST* insert (BST* root, int data) {
 void serialize(BST* root,FILE *fp) {
     if (root == NULL)   return;
 
-    fprintf(fp,"%d ",root->data);   // add space
+    fprintf(fp,"%d ",root->data);   
     serialize(root->left,fp);
     serialize(root->right,fp);
 }
